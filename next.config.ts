@@ -26,8 +26,28 @@ const nextConfig: NextConfig = {
     styledComponents: true,
   },
 
+  async redirects() {
+    return [
+      // Storybook's built HTML references every asset relatively ("./assets/…",
+      // "./sb-manager/…"). Verified against the actual build output — both the
+      // manager and the preview iframe — so no Vite `base` override is needed.
+      //
+      // The catch is the URL without a trailing slash: at "/storybook", "./"
+      // resolves to "/" and every asset 404s. Redirecting to the explicit
+      // index.html fixes the base for the manager, and the iframe is always
+      // requested at its own full path.
+      {
+        source: "/storybook",
+        destination: "/storybook/index.html",
+        permanent: false,
+      },
+    ];
+  },
+
   async headers() {
-    return [{ source: "/:path*", headers: securityHeaders }];
+    // Storybook is excluded: it renders stories inside an <iframe>, which
+    // X-Frame-Options would block.
+    return [{ source: "/((?!storybook).*)", headers: securityHeaders }];
   },
 };
 
