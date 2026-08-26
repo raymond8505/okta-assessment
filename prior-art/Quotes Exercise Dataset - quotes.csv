@@ -1,0 +1,121 @@
+id,author,quote
+1,Edward V Berard,Walking on water and developing software from a specification are easy if both are frozen.
+2,Olav Mjelde,They don't make bugs like Bunny anymore.
+3,Waldi Ravens,A C program is like a fast dance on a newly waxed dance floor by people carrying razors.
+4,Linus Torvalds,Talk is cheap. Show me the code.
+5,Martin Fowler,Any fool can write code that a computer can understand. Good programmers write code that humans can understand.
+6,Donald Knuth,Programs are meant to be read by humans and only incidentally for computers to execute.
+7,Edsger Dijkstra,"If debugging is the process of removing software bugs, then programming must be the process of putting them in."
+8,Bill Gates,Measuring programming progress by lines of code is like measuring aircraft building progress by weight.
+9,Tony Hoare,"There are two ways to design software: make it so simple there are obviously no bugs, or so complex there are no obvious bugs."
+10,Bjarne Stroustrup,There are only two kinds of programming languages: those people always complain about and those nobody uses.
+11,Donald Knuth,Premature optimization is the root of all evil.
+12,Fred Brooks,Adding manpower to a late software project makes it later.
+13,Robert C. Martin,Clean code always looks like it was written by someone who cares.
+14,Kent Beck,"Make it work, make it right, make it fast."
+15,Grace Hopper,The most dangerous phrase in the language is: we've always done it this way.
+16,Alan Kay,"Simple things should be simple, complex things should be possible."
+17,Brian Kernighan,"Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are not smart enough to debug it."
+18,Phil Karlton,There are only two hard things in Computer Science: cache invalidation and naming things.
+19,Tom Cargill,The first 90 percent of the code accounts for the first 90 percent of the development time. The remaining 10 percent accounts for the other 90 percent.
+20,Ward Cunningham,I'm not a great programmer; I'm just a good programmer with great habits.
+21,Grady Booch,The function of good software is to make the complex appear to be simple.
+22,Steve McConnell,Good code is its own best documentation.
+23,Rob Pike,"Data dominates. If you've chosen the right data structures and organized things well, the algorithms will almost always be self-evident."
+24,Alan Perlis,A language that doesn't affect the way you think about programming is not worth knowing.
+25,John Johnson,"First, solve the problem. Then, write the code."
+26,Eric Raymond,"To solve an interesting problem, start by finding a problem that is interesting to you."
+27,Larry Wall,"Most of you are familiar with the virtues of a programmer. There are three, of course: laziness, impatience, and hubris."
+28,Edsger Dijkstra,The question of whether a computer can think is no more interesting than the question of whether a submarine can swim.
+29,Douglas Adams,A common mistake people make when trying to design something completely foolproof is to underestimate the ingenuity of complete fools.
+30,Niklaus Wirth,Software gets slower faster than hardware gets faster.
+31,Tim Berners-Lee,"The Web as I envisaged it, we have not seen it yet. The future is still so much bigger than the past."
+32,Paul Graham,"The key to performance is elegance, not battalions of special cases."
+33,Steve Jobs,Simple can be harder than complex: You have to work hard to get your thinking clean to make it simple.
+34,Steve Jobs,Innovation distinguishes between a leader and a follower.
+35,Steve Jobs,"Your work is going to fill a large part of your life, and the only way to be truly satisfied is to do what you believe is great work."
+36,Jeff Bezos,We are stubborn on vision. We are flexible on details.
+37,Jeff Bezos,"If you double the number of experiments you do per year, you will double your inventiveness."
+38,Reid Hoffman,"If you're not embarrassed by the first version of your product, you've launched too late."
+39,Eric Ries,The only way to win is to learn faster than anyone else.
+40,Howard Aiken,"Don't worry about people stealing your ideas. If your ideas are any good, you'll have to ram them down people's throats."
+41,Marc Andreessen,Software is eating the world.
+42,Claude Shannon,Information is the resolution of uncertainty.
+43,John von Neumann,In mathematics you don't understand things. You just get used to them.
+44,Ada Lovelace,The Analytical Engine weaves algebraic patterns just as the Jacquard loom weaves flowers and leaves.
+45,Alan Turing,A computer would deserve to be called intelligent if it could deceive a human into believing that it was human.
+46,Nikola Tesla,"The present is theirs; the future, for which I really worked, is mine."
+47,Marie Curie,Nothing in life is to be feared; it is only to be understood.
+48,Richard Feynman,"The first principle is that you must not fool yourself, and you are the easiest person to fool."
+49,Carl Sagan,"Somewhere, something incredible is waiting to be known."
+50,Isaac Newton,"If I have seen further, it is by standing on the shoulders of giants."
+51,Albert Einstein,Imagination is more important than knowledge.
+52,Albert Einstein,A person who never made a mistake never tried anything new.
+53,Albert Einstein,The measure of intelligence is the ability to change.
+54,Charles Darwin,"It is not the strongest of the species that survives, nor the most intelligent; it is the one most adaptable to change."
+55,Blaise Pascal,"If I had more time, I would have written a shorter letter."
+56,Antoine de Saint-Exupery,"Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away."
+57,Leonardo da Vinci,Simplicity is the ultimate sophistication.
+58,Leonardo da Vinci,Learning never exhausts the mind.
+59,Michelangelo,"The greater danger for most of us lies not in setting our aim too high and falling short, but in setting our aim too low and achieving our mark."
+60,Vincent van Gogh,Great things are done by a series of small things brought together.
+61,Marcus Aurelius,Waste no more time arguing about what a good man should be. Be one.
+62,Marcus Aurelius,"You have power over your mind, not outside events. Realize this, and you will find strength."
+63,Seneca,It is not that I'm so smart. It's just that I stay with problems longer.
+64,Plato,The beginning is the most important part of the work.
+65,Voltaire,Perfect is the enemy of good.
+66,Aristotle,"We are what we repeatedly do. Excellence, then, is not an act but a habit."
+67,Francis Bacon,Knowledge is power.
+68,Benjamin Franklin,"Tell me and I forget, teach me and I may remember, involve me and I learn."
+69,Thomas Edison,"I have not failed. I've just found 10,000 ways that won't work."
+70,Thomas Edison,Genius is one percent inspiration and ninety-nine percent perspiration.
+71,Henry Ford,"Coming together is a beginning, staying together is progress, and working together is success."
+72,Warren Buffett,It takes 20 years to build a reputation and five minutes to ruin it.
+73,Peter Drucker,Efficiency is doing things right; effectiveness is doing the right things.
+74,Peter Drucker,The best way to predict the future is to create it.
+75,Walt Disney,"All our dreams can come true, if we have the courage to pursue them."
+76,Walt Disney,The way to get started is to quit talking and begin doing.
+77,Theodore Roosevelt,"Do what you can, with what you have, where you are."
+78,Theodore Roosevelt,Believe you can and you're halfway there.
+79,Abraham Lincoln,Give me six hours to chop down a tree and I will spend the first four sharpening the axe.
+80,Winston Churchill,"Success is not final, failure is not fatal: it is the courage to continue that counts."
+81,Winston Churchill,To improve is to change; to be perfect is to change often.
+82,Mahatma Gandhi,Be the change that you wish to see in the world.
+83,Nelson Mandela,It always seems impossible until it's done.
+84,Martin Luther King Jr.,"Intelligence plus character, that is the goal of true education."
+85,Helen Keller,Alone we can do so little; together we can do so much.
+86,Maya Angelou,"You can't use up creativity. The more you use, the more you have."
+87,Maya Angelou,"If you don't like something, change it. If you can't change it, change your attitude."
+88,Mark Twain,The secret of getting ahead is getting started.
+89,Mark Twain,It ain't what you don't know that gets you into trouble. It's what you know for sure that just ain't so.
+90,Oscar Wilde,Be yourself; everyone else is already taken.
+91,George Bernard Shaw,Life isn't about finding yourself. Life is about creating yourself.
+92,Ralph Waldo Emerson,What you do speaks so loudly that I cannot hear what you say.
+93,Ralph Waldo Emerson,Do not go where the path may lead; go instead where there is no path and leave a trail.
+94,Bertrand Russell,The time you enjoy wasting is not wasted time.
+95,Ernest Hemingway,The first draft of anything is garbage.
+96,Pablo Picasso,Every child is an artist. The problem is how to remain an artist once we grow up.
+97,Confucius,It does not matter how slowly you go as long as you do not stop.
+98,Confucius,"Choose a job you love, and you will never have to work a day in your life."
+99,Sun Tzu,"In the midst of chaos, there is also opportunity."
+100,Lao Tzu,The journey of a thousand miles begins with one step.
+101,Friedrich Nietzsche,That which does not kill us makes us stronger.
+102,Johann Wolfgang von Goethe,"Whatever you can do or dream you can, begin it. Boldness has genius, power, and magic in it."
+103,Simon Sinek,People don't buy what you do; they buy why you do it.
+104,Brene Brown,"Vulnerability is the birthplace of innovation, creativity, and change."
+105,Seth Godin,"People do not buy goods and services. They buy relations, stories, and magic."
+106,John Maeda,Simplicity is about subtracting the obvious and adding the meaningful.
+107,Edward Tufte,"Clutter and confusion are failures of design, not attributes of information."
+108,Dieter Rams,Good design is as little design as possible.
+109,Don Norman,A brilliant solution to the wrong problem can be worse than no solution at all.
+110,Marissa Mayer,"When you need to innovate, you need collaboration."
+111,Sheryl Sandberg,"In the future, there will be no female leaders. There will just be leaders."
+112,Satya Nadella,Our industry does not respect tradition; it only respects innovation.
+113,Larry Page,You don't need a 100-person company to develop a good idea.
+114,Paul Graham,Make something people want.
+115,Paul Graham,The best startup ideas seem at first like bad ideas.
+116,Steve Wozniak,Never trust a computer you can't throw out a window.
+117,Naval Ravikant,"Specific knowledge is knowledge you cannot be trained for. If society can train you, it can train someone else and replace you."
+118,Bill Joy,"No matter who you are, most of the smartest people work for someone else."
+119,Elon Musk,"When something is important enough, you do it even if the odds are not in your favor."
+120,Grace Hopper,"A ship in port is safe, but that's not what ships are built for."
