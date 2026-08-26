@@ -5,6 +5,9 @@ import type { ReactNode } from "react";
 // as a real hashed <link> — cached across navigations and applied before first
 // paint even if JS never loads.
 import "modern-normalize/modern-normalize.css";
+// Grid classes are static CSS for the same reason — no runtime injection for
+// rules that never change.
+import "@/styles/grid.css";
 
 import StyledComponentsRegistry from "@/lib/styled-components-registry";
 import { GlobalStyles } from "@/styles/GlobalStyles";
