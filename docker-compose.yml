@@ -1,0 +1,47 @@
+services:
+  okta-assessment:
+    build:
+      context: .
+    container_name: okta-assessment
+    # No secrets exist yet, but UNSPLASH_ACCESS_KEY is coming. env_file forwards
+    # every variable in the file, so adding one later means touching only
+    # .env.example and the deploy workflow — never this file. `required: false`
+    # keeps local `docker compose up` working without a .env present.
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      NODE_ENV: production
+    restart: unless-stopped
+
+    # No ports are published. Traefik reaches the container over the shared
+    # network, so nothing is exposed on the host.
+    networks:
+      - n8n_default
+
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.okta-assessment.rule=Host(`okta.raymondselzer.net`)"
+      - "traefik.http.routers.okta-assessment.entrypoints=websecure"
+      - "traefik.http.routers.okta-assessment.tls.certresolver=mytlschallenge"
+      - "traefik.http.services.okta-assessment.loadbalancer.server.port=3002"
+      - "traefik.http.routers.okta-assessment-http.rule=Host(`okta.raymondselzer.net`)"
+      - "traefik.http.routers.okta-assessment-http.entrypoints=web"
+      # Middleware name is project-scoped on purpose. Traefik middlewares are
+      # global objects keyed by name, and recipe-viewer on this same host already
+      # defines `redirect-to-https@docker`; reusing that name would make two
+      # unrelated projects compete to define one object.
+      - "traefik.http.routers.okta-assessment-http.middlewares=okta-redirect-to-https"
+      - "traefik.http.middlewares.okta-redirect-to-https.redirectscheme.scheme=https"
+
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+networks:
+  # Shared with Traefik and the other services on the VPS. Created outside this
+  # project — never let compose create it.
+  n8n_default:
+    external: true
