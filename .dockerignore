@@ -1,0 +1,17 @@
+# Build context hygiene. Runtime secrets reach the container via compose `env_file`,
+# never through the image, so .env must not enter the build context.
+.env*
+!.env.example
+
+node_modules
+.next
+storybook-static
+public/storybook
+coverage
+
+.git
+.github
+.claude
+.vscode
+
+*.md
