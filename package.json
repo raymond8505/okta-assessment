@@ -1,0 +1,32 @@
+{
+  "name": "okta-assessment",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": "24.16.0"
+  },
+  "packageManager": "yarn@4.17.0",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint . --max-warnings 0",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "modern-normalize": "3.0.1",
+    "next": "16.3.3",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "styled-components": "6.5.3"
+  },
+  "devDependencies": {
+    "@types/node": "26.3.0",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.5",
+    "eslint": "9.39.5",
+    "eslint-config-next": "16.3.3",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.68.0"
+  }
+}
