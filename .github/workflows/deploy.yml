@@ -1,0 +1,116 @@
+name: Deploy
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # corepack must be enabled BEFORE setup-node, or `cache: yarn` fails to
+      # detect the packageManager-pinned Yarn 4 and falls back to Yarn 1.
+      - run: corepack enable
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24.16.0"
+          cache: "yarn"
+
+      # --immutable resolves nothing new, so .yarnrc.yml's 7-day supply-chain
+      # cooldown never blocks CI — it only gates future `yarn add`.
+      - run: yarn install --immutable
+
+      # Each check is its own step so no exit code is swallowed by a chain.
+      - run: yarn typecheck
+      - run: yarn lint
+      - run: yarn test:run
+
+  build:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+      # Dry run: proves the image builds before anything is shipped.
+      - run: docker build .
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+
+    # DELIBERATELY MANUAL. Merging to main does NOT deploy — this job only runs
+    # when triggered from the Actions tab ("Run workflow"). That keeps a merge
+    # from failing against secrets that are not configured yet.
+    #
+    # To enable deploy-on-merge later, change this single line to:
+    #   if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+    if: github.event_name == 'workflow_dispatch'
+
+    steps:
+      - name: Deploy to VPS
+        uses: appleboy/ssh-action@v1.2.0
+        env:
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+          GH_DEPLOY_KEY: ${{ secrets.GH_DEPLOY_KEY }}
+          DEPLOY_PATH: ${{ secrets.VPS_DEPLOY_PATH }}
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          envs: UNSPLASH_ACCESS_KEY,GH_DEPLOY_KEY,DEPLOY_PATH
+          script: |
+            set -e
+
+            # The repo is private, so the VPS needs a deploy key to clone it.
+            mkdir -p ~/.ssh && chmod 700 ~/.ssh
+            printf '%s\n' "${GH_DEPLOY_KEY}" > ~/.ssh/github_okta_assessment
+            chmod 600 ~/.ssh/github_okta_assessment
+            ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null || true
+            export GIT_SSH_COMMAND="ssh -i ~/.ssh/github_okta_assessment"
+
+            REPO="git@github.com:raymond8505/okta-assessment.git"
+
+            # Never `rm -rf` the deploy directory — reset in place instead, so a
+            # failed deploy leaves the previous checkout intact.
+            if [ -d "${DEPLOY_PATH}/.git" ]; then
+              cd "${DEPLOY_PATH}"
+              git remote set-url origin "${REPO}"
+              git fetch origin main
+              git reset --hard origin/main
+            elif [ -d "${DEPLOY_PATH}" ]; then
+              cd "${DEPLOY_PATH}"
+              git init
+              git remote add origin "${REPO}"
+              git fetch origin
+              git checkout -f -B main origin/main
+            else
+              git clone "${REPO}" "${DEPLOY_PATH}"
+              cd "${DEPLOY_PATH}"
+            fi
+
+            # Runtime env for docker compose. Every variable here must also
+            # appear in .env.example.
+            {
+              echo "UNSPLASH_ACCESS_KEY=${UNSPLASH_ACCESS_KEY}"
+            } > .env
+
+            docker compose up -d --build --remove-orphans
+
+            echo "Waiting for container..."
+            for i in $(seq 1 12); do
+              docker exec okta-assessment curl --silent --fail http://localhost:3002/ > /dev/null \
+                && echo "Health check passed!" && break || true
+              if [ "$i" = "12" ]; then
+                echo "Health check failed after 60s — recent logs:"
+                docker logs --tail 50 okta-assessment
+                exit 1
+              fi
+              sleep 5
+            done
+
+            docker image prune -f
