@@ -1,0 +1,66 @@
+import * as React from "react";
+
+import type { Preview } from "@storybook/nextjs-vite";
+import { withThemeByDataAttribute } from "@storybook/addon-themes";
+import { ThemeProvider } from "styled-components";
+
+import "modern-normalize/modern-normalize.css";
+import "../src/styles/grid.css";
+import { Container } from "../src/components/grid";
+import { GlobalStyle } from "../src/styles/GlobalStyle";
+import { ThemeOverrides } from "../src/styles/ThemeOverrides";
+import { theme } from "../src/styles/theme";
+
+/**
+ * Every story is wrapped in the same chrome the app uses: the global style
+ * blocks, a themed surface, and a grid Container so layout components sit in a
+ * realistic gutter.
+ *
+ * The wrapper reads its colours from the same custom properties as the app, so
+ * flipping the toolbar theme repaints it with no extra wiring.
+ */
+const preview: Preview = {
+  parameters: {
+    controls: { matchers: { color: /(background|color)$/i, date: /Date$/ } },
+    // Storybook's own backgrounds addon would fight `body { background:
+    // var(--sc-color-bg) }` and make the toolbar theme switch look broken.
+    backgrounds: { disable: true },
+    nextjs: { appDirectory: true },
+  },
+
+  decorators: [
+    (Story) => (
+      // theme.raw, not theme — theme.GlobalStyle resolves values from context,
+      // and every leaf of `theme` is already a var() reference, so passing it
+      // would emit circular declarations. See src/styles/GlobalStyles.tsx.
+      <ThemeProvider theme={theme.raw}>
+        <theme.GlobalStyle />
+        <ThemeOverrides />
+        <GlobalStyle />
+        <div
+          style={{
+            background: theme.color.bg,
+            color: theme.color.fg,
+            padding: theme.space[4],
+            minHeight: "100vh",
+          }}
+        >
+          <Container>
+            <Story />
+          </Container>
+        </div>
+      </ThemeProvider>
+    ),
+
+    // Sets data-theme on the preview iframe's <html> — the exact same selector
+    // the app themes on, so the toolbar switch exercises the real mechanism
+    // rather than a Storybook-only approximation.
+    withThemeByDataAttribute({
+      themes: { light: "light", dark: "dark" },
+      defaultTheme: "light",
+      attributeName: "data-theme",
+    }),
+  ],
+};
+
+export default preview;
