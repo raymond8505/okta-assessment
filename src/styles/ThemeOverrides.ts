@@ -12,7 +12,7 @@ const { vars } = theme;
  */
 const darkPalette = css`
   color-scheme: dark;
-  ${vars.color.bg}: #101317;
+  ${vars.color.bg}: #1E1E1E;
   ${vars.color.surface}: #181c22;
   ${vars.color["surface-raised"]}: #20252c;
   ${vars.color.fg}: #eef1f5;

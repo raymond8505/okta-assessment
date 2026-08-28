@@ -24,7 +24,7 @@ import { createTheme } from "styled-components";
 export const theme = createTheme(
   {
     color: {
-      bg: "#ffffff",
+      bg: "#FFFEFA",
       surface: "#f6f7f9",
       "surface-raised": "#ffffff",
       fg: "#16191d",
