@@ -15,15 +15,11 @@ import styled from "styled-components";
 import { theme } from "@/styles/theme";
 
 export const ThemeToggleButton = styled(UnstyledButton)`
-  padding: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0;
-  position: absolute;
   width: 32px;
   height: 32px;
-  overflow: hidden;
   border-radius: ${theme.radius.sm};
   color: ${theme.color.fg};
   transition: all ${theme.transition.slow};
@@ -44,20 +40,20 @@ export const ThemeToggleButton = styled(UnstyledButton)`
     );
 
     .ThemeToggle__icon-viewport > div {
-      transform: translateX(-20px);
+      transform: translateX(-16px);
     }
   }
 
   .ThemeToggle__icon-viewport {
-    height: 20px;
-    width: 20px;
+    height: 16px;
+    width: 16px;
     overflow: hidden;
 
     > div {
       display: flex;
       align-items: flex-start;
       justify-content: center;
-      width: 40px;
+      width: 32px;
     }
   }
 `;
@@ -77,8 +73,8 @@ export function ThemeToggle() {
     >
       <div className="ThemeToggle__icon-viewport">
         <div>
-          <SunIcon size={20} aria-hidden />
-          <MoonIcon size={20} aria-hidden />
+          <SunIcon aria-hidden />
+          <MoonIcon aria-hidden />
         </div>
       </div>
     </ThemeToggleButton>
