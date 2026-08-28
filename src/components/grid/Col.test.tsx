@@ -17,7 +17,12 @@ describe("Col", () => {
   it("maps span props to breakpoint class names", () => {
     render(<Col $sm={12} $md={6} $lg={4} data-testid="col" />);
     // The documented contract: $sm={12} $md={6} $lg={4} -> "col sm-12 md-6 lg-4"
-    expect(screen.getByTestId("col")).toHaveClass("col", "sm-12", "md-6", "lg-4");
+    expect(screen.getByTestId("col")).toHaveClass(
+      "col",
+      "sm-12",
+      "md-6",
+      "lg-4",
+    );
   });
 
   it("emits span classes narrowest-first regardless of prop order", () => {

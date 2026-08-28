@@ -67,7 +67,11 @@ export const Colors: Story = {
         {COLOR_KEYS.map((key) => (
           <div
             key={key}
-            style={{ display: "flex", alignItems: "center", gap: theme.space[4] }}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: theme.space[4],
+            }}
           >
             <div
               style={{
@@ -97,7 +101,11 @@ export const Spacing: Story = {
         {SPACE_KEYS.map((key) => (
           <div
             key={key}
-            style={{ display: "flex", alignItems: "center", gap: theme.space[4] }}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: theme.space[4],
+            }}
           >
             <div
               style={{
@@ -136,10 +144,12 @@ export const Typography: Story = {
 export const Breakpoints: Story = {
   render: () => (
     <Section title="Breakpoints">
-      <p style={{ color: theme.color["fg-muted"], marginBottom: theme.space[4] }}>
-        The one token family kept in TypeScript rather than as custom
-        properties — <code style={codeStyle}>@media (min-width: var(--x))</code>{" "}
-        is invalid CSS. Duplicated literally in grid.css.
+      <p
+        style={{ color: theme.color["fg-muted"], marginBottom: theme.space[4] }}
+      >
+        The one token family kept in TypeScript rather than as custom properties
+        — <code style={codeStyle}>@media (min-width: var(--x))</code> is invalid
+        CSS. Duplicated literally in grid.css.
       </p>
       <div style={{ display: "grid", gap: theme.space[2] }}>
         {Object.entries(breakpoints).map(([name, value]) => (

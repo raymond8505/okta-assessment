@@ -1,0 +1,10 @@
+# Prettier only ignores node_modules on its own. Everything below is build
+# output or generated, and mirrors the artifacts already listed in .gitignore
+# and eslint.config.mjs.
+.next/
+out/
+coverage/
+public/storybook/
+storybook-static/
+.yarn/
+next-env.d.ts

@@ -18,17 +18,17 @@ yarn storybook      # http://localhost:6006
 
 ## Scripts
 
-| Script | Purpose |
-| --- | --- |
-| `yarn dev` | Next dev server (Turbopack) |
-| `yarn build` | Production build (`output: "standalone"`) |
-| `yarn start` | Serve the production build |
-| `yarn typecheck` | `tsc --noEmit` |
-| `yarn lint` | ESLint, zero warnings tolerated |
-| `yarn test` / `yarn test:run` | Vitest — component tests in jsdom |
-| `yarn storybook` | Storybook dev server |
-| `yarn build-storybook` | Static Storybook into `public/storybook` |
-| `yarn build:prod` | Storybook then Next — what the Docker image runs |
+| Script                        | Purpose                                          |
+| ----------------------------- | ------------------------------------------------ |
+| `yarn dev`                    | Next dev server (Turbopack)                      |
+| `yarn build`                  | Production build (`output: "standalone"`)        |
+| `yarn start`                  | Serve the production build                       |
+| `yarn typecheck`              | `tsc --noEmit`                                   |
+| `yarn lint`                   | ESLint, zero warnings tolerated                  |
+| `yarn test` / `yarn test:run` | Vitest — component tests in jsdom                |
+| `yarn storybook`              | Storybook dev server                             |
+| `yarn build-storybook`        | Static Storybook into `public/storybook`         |
+| `yarn build:prod`             | Storybook then Next — what the Docker image runs |
 
 ## Two bundlers, on purpose
 
@@ -60,7 +60,9 @@ choice stick, change it in your operating system.
 
 ```tsx
 <Row $gap={4} $align="center">
-  <Col $sm={12} $md={6} $lg={4}>…</Col>
+  <Col $sm={12} $md={6} $lg={4}>
+    …
+  </Col>
 </Row>
 ```
 
