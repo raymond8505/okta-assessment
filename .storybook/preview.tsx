@@ -1,15 +1,21 @@
 import * as React from "react";
 
 import type { Preview } from "@storybook/nextjs-vite";
-import { withThemeByDataAttribute } from "@storybook/addon-themes";
+import { DecoratorHelpers } from "@storybook/addon-themes";
 import { ThemeProvider } from "styled-components";
 
 import "modern-normalize/modern-normalize.css";
 import "../src/styles/grid.css";
 import { Container } from "../src/components/grid";
+import { setTheme } from "../src/components/theme-toggle/themeStore";
 import { GlobalStyle } from "../src/styles/GlobalStyle";
 import { ThemeOverrides } from "../src/styles/ThemeOverrides";
 import { theme } from "../src/styles/theme";
+
+const { initializeThemeState, pluckThemeFromContext } = DecoratorHelpers;
+
+const THEMES = { light: "light", dark: "dark" };
+initializeThemeState(Object.keys(THEMES), "light");
 
 /**
  * Every story is wrapped in the same chrome the app uses: the global style
@@ -52,14 +58,16 @@ const preview: Preview = {
       </ThemeProvider>
     ),
 
-    // Sets data-theme on the preview iframe's <html> — the exact same selector
-    // the app themes on, so the toolbar switch exercises the real mechanism
-    // rather than a Storybook-only approximation.
-    withThemeByDataAttribute({
-      themes: { light: "light", dark: "dark" },
-      defaultTheme: "light",
-      attributeName: "data-theme",
-    }),
+    // Drives the same store the app's ThemeToggle reads (setTheme, not a raw
+    // setAttribute), so the toolbar switch is visible in the toggle's own
+    // rendered state (icon slide, aria-pressed), not just the background.
+    (Story, context) => {
+      const selected = pluckThemeFromContext(context) || "light";
+      React.useEffect(() => {
+        setTheme(selected === "dark" ? "dark" : "light");
+      }, [selected]);
+      return <Story />;
+    },
   ],
 };
 

@@ -27,6 +27,8 @@ export const ThemeToggleButton = styled(UnstyledButton)`
   border-radius: ${theme.radius.sm};
   color: ${theme.color.fg};
   transition: all ${theme.transition.slow};
+  cursor: pointer;
+
   &,
   .ThemeToggle__icon-viewport > div {
     transition: all ${theme.transition.slow};
