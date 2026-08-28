@@ -6,8 +6,7 @@ import "@/styles/grid.css";
 
 import StyledComponentsRegistry from "@/lib/styled-components-registry";
 import { GlobalStyles } from "@/styles/GlobalStyles";
-import { Container } from "@/components/grid";
-import { ThemeToggle } from "@/components/theme-toggle/ThemeToggle";
+import { SiteHeader } from "@/components/site-header/SiteHeader";
 
 export const metadata: Metadata = {
   title: "Okta Assessment",
@@ -20,17 +19,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body>
         <StyledComponentsRegistry>
           <GlobalStyles />
-          <header>
-            <Container
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-              }}
-            >
-              <span>logo</span>
-              <ThemeToggle />
-            </Container>
-          </header>
+          <SiteHeader />
           {children}
         </StyledComponentsRegistry>
       </body>
