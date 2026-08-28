@@ -29,6 +29,7 @@ jobs:
       # Each check is its own step so no exit code is swallowed by a chain.
       - run: yarn typecheck
       - run: yarn lint
+      - run: yarn format:check
       - run: yarn test:run
 
   build:

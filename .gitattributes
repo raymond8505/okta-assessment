@@ -1,0 +1,17 @@
+# Line endings are the repo's decision, not the contributor's machine's.
+#
+# Without this, a Windows clone with the common `core.autocrlf=true` gets a
+# CRLF working copy while the index stores LF. Prettier's `endOfLine: "lf"`
+# then fails `yarn format:check` on every tracked file locally, while CI
+# (Linux, LF) passes — a gate that is green where nobody looks. Forcing LF on
+# checkout also keeps the Docker build context byte-identical across machines.
+#
+# The index already stores LF, so this changes checkout behaviour only; it
+# introduces no content churn.
+* text=auto eol=lf
+
+# Binaries git must never touch.
+*.woff2 binary
+*.png binary
+*.jpg binary
+*.ico binary
