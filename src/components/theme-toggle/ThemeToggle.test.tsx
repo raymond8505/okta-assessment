@@ -49,7 +49,7 @@ describe("ThemeToggle", () => {
     render(<ThemeToggle />);
     // No data-theme attribute is set, so the OS preference is the source of
     // truth — this is also the state after every reload.
-    expect(screen.getByRole("button")).toHaveAttribute("aria-pressed", "true");
+    expect(screen.getByRole("button")).toHaveClass("is-dark");
     expect(document.documentElement.hasAttribute("data-theme")).toBe(false);
   });
 
@@ -61,7 +61,7 @@ describe("ThemeToggle", () => {
     await user.click(screen.getByRole("button"));
 
     expect(document.documentElement.getAttribute("data-theme")).toBe("dark");
-    expect(screen.getByRole("button")).toHaveAttribute("aria-pressed", "true");
+    expect(screen.getByRole("button")).toHaveClass("is-dark");
   });
 
   it("toggles back to light on a second click", async () => {
@@ -73,7 +73,7 @@ describe("ThemeToggle", () => {
     await user.click(screen.getByRole("button"));
 
     expect(document.documentElement.getAttribute("data-theme")).toBe("light");
-    expect(screen.getByRole("button")).toHaveAttribute("aria-pressed", "false");
+    expect(screen.getByRole("button")).not.toHaveClass("is-dark");
   });
 
   it("can override a dark OS preference with an explicit light choice", async () => {
@@ -90,7 +90,7 @@ describe("ThemeToggle", () => {
   it("follows the OS preference changing while mounted", () => {
     const listeners = mockPrefersDark(false);
     render(<ThemeToggle />);
-    expect(screen.getByRole("button")).toHaveAttribute("aria-pressed", "false");
+    expect(screen.getByRole("button")).not.toHaveClass("is-dark");
 
     // Simulate the OS flipping to dark: re-stub matchMedia so the next snapshot
     // read reports dark, then fire the change listener the store registered.
@@ -101,6 +101,6 @@ describe("ThemeToggle", () => {
       for (const listener of listeners) listener();
     });
 
-    expect(screen.getByRole("button")).toHaveAttribute("aria-pressed", "true");
+    expect(screen.getByRole("button")).toHaveClass("is-dark");
   });
 });

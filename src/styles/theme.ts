@@ -71,6 +71,8 @@ export const theme = createTheme(
     "container-max": "72rem",
     transition: {
       fast: "120ms ease",
+      medium: "200ms ease",
+      slow: "400ms ease",
     },
   },
   { prefix: "sc", selector: ":root" },
