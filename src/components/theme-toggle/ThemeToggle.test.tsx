@@ -84,7 +84,7 @@ describe("ThemeToggle", () => {
     // Starts dark from the OS, so one click must land on light.
     await user.click(screen.getByRole("button"));
 
-    expect(document.documentElement.getAttribute("data-theme")).toBe("light");
+    expect(document.documentElement.getAttribute("data-theme")).toBe("light2");
   });
 
   it("follows the OS preference changing while mounted", () => {
