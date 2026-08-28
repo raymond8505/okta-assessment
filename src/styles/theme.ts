@@ -54,6 +54,11 @@ export const theme = createTheme(
     font: {
       sans: "Aeonik, sans-serif",
     },
+    "font-weight": {
+      normal: "400",
+      medium: "500",
+      bold: "700",
+    },
     "font-size": {
       100: "0.75rem",
       200: "0.875rem",
