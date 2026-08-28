@@ -52,8 +52,7 @@ export const theme = createTheme(
       full: "9999px",
     },
     font: {
-      sans: 'ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
-      mono: 'ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace',
+      sans: "Aeonik, sans-serif",
     },
     "font-size": {
       100: "0.75rem",
