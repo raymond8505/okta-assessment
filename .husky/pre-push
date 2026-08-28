@@ -1,0 +1,19 @@
+zero="0000000000000000000000000000000000000000"
+force_push=1
+
+while read -r local_ref local_sha remote_ref remote_sha
+do
+  if [ "$local_sha" = "$zero" ]; then
+    continue
+  fi
+  if [ "$remote_sha" = "$zero" ] || git merge-base --is-ancestor "$remote_sha" "$local_sha"; then
+    force_push=0
+  fi
+done
+
+if [ "$force_push" = "1" ]; then
+  echo "Non-fast-forward push detected (force/force-with-lease) — skipping test gate."
+  exit 0
+fi
+
+yarn test:run
