@@ -86,8 +86,8 @@ export function ThemeToggle() {
     >
       <div className="ThemeToggle__icon-viewport">
         <div>
-          <SunIcon size={20} />
-          <MoonIcon size={20} />
+          <SunIcon size={20} aria-hidden />
+          <MoonIcon size={20} aria-hidden />
         </div>
       </div>
     </ThemeToggleButton>
