@@ -27,6 +27,10 @@ next-env.d.ts
 coverage/
 *.tsbuildinfo
 
+# Unsplash response cache — lets `yarn data:quotes` resume for free after the
+# hourly rate limit refills. Regenerable, so it stays out of the repo.
+.cache/
+
 # Editors & OS
 .DS_Store
 Thumbs.db

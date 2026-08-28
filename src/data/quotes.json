@@ -1,0 +1,722 @@
+[
+  {
+    "id": 1,
+    "author": "Edward V Berard",
+    "quote": "Walking on water and developing software from a specification are easy if both are frozen.",
+    "image": "https://images.unsplash.com/photo-1573676660518-81f5ad8ccc07?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8ZnJvemVuJTIwbGFrZXxlbnwxfHx8fDE3ODc5MjQ1NDB8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 2,
+    "author": "Olav Mjelde",
+    "quote": "They don't make bugs like Bunny anymore.",
+    "image": "https://images.unsplash.com/photo-1685972296712-602ab8774bad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8cmFiYml0fGVufDF8fHx8MTc4NzkyNDU0MXww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 3,
+    "author": "Waldi Ravens",
+    "quote": "A C program is like a fast dance on a newly waxed dance floor by people carrying razors.",
+    "image": "https://images.unsplash.com/photo-1547153760-18fc86324498?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8ZGFuY2Vyc3xlbnwxfHx8fDE3ODc5MjQ1NDF8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 4,
+    "author": "Linus Torvalds",
+    "quote": "Talk is cheap. Show me the code.",
+    "image": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8Y29kZSUyMHNjcmVlbnxlbnwxfHx8fDE3ODc5MjQ1NDJ8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 5,
+    "author": "Martin Fowler",
+    "quote": "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.",
+    "image": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8Mnx8Y29kZSUyMHNjcmVlbnxlbnwxfHx8fDE3ODc5MjQ1NDJ8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 6,
+    "author": "Donald Knuth",
+    "quote": "Programs are meant to be read by humans and only incidentally for computers to execute.",
+    "image": "https://images.unsplash.com/photo-1722182877533-7378b60bf1e8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8b2xkJTIwYm9va3MlMjBsaWJyYXJ5fGVufDF8fHx8MTc4NzkyNDU0Mnww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 7,
+    "author": "Edsger Dijkstra",
+    "quote": "If debugging is the process of removing software bugs, then programming must be the process of putting them in.",
+    "image": "https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8bWFnbmlmeWluZyUyMGdsYXNzfGVufDF8fHx8MTc4NzkyNDU0Mnww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 8,
+    "author": "Bill Gates",
+    "quote": "Measuring programming progress by lines of code is like measuring aircraft building progress by weight.",
+    "image": "https://images.unsplash.com/photo-1522844990619-4951c40f7eda?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8d2VpZ2hpbmclMjBzY2FsZXxlbnwxfHx8fDE3ODc5MjQ1NDN8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 9,
+    "author": "Tony Hoare",
+    "quote": "There are two ways to design software: make it so simple there are obviously no bugs, or so complex there are no obvious bugs.",
+    "image": "https://images.unsplash.com/photo-1567016376408-0226e4d0c1ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8bWluaW1hbGlzdCUyMGFyY2hpdGVjdHVyZXxlbnwxfHx8fDE3ODc5MjQ1NDN8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 10,
+    "author": "Bjarne Stroustrup",
+    "quote": "There are only two kinds of programming languages: those people always complain about and those nobody uses.",
+    "image": "https://images.unsplash.com/photo-1518181835702-6eef8b4b2113?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8dGFuZ2xlZCUyMHdpcmVzfGVufDF8fHx8MTc4NzkyNDU0NHww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 11,
+    "author": "Donald Knuth",
+    "quote": "Premature optimization is the root of all evil.",
+    "image": "https://images.unsplash.com/photo-1518495973542-4542c06a5843?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8dHJlZSUyMHJvb3RzfGVufDF8fHx8MTc4NzkyNDU0NHww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 12,
+    "author": "Fred Brooks",
+    "quote": "Adding manpower to a late software project makes it later.",
+    "image": "https://images.unsplash.com/photo-1518281361980-b26bfd556770?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8aG91cmdsYXNzfGVufDF8fHx8MTc4NzkyNDU0NHww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 13,
+    "author": "Robert C. Martin",
+    "quote": "Clean code always looks like it was written by someone who cares.",
+    "image": "https://images.unsplash.com/photo-1518655048521-f130df041f66?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8Y2xlYW4lMjBkZXNrfGVufDF8fHx8MTc4NzkyNDU0NXww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 14,
+    "author": "Kent Beck",
+    "quote": "Make it work, make it right, make it fast.",
+    "image": "https://images.unsplash.com/photo-1526676317768-d9b14f15615a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8c3ByaW50ZXIlMjBzdGFydGluZyUyMGJsb2Nrc3xlbnwxfHx8fDE3ODc5MjQ1NDV8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 15,
+    "author": "Grace Hopper",
+    "quote": "The most dangerous phrase in the language is: we've always done it this way.",
+    "image": "https://images.unsplash.com/reserve/LJIZlzHgQ7WPSh5KVTCB_Typewriter.jpg?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8dHlwZXdyaXRlcnxlbnwxfHx8fDE3ODc5MjQ1NDV8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 16,
+    "author": "Alan Kay",
+    "quote": "Simple things should be simple, complex things should be possible.",
+    "image": "https://images.unsplash.com/photo-1730382625230-3756013c515c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8YnVpbGRpbmclMjBibG9ja3N8ZW58MXx8fHwxNzg3OTI0NTQ2fDA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 17,
+    "author": "Brian Kernighan",
+    "quote": "Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are not smart enough to debug it.",
+    "image": "https://images.unsplash.com/photo-1516382799247-87df95d790b7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8Mnx8bWFnbmlmeWluZyUyMGdsYXNzfGVufDF8fHx8MTc4NzkyNDU0Mnww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 18,
+    "author": "Phil Karlton",
+    "quote": "There are only two hard things in Computer Science: cache invalidation and naming things.",
+    "image": "https://images.unsplash.com/photo-1562408590-e32931084e23?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8Y2lyY3VpdCUyMGJvYXJkfGVufDF8fHx8MTc4NzkyNDU0Nnww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 19,
+    "author": "Tom Cargill",
+    "quote": "The first 90 percent of the code accounts for the first 90 percent of the development time. The remaining 10 percent accounts for the other 90 percent.",
+    "image": "https://images.unsplash.com/photo-1501139083538-0139583c060f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8Mnx8aG91cmdsYXNzfGVufDF8fHx8MTc4NzkyNDU0NHww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 20,
+    "author": "Ward Cunningham",
+    "quote": "I'm not a great programmer; I'm just a good programmer with great habits.",
+    "image": "https://images.unsplash.com/photo-1519219788971-8d9797e0928e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8Mnx8Y2xlYW4lMjBkZXNrfGVufDF8fHx8MTc4NzkyNDU0NXww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 21,
+    "author": "Grady Booch",
+    "quote": "The function of good software is to make the complex appear to be simple.",
+    "image": "https://images.unsplash.com/photo-1563260797-cb5cd70254c8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8b3JpZ2FtaXxlbnwxfHx8fDE3ODc5MjQ1NDd8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 22,
+    "author": "Steve McConnell",
+    "quote": "Good code is its own best documentation.",
+    "image": "https://images.unsplash.com/photo-1595123550441-d377e017de6a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8Mnx8b2xkJTIwYm9va3MlMjBsaWJyYXJ5fGVufDF8fHx8MTc4NzkyNDU0Mnww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 23,
+    "author": "Rob Pike",
+    "quote": "Data dominates. If you've chosen the right data structures and organized things well, the algorithms will almost always be self-evident.",
+    "image": "https://images.unsplash.com/photo-1481026469463-66327c86e544?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8Mnx8YnVpbGRpbmclMjBibG9ja3N8ZW58MXx8fHwxNzg3OTI0NTQ2fDA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 24,
+    "author": "Alan Perlis",
+    "quote": "A language that doesn't affect the way you think about programming is not worth knowing.",
+    "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8M3x8Y29kZSUyMHNjcmVlbnxlbnwxfHx8fDE3ODc5MjQ1NDJ8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 25,
+    "author": "John Johnson",
+    "quote": "First, solve the problem. Then, write the code.",
+    "image": "https://images.unsplash.com/photo-1560174038-da43ac74f01b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8Y2hlc3MlMjBib2FyZHxlbnwxfHx8fDE3ODc5MjQ1NDd8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 26,
+    "author": "Eric Raymond",
+    "quote": "To solve an interesting problem, start by finding a problem that is interesting to you.",
+    "image": "https://images.unsplash.com/photo-1529699211952-734e80c4d42b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8Mnx8Y2hlc3MlMjBib2FyZHxlbnwxfHx8fDE3ODc5MjQ1NDd8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 27,
+    "author": "Larry Wall",
+    "quote": "Most of you are familiar with the virtues of a programmer. There are three, of course: laziness, impatience, and hubris.",
+    "image": "https://images.unsplash.com/photo-1607706189992-eae578626c86?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8NHx8Y29kZSUyMHNjcmVlbnxlbnwxfHx8fDE3ODc5MjQ1NDJ8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 28,
+    "author": "Edsger Dijkstra",
+    "quote": "The question of whether a computer can think is no more interesting than the question of whether a submarine can swim.",
+    "image": "https://images.unsplash.com/photo-1518837695005-2083093ee35b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8b2NlYW4lMjB3YXZlc3xlbnwxfHx8fDE3ODc5MjQ1NDd8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 29,
+    "author": "Douglas Adams",
+    "quote": "A common mistake people make when trying to design something completely foolproof is to underestimate the ingenuity of complete fools.",
+    "image": "https://images.unsplash.com/photo-1625276254563-f0fbbf66a5e7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8Mnx8dGFuZ2xlZCUyMHdpcmVzfGVufDF8fHx8MTc4NzkyNDU0NHww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 30,
+    "author": "Niklaus Wirth",
+    "quote": "Software gets slower faster than hardware gets faster.",
+    "image": "https://images.unsplash.com/photo-1555255675-1d2d8db2d191?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8M3x8aG91cmdsYXNzfGVufDF8fHx8MTc4NzkyNDU0NHww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 31,
+    "author": "Tim Berners-Lee",
+    "quote": "The Web as I envisaged it, we have not seen it yet. The future is still so much bigger than the past.",
+    "image": "https://images.unsplash.com/photo-1494783367193-149034c05e8f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8b3BlbiUyMHJvYWR8ZW58MXx8fHwxNzg3OTI0NTQ4fDA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 32,
+    "author": "Paul Graham",
+    "quote": "The key to performance is elegance, not battalions of special cases.",
+    "image": "https://images.unsplash.com/photo-1483366774565-c783b9f70e2c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8Mnx8bWluaW1hbGlzdCUyMGFyY2hpdGVjdHVyZXxlbnwxfHx8fDE3ODc5MjQ1NDN8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 33,
+    "author": "Steve Jobs",
+    "quote": "Simple can be harder than complex: You have to work hard to get your thinking clean to make it simple.",
+    "image": "https://images.unsplash.com/photo-1602128110234-2d11c0aaadfe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8M3x8bWluaW1hbGlzdCUyMGFyY2hpdGVjdHVyZXxlbnwxfHx8fDE3ODc5MjQ1NDN8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 34,
+    "author": "Steve Jobs",
+    "quote": "Innovation distinguishes between a leader and a follower.",
+    "image": "https://images.unsplash.com/photo-1529310399831-ed472b81d589?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8bGlnaHRidWxifGVufDF8fHx8MTc4NzkyNDU0OHww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 35,
+    "author": "Steve Jobs",
+    "quote": "Your work is going to fill a large part of your life, and the only way to be truly satisfied is to do what you believe is great work.",
+    "image": "https://images.unsplash.com/photo-1535957998253-26ae1ef29506?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8M3x8Y2xlYW4lMjBkZXNrfGVufDF8fHx8MTc4NzkyNDU0NXww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 36,
+    "author": "Jeff Bezos",
+    "quote": "We are stubborn on vision. We are flexible on details.",
+    "image": "https://images.unsplash.com/photo-1519709042477-8de6eaf1fdc5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8Y29tcGFzcyUyMG1hcHxlbnwxfHx8fDE3ODc5MjQ1NDh8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 37,
+    "author": "Jeff Bezos",
+    "quote": "If you double the number of experiments you do per year, you will double your inventiveness.",
+    "image": "https://images.unsplash.com/photo-1526930382372-67bf22c0fce2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8bWljcm9zY29wZXxlbnwxfHx8fDE3ODc5MjQ1NDl8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 38,
+    "author": "Reid Hoffman",
+    "quote": "If you're not embarrassed by the first version of your product, you've launched too late.",
+    "image": "https://images.unsplash.com/photo-1457530378978-8bac673b8062?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8c2VlZGxpbmd8ZW58MXx8fHwxNzg3OTI0NTQ5fDA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 39,
+    "author": "Eric Ries",
+    "quote": "The only way to win is to learn faster than anyone else.",
+    "image": "https://images.unsplash.com/photo-1471958680802-1345a694ba6d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8Mnx8b3BlbiUyMHJvYWR8ZW58MXx8fHwxNzg3OTI0NTQ4fDA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 40,
+    "author": "Howard Aiken",
+    "quote": "Don't worry about people stealing your ideas. If your ideas are any good, you'll have to ram them down people's throats.",
+    "image": "https://images.unsplash.com/photo-1531379410502-63bfe8cdaf6f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8Mnx8bGlnaHRidWxifGVufDF8fHx8MTc4NzkyNDU0OHww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 41,
+    "author": "Marc Andreessen",
+    "quote": "Software is eating the world.",
+    "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8Mnx8Y2lyY3VpdCUyMGJvYXJkfGVufDF8fHx8MTc4NzkyNDU0Nnww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 42,
+    "author": "Claude Shannon",
+    "quote": "Information is the resolution of uncertainty.",
+    "image": "https://images.unsplash.com/photo-1580584126903-c17d41830450?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8M3x8Y2lyY3VpdCUyMGJvYXJkfGVufDF8fHx8MTc4NzkyNDU0Nnww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 43,
+    "author": "John von Neumann",
+    "quote": "In mathematics you don't understand things. You just get used to them.",
+    "image": "https://images.unsplash.com/photo-1635372722656-389f87a941b7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8Y2hhbGtib2FyZCUyMGVxdWF0aW9uc3xlbnwxfHx8fDE3ODc5MjQ1NDl8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 44,
+    "author": "Ada Lovelace",
+    "quote": "The Analytical Engine weaves algebraic patterns just as the Jacquard loom weaves flowers and leaves.",
+    "image": "https://images.unsplash.com/photo-1598616068517-c75ad397a436?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8d2VhdmluZyUyMGxvb218ZW58MXx8fHwxNzg3OTI0NTUwfDA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 45,
+    "author": "Alan Turing",
+    "quote": "A computer would deserve to be called intelligent if it could deceive a human into believing that it was human.",
+    "image": "https://images.unsplash.com/photo-1640954244104-2429acf756b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8M3x8Y2hlc3MlMjBib2FyZHxlbnwxfHx8fDE3ODc5MjQ1NDd8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 46,
+    "author": "Nikola Tesla",
+    "quote": "The present is theirs; the future, for which I really worked, is mine.",
+    "image": "https://images.unsplash.com/photo-1534088568595-a066f410bcda?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8c3Rvcm0lMjBjbG91ZHN8ZW58MXx8fHwxNzg3OTI0NTUwfDA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 47,
+    "author": "Marie Curie",
+    "quote": "Nothing in life is to be feared; it is only to be understood.",
+    "image": "https://images.unsplash.com/photo-1614308460927-5024ba2e1dcb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8Mnx8bWljcm9zY29wZXxlbnwxfHx8fDE3ODc5MjQ1NDl8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 48,
+    "author": "Richard Feynman",
+    "quote": "The first principle is that you must not fool yourself, and you are the easiest person to fool.",
+    "image": "https://images.unsplash.com/photo-1636466497217-26a8cbeaf0aa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8Mnx8Y2hhbGtib2FyZCUyMGVxdWF0aW9uc3xlbnwxfHx8fDE3ODc5MjQ1NDl8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 49,
+    "author": "Carl Sagan",
+    "quote": "Somewhere, something incredible is waiting to be known.",
+    "image": "https://images.unsplash.com/photo-1609000142140-fb449c139c82?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8dGVsZXNjb3BlJTIwc3RhcnN8ZW58MXx8fHwxNzg3OTI0NTUxfDA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 50,
+    "author": "Isaac Newton",
+    "quote": "If I have seen further, it is by standing on the shoulders of giants.",
+    "image": "https://images.unsplash.com/photo-1515822565665-f1462222eb4c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8bW91bnRhaW4lMjBzdW1taXR8ZW58MXx8fHwxNzg3OTI0NTUxfDA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 51,
+    "author": "Albert Einstein",
+    "quote": "Imagination is more important than knowledge.",
+    "image": "https://images.unsplash.com/photo-1548124771-9f2040b66df8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8Mnx8dGVsZXNjb3BlJTIwc3RhcnN8ZW58MXx8fHwxNzg3OTI0NTUxfDA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 52,
+    "author": "Albert Einstein",
+    "quote": "A person who never made a mistake never tried anything new.",
+    "image": "https://images.unsplash.com/photo-1453733190371-0a9bedd82893?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8M3x8Y2hhbGtib2FyZCUyMGVxdWF0aW9uc3xlbnwxfHx8fDE3ODc5MjQ1NDl8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 53,
+    "author": "Albert Einstein",
+    "quote": "The measure of intelligence is the ability to change.",
+    "image": "https://images.unsplash.com/photo-1599631438215-75bc2640feb8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8YnV0dGVyZmx5fGVufDF8fHx8MTc4NzkyNDU1Mnww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 54,
+    "author": "Charles Darwin",
+    "quote": "It is not the strongest of the species that survives, nor the most intelligent; it is the one most adaptable to change.",
+    "image": "https://images.unsplash.com/photo-1560263816-d704d83cce0f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8Mnx8YnV0dGVyZmx5fGVufDF8fHx8MTc4NzkyNDU1Mnww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 55,
+    "author": "Blaise Pascal",
+    "quote": "If I had more time, I would have written a shorter letter.",
+    "image": "https://images.unsplash.com/photo-1505682634904-d7c8d95cdc50?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8Mnx8dHlwZXdyaXRlcnxlbnwxfHx8fDE3ODc5MjQ1NDV8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 56,
+    "author": "Antoine de Saint-Exupery",
+    "quote": "Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away.",
+    "image": "https://images.unsplash.com/photo-1549791084-5f78368b208b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8NHx8bWluaW1hbGlzdCUyMGFyY2hpdGVjdHVyZXxlbnwxfHx8fDE3ODc5MjQ1NDN8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 57,
+    "author": "Leonardo da Vinci",
+    "quote": "Simplicity is the ultimate sophistication.",
+    "image": "https://images.unsplash.com/photo-1738844153732-a485f0e78382?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8NXx8bWluaW1hbGlzdCUyMGFyY2hpdGVjdHVyZXxlbnwxfHx8fDE3ODc5MjQ1NDN8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 58,
+    "author": "Leonardo da Vinci",
+    "quote": "Learning never exhausts the mind.",
+    "image": "https://images.unsplash.com/photo-1613324766451-2d03b2ea8190?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8M3x8b2xkJTIwYm9va3MlMjBsaWJyYXJ5fGVufDF8fHx8MTc4NzkyNDU0Mnww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 59,
+    "author": "Michelangelo",
+    "quote": "The greater danger for most of us lies not in setting our aim too high and falling short, but in setting our aim too low and achieving our mark.",
+    "image": "https://images.unsplash.com/photo-1667400104789-f50a4cb393cf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8bWFyYmxlJTIwc2N1bHB0dXJlfGVufDF8fHx8MTc4NzkyNDU1Mnww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 60,
+    "author": "Vincent van Gogh",
+    "quote": "Great things are done by a series of small things brought together.",
+    "image": "https://images.unsplash.com/photo-1658301720419-d1c963f7993b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8cGFpbnQlMjBicnVzaGVzfGVufDF8fHx8MTc4NzkyNDU1M3ww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 61,
+    "author": "Marcus Aurelius",
+    "quote": "Waste no more time arguing about what a good man should be. Be one.",
+    "image": "https://images.unsplash.com/photo-1662808141421-54240cbfd45f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8Mnx8bWFyYmxlJTIwc2N1bHB0dXJlfGVufDF8fHx8MTc4NzkyNDU1Mnww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 62,
+    "author": "Marcus Aurelius",
+    "quote": "You have power over your mind, not outside events. Realize this, and you will find strength.",
+    "image": "https://images.unsplash.com/photo-1565214975484-3cfa9e56f914?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8Mnx8b2NlYW4lMjB3YXZlc3xlbnwxfHx8fDE3ODc5MjQ1NDd8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 63,
+    "author": "Seneca",
+    "quote": "It is not that I'm so smart. It's just that I stay with problems longer.",
+    "image": "https://images.unsplash.com/photo-1582558008094-75a4f90a8553?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8NHx8aG91cmdsYXNzfGVufDF8fHx8MTc4NzkyNDU0NHww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 64,
+    "author": "Plato",
+    "quote": "The beginning is the most important part of the work.",
+    "image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8Zm9yZXN0JTIwcGF0aHxlbnwxfHx8fDE3ODc5MjQ1ODN8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 65,
+    "author": "Voltaire",
+    "quote": "Perfect is the enemy of good.",
+    "image": "https://images.unsplash.com/photo-1764189450619-3d6b5ffccb60?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8Mnx8b3JpZ2FtaXxlbnwxfHx8fDE3ODc5MjQ1NDd8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 66,
+    "author": "Aristotle",
+    "quote": "We are what we repeatedly do. Excellence, then, is not an act but a habit.",
+    "image": "https://images.unsplash.com/photo-1592859600972-1b0834d83747?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8Mnx8Zm9yZXN0JTIwcGF0aHxlbnwxfHx8fDE3ODc5MjQ1ODN8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 67,
+    "author": "Francis Bacon",
+    "quote": "Knowledge is power.",
+    "image": "https://images.unsplash.com/photo-1625053376622-e462848c453f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8NHx8b2xkJTIwYm9va3MlMjBsaWJyYXJ5fGVufDF8fHx8MTc4NzkyNDU0Mnww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 68,
+    "author": "Benjamin Franklin",
+    "quote": "Tell me and I forget, teach me and I may remember, involve me and I learn.",
+    "image": "https://images.unsplash.com/reserve/oIpwxeeSPy1cnwYpqJ1w_Dufer%20Collateral%20test.jpg?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8d29ya3Nob3AlMjB0b29sc3xlbnwxfHx8fDE3ODc5MjQ1NTR8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 69,
+    "author": "Thomas Edison",
+    "quote": "I have not failed. I've just found 10,000 ways that won't work.",
+    "image": "https://images.unsplash.com/photo-1552862750-746b8f6f7f25?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8M3x8bGlnaHRidWxifGVufDF8fHx8MTc4NzkyNDU0OHww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 70,
+    "author": "Thomas Edison",
+    "quote": "Genius is one percent inspiration and ninety-nine percent perspiration.",
+    "image": "https://images.unsplash.com/photo-1493612276216-ee3925520721?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8NHx8bGlnaHRidWxifGVufDF8fHx8MTc4NzkyNDU0OHww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 71,
+    "author": "Henry Ford",
+    "quote": "Coming together is a beginning, staying together is progress, and working together is success.",
+    "image": "https://images.unsplash.com/photo-1492366254240-43affaefc3e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8dGVhbSUyMHJvd2luZ3xlbnwxfHx8fDE3ODc5MjQ1NTR8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 72,
+    "author": "Warren Buffett",
+    "quote": "It takes 20 years to build a reputation and five minutes to ruin it.",
+    "image": "https://images.unsplash.com/photo-1688846935735-5a97de076153?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8c3RvbmUlMjBicmlkZ2V8ZW58MXx8fHwxNzg3OTI0NTU0fDA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 73,
+    "author": "Peter Drucker",
+    "quote": "Efficiency is doing things right; effectiveness is doing the right things.",
+    "image": "https://images.unsplash.com/photo-1598944999410-e93772fc48a5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8Mnx8Y29tcGFzcyUyMG1hcHxlbnwxfHx8fDE3ODc5MjQ1NDh8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 74,
+    "author": "Peter Drucker",
+    "quote": "The best way to predict the future is to create it.",
+    "image": "https://images.unsplash.com/photo-1542621334-a254cf47733d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8Ymx1ZXByaW50fGVufDF8fHx8MTc4NzkyNDU1NXww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 75,
+    "author": "Walt Disney",
+    "quote": "All our dreams can come true, if we have the courage to pursue them.",
+    "image": "https://images.unsplash.com/photo-1497531551184-06b252e1bee1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8aG90JTIwYWlyJTIwYmFsbG9vbnxlbnwxfHx8fDE3ODc5MjQ1NTV8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 76,
+    "author": "Walt Disney",
+    "quote": "The way to get started is to quit talking and begin doing.",
+    "image": "https://images.unsplash.com/photo-1696536823512-79d724454616?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8Mnx8c3ByaW50ZXIlMjBzdGFydGluZyUyMGJsb2Nrc3xlbnwxfHx8fDE3ODc5MjQ1NDV8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 77,
+    "author": "Theodore Roosevelt",
+    "quote": "Do what you can, with what you have, where you are.",
+    "image": "https://images.unsplash.com/photo-1426927308491-6380b6a9936f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8Mnx8d29ya3Nob3AlMjB0b29sc3xlbnwxfHx8fDE3ODc5MjQ1NTR8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 78,
+    "author": "Theodore Roosevelt",
+    "quote": "Believe you can and you're halfway there.",
+    "image": "https://images.unsplash.com/photo-1586627161720-ee2849303aee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8Y2xpbWJpbmclMjByb3BlfGVufDF8fHx8MTc4NzkyNDU1NXww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 79,
+    "author": "Abraham Lincoln",
+    "quote": "Give me six hours to chop down a tree and I will spend the first four sharpening the axe.",
+    "image": "https://images.unsplash.com/photo-1617825013838-0c4109a96aca?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8YXhlJTIwd29vZHxlbnwxfHx8fDE3ODc5MjQ1NTZ8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 80,
+    "author": "Winston Churchill",
+    "quote": "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+    "image": "https://images.unsplash.com/photo-1516592673884-4a382d1124c2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8Mnx8Y2xpbWJpbmclMjByb3BlfGVufDF8fHx8MTc4NzkyNDU1NXww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 81,
+    "author": "Winston Churchill",
+    "quote": "To improve is to change; to be perfect is to change often.",
+    "image": "https://images.unsplash.com/photo-1533048324814-79b0a31982f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8M3x8YnV0dGVyZmx5fGVufDF8fHx8MTc4NzkyNDU1Mnww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 82,
+    "author": "Mahatma Gandhi",
+    "quote": "Be the change that you wish to see in the world.",
+    "image": "https://images.unsplash.com/photo-1654089669464-dcc57c490d2b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8Mnx8c2VlZGxpbmd8ZW58MXx8fHwxNzg3OTI0NTQ5fDA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 83,
+    "author": "Nelson Mandela",
+    "quote": "It always seems impossible until it's done.",
+    "image": "https://images.unsplash.com/photo-1598858715214-3d0f6219e267?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8Mnx8bW91bnRhaW4lMjBzdW1taXR8ZW58MXx8fHwxNzg3OTI0NTUxfDA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 84,
+    "author": "Martin Luther King Jr.",
+    "quote": "Intelligence plus character, that is the goal of true education.",
+    "image": "https://images.unsplash.com/photo-1654463958968-28ca7b0f4ad4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8NXx8b2xkJTIwYm9va3MlMjBsaWJyYXJ5fGVufDF8fHx8MTc4NzkyNDU0Mnww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 85,
+    "author": "Helen Keller",
+    "quote": "Alone we can do so little; together we can do so much.",
+    "image": "https://images.unsplash.com/photo-1491911923017-19f90d8d7f83?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8Mnx8dGVhbSUyMHJvd2luZ3xlbnwxfHx8fDE3ODc5MjQ1NTR8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 86,
+    "author": "Maya Angelou",
+    "quote": "You can't use up creativity. The more you use, the more you have.",
+    "image": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8Mnx8cGFpbnQlMjBicnVzaGVzfGVufDF8fHx8MTc4NzkyNDU1M3ww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 87,
+    "author": "Maya Angelou",
+    "quote": "If you don't like something, change it. If you can't change it, change your attitude.",
+    "image": "https://images.unsplash.com/photo-1564514476902-542f8c30121e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8NHx8YnV0dGVyZmx5fGVufDF8fHx8MTc4NzkyNDU1Mnww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 88,
+    "author": "Mark Twain",
+    "quote": "The secret of getting ahead is getting started.",
+    "image": "https://images.unsplash.com/photo-1776705865335-4e0f85bc6956?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8M3x8c3ByaW50ZXIlMjBzdGFydGluZyUyMGJsb2Nrc3xlbnwxfHx8fDE3ODc5MjQ1NDV8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 89,
+    "author": "Mark Twain",
+    "quote": "It ain't what you don't know that gets you into trouble. It's what you know for sure that just ain't so.",
+    "image": "https://images.unsplash.com/photo-1743796055664-3473eedab36e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8M3x8bWFnbmlmeWluZyUyMGdsYXNzfGVufDF8fHx8MTc4NzkyNDU0Mnww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 90,
+    "author": "Oscar Wilde",
+    "quote": "Be yourself; everyone else is already taken.",
+    "image": "https://images.unsplash.com/photo-1561212856-44e9bae482aa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8Y2FuZGxlJTIwZmxhbWV8ZW58MXx8fHwxNzg3OTI0NTU2fDA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 91,
+    "author": "George Bernard Shaw",
+    "quote": "Life isn't about finding yourself. Life is about creating yourself.",
+    "image": "https://images.unsplash.com/photo-1588114410955-e29c67d1f0b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8M3x8bWFyYmxlJTIwc2N1bHB0dXJlfGVufDF8fHx8MTc4NzkyNDU1Mnww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 92,
+    "author": "Ralph Waldo Emerson",
+    "quote": "What you do speaks so loudly that I cannot hear what you say.",
+    "image": "https://images.unsplash.com/photo-1507139722691-cc2c94e3a2b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8M3x8Zm9yZXN0JTIwcGF0aHxlbnwxfHx8fDE3ODc5MjQ1ODN8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 93,
+    "author": "Ralph Waldo Emerson",
+    "quote": "Do not go where the path may lead; go instead where there is no path and leave a trail.",
+    "image": "https://images.unsplash.com/photo-1542401886-65d6c61db217?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8ZGVzZXJ0JTIwZHVuZXN8ZW58MXx8fHwxNzg3OTI0NTU3fDA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 94,
+    "author": "Bertrand Russell",
+    "quote": "The time you enjoy wasting is not wasted time.",
+    "image": "https://images.unsplash.com/photo-1616141893496-fbc65370493e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8M3x8b2NlYW4lMjB3YXZlc3xlbnwxfHx8fDE3ODc5MjQ1NDd8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 95,
+    "author": "Ernest Hemingway",
+    "quote": "The first draft of anything is garbage.",
+    "image": "https://images.unsplash.com/photo-1510442650500-93217e634e4c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8M3x8dHlwZXdyaXRlcnxlbnwxfHx8fDE3ODc5MjQ1NDV8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 96,
+    "author": "Pablo Picasso",
+    "quote": "Every child is an artist. The problem is how to remain an artist once we grow up.",
+    "image": "https://images.unsplash.com/photo-1658303135227-fcdfb0dab396?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8M3x8cGFpbnQlMjBicnVzaGVzfGVufDF8fHx8MTc4NzkyNDU1M3ww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 97,
+    "author": "Confucius",
+    "quote": "It does not matter how slowly you go as long as you do not stop.",
+    "image": "https://images.unsplash.com/photo-1445711005973-54fe2a103826?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8NHx8Zm9yZXN0JTIwcGF0aHxlbnwxfHx8fDE3ODc5MjQ1ODN8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 98,
+    "author": "Confucius",
+    "quote": "Choose a job you love, and you will never have to work a day in your life.",
+    "image": "https://images.unsplash.com/photo-1486673748761-a8d18475c757?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8M3x8b3BlbiUyMHJvYWR8ZW58MXx8fHwxNzg3OTI0NTQ4fDA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 99,
+    "author": "Sun Tzu",
+    "quote": "In the midst of chaos, there is also opportunity.",
+    "image": "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8Mnx8c3Rvcm0lMjBjbG91ZHN8ZW58MXx8fHwxNzg3OTI0NTUwfDA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 100,
+    "author": "Lao Tzu",
+    "quote": "The journey of a thousand miles begins with one step.",
+    "image": "https://images.unsplash.com/photo-1429743305873-d4065c15f93e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8NXx8Zm9yZXN0JTIwcGF0aHxlbnwxfHx8fDE3ODc5MjQ1ODN8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 101,
+    "author": "Friedrich Nietzsche",
+    "quote": "That which does not kill us makes us stronger.",
+    "image": "https://images.unsplash.com/photo-1508697014387-db70aad34f4d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8M3x8c3Rvcm0lMjBjbG91ZHN8ZW58MXx8fHwxNzg3OTI0NTUwfDA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 102,
+    "author": "Johann Wolfgang von Goethe",
+    "quote": "Whatever you can do or dream you can, begin it. Boldness has genius, power, and magic in it.",
+    "image": "https://images.unsplash.com/photo-1517520267752-34bfde704a0f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8Mnx8aG90JTIwYWlyJTIwYmFsbG9vbnxlbnwxfHx8fDE3ODc5MjQ1NTV8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 103,
+    "author": "Simon Sinek",
+    "quote": "People don't buy what you do; they buy why you do it.",
+    "image": "https://images.unsplash.com/photo-1638262052640-82e94d64664a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8aGFuZHNoYWtlfGVufDF8fHx8MTc4NzkyNDU1N3ww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 104,
+    "author": "Brene Brown",
+    "quote": "Vulnerability is the birthplace of innovation, creativity, and change.",
+    "image": "https://images.unsplash.com/photo-1601922046210-41e129a3e64a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8Mnx8Y2FuZGxlJTIwZmxhbWV8ZW58MXx8fHwxNzg3OTI0NTU2fDA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 105,
+    "author": "Seth Godin",
+    "quote": "People do not buy goods and services. They buy relations, stories, and magic.",
+    "image": "https://images.unsplash.com/photo-1528351655744-27cc30462816?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8M3x8Y2FuZGxlJTIwZmxhbWV8ZW58MXx8fHwxNzg3OTI0NTU2fDA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 106,
+    "author": "John Maeda",
+    "quote": "Simplicity is about subtracting the obvious and adding the meaningful.",
+    "image": "https://images.unsplash.com/photo-1534094830444-3a1e21f7e3e7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8Nnx8bWluaW1hbGlzdCUyMGFyY2hpdGVjdHVyZXxlbnwxfHx8fDE3ODc5MjQ1NDN8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 107,
+    "author": "Edward Tufte",
+    "quote": "Clutter and confusion are failures of design, not attributes of information.",
+    "image": "https://images.unsplash.com/photo-1600132806370-bf17e65e942f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8Mnx8Ymx1ZXByaW50fGVufDF8fHx8MTc4NzkyNDU1NXww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 108,
+    "author": "Dieter Rams",
+    "quote": "Good design is as little design as possible.",
+    "image": "https://images.unsplash.com/photo-1496865534669-25ec2a3a0fd3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8N3x8bWluaW1hbGlzdCUyMGFyY2hpdGVjdHVyZXxlbnwxfHx8fDE3ODc5MjQ1NDN8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 109,
+    "author": "Don Norman",
+    "quote": "A brilliant solution to the wrong problem can be worse than no solution at all.",
+    "image": "https://images.unsplash.com/photo-1721244654392-9c912a6eb236?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8M3x8Ymx1ZXByaW50fGVufDF8fHx8MTc4NzkyNDU1NXww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 110,
+    "author": "Marissa Mayer",
+    "quote": "When you need to innovate, you need collaboration.",
+    "image": "https://images.unsplash.com/photo-1672380135241-c024f7fbfa13?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8Mnx8aGFuZHNoYWtlfGVufDF8fHx8MTc4NzkyNDU1N3ww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 111,
+    "author": "Sheryl Sandberg",
+    "quote": "In the future, there will be no female leaders. There will just be leaders.",
+    "image": "https://images.unsplash.com/photo-1569406125624-98ee19b01d4a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8M3x8dGVhbSUyMHJvd2luZ3xlbnwxfHx8fDE3ODc5MjQ1NTR8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 112,
+    "author": "Satya Nadella",
+    "quote": "Our industry does not respect tradition; it only respects innovation.",
+    "image": "https://images.unsplash.com/photo-1697952431907-8542919a16b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8NHx8Y2lyY3VpdCUyMGJvYXJkfGVufDF8fHx8MTc4NzkyNDU0Nnww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 113,
+    "author": "Larry Page",
+    "quote": "You don't need a 100-person company to develop a good idea.",
+    "image": "https://images.unsplash.com/photo-1512314889357-e157c22f938d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8NXx8bGlnaHRidWxifGVufDF8fHx8MTc4NzkyNDU0OHww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 114,
+    "author": "Paul Graham",
+    "quote": "Make something people want.",
+    "image": "https://images.unsplash.com/photo-1521791136064-7986c2920216?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8M3x8aGFuZHNoYWtlfGVufDF8fHx8MTc4NzkyNDU1N3ww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 115,
+    "author": "Paul Graham",
+    "quote": "The best startup ideas seem at first like bad ideas.",
+    "image": "https://images.unsplash.com/photo-1712342109846-a8fcb1c883ba?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8M3x8c2VlZGxpbmd8ZW58MXx8fHwxNzg3OTI0NTQ5fDA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 116,
+    "author": "Steve Wozniak",
+    "quote": "Never trust a computer you can't throw out a window.",
+    "image": "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8NXx8Y29kZSUyMHNjcmVlbnxlbnwxfHx8fDE3ODc5MjQ1NDJ8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 117,
+    "author": "Naval Ravikant",
+    "quote": "Specific knowledge is knowledge you cannot be trained for. If society can train you, it can train someone else and replace you.",
+    "image": "https://images.unsplash.com/photo-1671040690726-b78261eff126?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8M3x8d29ya3Nob3AlMjB0b29sc3xlbnwxfHx8fDE3ODc5MjQ1NTR8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 118,
+    "author": "Bill Joy",
+    "quote": "No matter who you are, most of the smartest people work for someone else.",
+    "image": "https://images.unsplash.com/photo-1697242877038-6213aa0822d9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8NHx8dGVhbSUyMHJvd2luZ3xlbnwxfHx8fDE3ODc5MjQ1NTR8MA&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 119,
+    "author": "Elon Musk",
+    "quote": "When something is important enough, you do it even if the odds are not in your favor.",
+    "image": "https://images.unsplash.com/photo-1578886141033-b9f066572135?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8M3x8Y2xpbWJpbmclMjByb3BlfGVufDF8fHx8MTc4NzkyNDU1NXww&ixlib=rb-4.1.0&q=80&w=1080"
+  },
+  {
+    "id": 120,
+    "author": "Grace Hopper",
+    "quote": "A ship in port is safe, but that's not what ships are built for.",
+    "image": "https://images.unsplash.com/photo-1527685609591-44b0aef2400b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDAzMTYzfDB8MXxzZWFyY2h8MXx8c2FpbGluZyUyMHNoaXB8ZW58MXx8fHwxNzg3OTI0NTU4fDA&ixlib=rb-4.1.0&q=80&w=1080"
+  }
+]

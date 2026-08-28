@@ -26,6 +26,7 @@ yarn storybook      # http://localhost:6006
 | `yarn typecheck`              | `tsc --noEmit`                                   |
 | `yarn lint`                   | ESLint, zero warnings tolerated                  |
 | `yarn test` / `yarn test:run` | Vitest — component tests in jsdom                |
+| `yarn data:quotes`            | Regenerate `src/data/quotes.json` from the CSV   |
 | `yarn storybook`              | Storybook dev server                             |
 | `yarn build-storybook`        | Static Storybook into `public/storybook`         |
 | `yarn build:prod`             | Storybook then Next — what the Docker image runs |
@@ -83,6 +84,46 @@ back for exactly `100%`.
 properties, and are duplicated literally in `grid.css`. This is deliberate, not
 an oversight: `@media (min-width: var(--x))` is invalid CSS — custom properties
 are not permitted in media query conditions.
+
+## Quote data
+
+`src/data/quotes.json` is the committed dataset — 120 entries of
+`{ id, author, quote, image }` built from
+`prior-art/Quotes Exercise Dataset - quotes.csv` by `yarn data:quotes`. It is
+checked in, so the app needs no Unsplash key at runtime; you only need one to
+regenerate it.
+
+**Images are chosen by concept, not by quote text.** Passing a whole quote to
+Unsplash matches loosely and returns generic stock — the full text of
+_"Premature optimization is the root of all evil."_ comes back topped by "an open
+book with printed text". So each quote is mapped in `scripts/concepts.json` to a
+short visual concept (`tree roots`, `frozen lake`, `minimalist architecture`)
+that the search is actually grounded in. **That file is hand-authored**; the JSON
+outputs are entirely generated.
+
+Two constraints shape the script:
+
+- **The key is on Unsplash's Demo tier — 50 requests/hour.** 120 quotes cannot
+  each have their own request. The concept vocabulary is deliberately small (44
+  concepts for 120 quotes), and the script issues one request per _unique_
+  concept with `per_page=30`, handing different photos from the same page to
+  quotes that share a concept. A full build costs 44 requests. Every quote still
+  gets a distinct photo — a global set of used photo ids guarantees no reuse
+  across the whole dataset.
+- **A query can legitimately return nothing.** Unsplash narrows sharply as terms
+  are added (`"frozen lake"` → 2681 results, `"tangled roots dark forest"` → 0),
+  so every quote falls back `concept → theme → "abstract texture"`. The script
+  reports which quotes fell back so weak concepts can be corrected.
+
+Responses are cached in `.cache/` (gitignored), so re-runs are free and a build
+interrupted by the rate limit resumes where it stopped.
+
+`src/data/credits.json` is a sidecar keyed by quote id holding the photographer
+name and UTM-tagged profile/photo links. It exists because Unsplash's API
+Guidelines require attribution, while `quotes.json` is kept to exactly the four
+specified fields. Hotlinking `urls.regular` — with its `ixid` parameter intact —
+is the compliant way to display these; the `/photos/:id/download` ping applies
+only to actual downloads, which this app does not do.
 
 ## Testing
 
