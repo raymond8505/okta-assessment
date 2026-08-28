@@ -22,7 +22,9 @@ describe("Row", () => {
   });
 
   it("maps gap, align and justify to class names", () => {
-    render(<Row $gap={2} $align="center" $justify="between" data-testid="row" />);
+    render(
+      <Row $gap={2} $align="center" $justify="between" data-testid="row" />,
+    );
     expect(screen.getByTestId("row")).toHaveClass(
       "row",
       "gap-2",

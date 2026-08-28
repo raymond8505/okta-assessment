@@ -36,7 +36,5 @@ export function Col<T extends ElementType = "div">({
     return span ? `${bp}-${span}` : undefined;
   });
 
-  return (
-    <Element className={cx("col", ...spanClasses, className)} {...rest} />
-  );
+  return <Element className={cx("col", ...spanClasses, className)} {...rest} />;
 }

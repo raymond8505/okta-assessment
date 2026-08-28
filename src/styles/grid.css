@@ -32,31 +32,71 @@
   gap: var(--row-gap);
 }
 
-.row.nowrap { flex-wrap: nowrap; }
-.row.column { flex-direction: column; }
+.row.nowrap {
+  flex-wrap: nowrap;
+}
+.row.column {
+  flex-direction: column;
+}
 
 /* Row gap scale — .row.gap-4 => --row-gap: var(--sc-space-4) */
-.row.gap-1 { --row-gap: var(--sc-space-1); }
-.row.gap-2 { --row-gap: var(--sc-space-2); }
-.row.gap-3 { --row-gap: var(--sc-space-3); }
-.row.gap-4 { --row-gap: var(--sc-space-4); }
-.row.gap-5 { --row-gap: var(--sc-space-5); }
-.row.gap-6 { --row-gap: var(--sc-space-6); }
-.row.gap-7 { --row-gap: var(--sc-space-7); }
-.row.gap-8 { --row-gap: var(--sc-space-8); }
+.row.gap-1 {
+  --row-gap: var(--sc-space-1);
+}
+.row.gap-2 {
+  --row-gap: var(--sc-space-2);
+}
+.row.gap-3 {
+  --row-gap: var(--sc-space-3);
+}
+.row.gap-4 {
+  --row-gap: var(--sc-space-4);
+}
+.row.gap-5 {
+  --row-gap: var(--sc-space-5);
+}
+.row.gap-6 {
+  --row-gap: var(--sc-space-6);
+}
+.row.gap-7 {
+  --row-gap: var(--sc-space-7);
+}
+.row.gap-8 {
+  --row-gap: var(--sc-space-8);
+}
 
 /* Row alignment */
-.row.align-start { align-items: flex-start; }
-.row.align-center { align-items: center; }
-.row.align-end { align-items: flex-end; }
-.row.align-stretch { align-items: stretch; }
-.row.align-baseline { align-items: baseline; }
+.row.align-start {
+  align-items: flex-start;
+}
+.row.align-center {
+  align-items: center;
+}
+.row.align-end {
+  align-items: flex-end;
+}
+.row.align-stretch {
+  align-items: stretch;
+}
+.row.align-baseline {
+  align-items: baseline;
+}
 
-.row.justify-start { justify-content: flex-start; }
-.row.justify-center { justify-content: center; }
-.row.justify-end { justify-content: flex-end; }
-.row.justify-between { justify-content: space-between; }
-.row.justify-around { justify-content: space-around; }
+.row.justify-start {
+  justify-content: flex-start;
+}
+.row.justify-center {
+  justify-content: center;
+}
+.row.justify-end {
+  justify-content: flex-end;
+}
+.row.justify-between {
+  justify-content: space-between;
+}
+.row.justify-around {
+  justify-content: space-around;
+}
 
 /*
  * Default column: share the row equally. min-width:0 stops long unbreakable
@@ -74,61 +114,205 @@
  * gaps back for exactly 100%. No negative-margin gutters needed.
  */
 @media (min-width: 40rem) {
-  .col.sm-1 { flex: 0 0 auto; width: calc(1 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.sm-2 { flex: 0 0 auto; width: calc(2 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.sm-3 { flex: 0 0 auto; width: calc(3 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.sm-4 { flex: 0 0 auto; width: calc(4 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.sm-5 { flex: 0 0 auto; width: calc(5 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.sm-6 { flex: 0 0 auto; width: calc(6 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.sm-7 { flex: 0 0 auto; width: calc(7 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.sm-8 { flex: 0 0 auto; width: calc(8 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.sm-9 { flex: 0 0 auto; width: calc(9 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.sm-10 { flex: 0 0 auto; width: calc(10 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.sm-11 { flex: 0 0 auto; width: calc(11 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.sm-12 { flex: 0 0 auto; width: calc(12 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
+  .col.sm-1 {
+    flex: 0 0 auto;
+    width: calc(1 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.sm-2 {
+    flex: 0 0 auto;
+    width: calc(2 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.sm-3 {
+    flex: 0 0 auto;
+    width: calc(3 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.sm-4 {
+    flex: 0 0 auto;
+    width: calc(4 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.sm-5 {
+    flex: 0 0 auto;
+    width: calc(5 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.sm-6 {
+    flex: 0 0 auto;
+    width: calc(6 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.sm-7 {
+    flex: 0 0 auto;
+    width: calc(7 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.sm-8 {
+    flex: 0 0 auto;
+    width: calc(8 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.sm-9 {
+    flex: 0 0 auto;
+    width: calc(9 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.sm-10 {
+    flex: 0 0 auto;
+    width: calc(10 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.sm-11 {
+    flex: 0 0 auto;
+    width: calc(11 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.sm-12 {
+    flex: 0 0 auto;
+    width: calc(12 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
 }
 
 @media (min-width: 48rem) {
-  .col.md-1 { flex: 0 0 auto; width: calc(1 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.md-2 { flex: 0 0 auto; width: calc(2 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.md-3 { flex: 0 0 auto; width: calc(3 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.md-4 { flex: 0 0 auto; width: calc(4 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.md-5 { flex: 0 0 auto; width: calc(5 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.md-6 { flex: 0 0 auto; width: calc(6 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.md-7 { flex: 0 0 auto; width: calc(7 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.md-8 { flex: 0 0 auto; width: calc(8 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.md-9 { flex: 0 0 auto; width: calc(9 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.md-10 { flex: 0 0 auto; width: calc(10 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.md-11 { flex: 0 0 auto; width: calc(11 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.md-12 { flex: 0 0 auto; width: calc(12 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
+  .col.md-1 {
+    flex: 0 0 auto;
+    width: calc(1 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.md-2 {
+    flex: 0 0 auto;
+    width: calc(2 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.md-3 {
+    flex: 0 0 auto;
+    width: calc(3 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.md-4 {
+    flex: 0 0 auto;
+    width: calc(4 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.md-5 {
+    flex: 0 0 auto;
+    width: calc(5 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.md-6 {
+    flex: 0 0 auto;
+    width: calc(6 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.md-7 {
+    flex: 0 0 auto;
+    width: calc(7 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.md-8 {
+    flex: 0 0 auto;
+    width: calc(8 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.md-9 {
+    flex: 0 0 auto;
+    width: calc(9 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.md-10 {
+    flex: 0 0 auto;
+    width: calc(10 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.md-11 {
+    flex: 0 0 auto;
+    width: calc(11 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.md-12 {
+    flex: 0 0 auto;
+    width: calc(12 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
 }
 
 @media (min-width: 64rem) {
-  .col.lg-1 { flex: 0 0 auto; width: calc(1 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.lg-2 { flex: 0 0 auto; width: calc(2 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.lg-3 { flex: 0 0 auto; width: calc(3 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.lg-4 { flex: 0 0 auto; width: calc(4 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.lg-5 { flex: 0 0 auto; width: calc(5 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.lg-6 { flex: 0 0 auto; width: calc(6 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.lg-7 { flex: 0 0 auto; width: calc(7 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.lg-8 { flex: 0 0 auto; width: calc(8 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.lg-9 { flex: 0 0 auto; width: calc(9 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.lg-10 { flex: 0 0 auto; width: calc(10 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.lg-11 { flex: 0 0 auto; width: calc(11 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.lg-12 { flex: 0 0 auto; width: calc(12 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
+  .col.lg-1 {
+    flex: 0 0 auto;
+    width: calc(1 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.lg-2 {
+    flex: 0 0 auto;
+    width: calc(2 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.lg-3 {
+    flex: 0 0 auto;
+    width: calc(3 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.lg-4 {
+    flex: 0 0 auto;
+    width: calc(4 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.lg-5 {
+    flex: 0 0 auto;
+    width: calc(5 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.lg-6 {
+    flex: 0 0 auto;
+    width: calc(6 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.lg-7 {
+    flex: 0 0 auto;
+    width: calc(7 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.lg-8 {
+    flex: 0 0 auto;
+    width: calc(8 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.lg-9 {
+    flex: 0 0 auto;
+    width: calc(9 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.lg-10 {
+    flex: 0 0 auto;
+    width: calc(10 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.lg-11 {
+    flex: 0 0 auto;
+    width: calc(11 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.lg-12 {
+    flex: 0 0 auto;
+    width: calc(12 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
 }
 
 @media (min-width: 80rem) {
-  .col.xl-1 { flex: 0 0 auto; width: calc(1 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.xl-2 { flex: 0 0 auto; width: calc(2 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.xl-3 { flex: 0 0 auto; width: calc(3 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.xl-4 { flex: 0 0 auto; width: calc(4 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.xl-5 { flex: 0 0 auto; width: calc(5 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.xl-6 { flex: 0 0 auto; width: calc(6 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.xl-7 { flex: 0 0 auto; width: calc(7 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.xl-8 { flex: 0 0 auto; width: calc(8 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.xl-9 { flex: 0 0 auto; width: calc(9 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.xl-10 { flex: 0 0 auto; width: calc(10 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.xl-11 { flex: 0 0 auto; width: calc(11 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
-  .col.xl-12 { flex: 0 0 auto; width: calc(12 / 12 * (100% + var(--row-gap)) - var(--row-gap)); }
+  .col.xl-1 {
+    flex: 0 0 auto;
+    width: calc(1 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.xl-2 {
+    flex: 0 0 auto;
+    width: calc(2 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.xl-3 {
+    flex: 0 0 auto;
+    width: calc(3 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.xl-4 {
+    flex: 0 0 auto;
+    width: calc(4 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.xl-5 {
+    flex: 0 0 auto;
+    width: calc(5 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.xl-6 {
+    flex: 0 0 auto;
+    width: calc(6 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.xl-7 {
+    flex: 0 0 auto;
+    width: calc(7 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.xl-8 {
+    flex: 0 0 auto;
+    width: calc(8 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.xl-9 {
+    flex: 0 0 auto;
+    width: calc(9 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.xl-10 {
+    flex: 0 0 auto;
+    width: calc(10 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.xl-11 {
+    flex: 0 0 auto;
+    width: calc(11 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
+  .col.xl-12 {
+    flex: 0 0 auto;
+    width: calc(12 / 12 * (100% + var(--row-gap)) - var(--row-gap));
+  }
 }

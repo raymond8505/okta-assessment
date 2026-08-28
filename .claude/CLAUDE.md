@@ -36,7 +36,7 @@ rendering.
 - Tokens come from `createTheme()` in `src/styles/theme.ts` and are emitted as
   **kebab-case CSS custom properties** (`--sc-color-fg-muted`).
 - **Write every token key kebab-case.** Hyphens are inserted between path
-  *segments*, not inside a key, so a camelCase key like `fgMuted` would emit
+  _segments_, not inside a key, so a camelCase key like `fgMuted` would emit
   `--sc-color-fgMuted` and silently break the convention.
 - Every leaf of `theme` is a `var()` string, not a value. There is one theme
   object for both palettes — the CSS variable switches, the JS value never does.
@@ -45,7 +45,7 @@ rendering.
   `--sc-color-bg: var(--sc-color-bg, #fff)`. Only `theme.raw` holds literals.
   See `src/styles/GlobalStyles.tsx`.
 - Dark mode is resolved in pure CSS. The override must be written
-  `:root[data-theme="dark"]` (specificity 0,2,0) and placed *after* the
+  `:root[data-theme="dark"]` (specificity 0,2,0) and placed _after_ the
   `prefers-color-scheme` block, because `:root:not([data-theme="light"])` is also
   (0,2,0). A bare `[data-theme="dark"]` is (0,1,0) and loses.
 - **Theme choice is never persisted.** The OS preference is the default and the
