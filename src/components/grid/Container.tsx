@@ -1,6 +1,7 @@
 import type { ComponentPropsWithoutRef, ElementType } from "react";
 
 import { cx } from "@/lib/cx";
+import styled from "styled-components";
 
 type ContainerProps<T extends ElementType> = {
   /** Element to render. Defaults to `div`. */

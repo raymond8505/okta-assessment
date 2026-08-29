@@ -4,6 +4,10 @@ import { cx } from "@/lib/cx";
 
 import type { Align, GapScale, Justify } from "./types";
 
+import styled, { css } from "styled-components";
+
+import { theme } from "@/styles/theme";
+
 type RowProps<T extends ElementType> = {
   /** Element to render. Defaults to `section`. */
   as?: T;
@@ -14,17 +18,18 @@ type RowProps<T extends ElementType> = {
   /** Set false to prevent wrapping. Defaults to true. */
   $wrap?: boolean;
   $direction?: "row" | "column";
+  /** Paint the row with the `row-background` token. Defaults to false. */
+  $hasBackground?: boolean;
 } & Omit<ComponentPropsWithoutRef<T>, "as">;
 
-/**
- * Flex row. Props map to the static class names defined in grid.css:
- * `<Row $gap={2} $align="center">` renders `class="row gap-2 align-center"`.
- *
- * Defaults to `section` because a row usually delimits a meaningful region of
- * the page; pass `as="div"` when it is purely presentational.
- *
- * No "use client" — this renders in Server Components.
- */
+const StyledRow = styled.section<{ $hasBackground?: boolean }>`
+  ${({ $hasBackground }) =>
+    $hasBackground &&
+    css`
+      background: ${theme["row-background"]};
+    `}
+`;
+
 export function Row<T extends ElementType = "section">({
   as,
   $gap,
@@ -32,12 +37,15 @@ export function Row<T extends ElementType = "section">({
   $justify,
   $wrap = true,
   $direction,
+  $hasBackground,
   className,
   ...rest
 }: RowProps<T>) {
   const Element = (as ?? "section") as ElementType;
   return (
-    <Element
+    <StyledRow
+      as={Element}
+      $hasBackground={$hasBackground}
       className={cx(
         "row",
         $gap && `gap-${$gap}`,

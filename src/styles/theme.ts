@@ -73,6 +73,8 @@ export const theme = createTheme(
       normal: "1.5",
     },
     "container-max": "72rem",
+    "row-background":
+      "linear-gradient(75.01deg, #FFFEFA -65.58%, #F6F1E7 29.37%, #E8DCC7 217.98%)",
     transition: {
       fast: "120ms ease",
       medium: "200ms ease",
