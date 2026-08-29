@@ -60,17 +60,17 @@ export const theme = createTheme(
       bold: "700",
     },
     "font-size": {
-      100: "0.75rem",
-      200: "0.875rem",
-      300: "1rem",
-      400: "1.125rem",
-      500: "1.5rem",
-      600: "2rem",
-      700: "2.5rem",
+      "1rem": "16px",
+      h2: "3.5rem",
     },
     "line-height": {
       tight: "1.2",
       normal: "1.5",
+      h2: "1.143",
+    },
+    "letter-spacing": {
+      tight: "-1.12px",
+      normal: "0px",
     },
     "container-max": "72rem",
     "row-background":

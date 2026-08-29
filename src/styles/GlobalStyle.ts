@@ -17,7 +17,7 @@ export const GlobalStyle = createGlobalStyle`
     background: ${theme.color.bg};
     color: ${theme.color.fg};
     font-family: ${theme.font.sans};
-    font-size: ${theme["font-size"][300]};
+    font-size: ${theme["font-size"]["1rem"]};
     line-height: ${theme["line-height"].normal};
   }
 
