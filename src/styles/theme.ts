@@ -61,13 +61,13 @@ export const theme = createTheme(
     },
     "font-size": {
       "1rem": "16px",
-      h2: "3.5rem",
+      h1: "3.5rem",
       breadcrumbs: "1.25rem",
     },
     "line-height": {
       tight: "1.2",
       normal: "1.5",
-      h2: "1.143",
+      h1: "1.143",
     },
     "letter-spacing": {
       tight: "-1.12px",

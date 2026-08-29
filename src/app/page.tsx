@@ -2,7 +2,7 @@ import { Row, Container, Col } from "@/components/grid";
 import Image from "next/image";
 import heroImage from "@/resources/images/blurred-ui.png";
 import { styled } from "styled-components";
-import { H2 } from "@/components/primitives/headings/headings";
+import { H1 } from "@/components/primitives/headings/headings";
 import { Breadcrumbs } from "@/components/breadcrumbs/Breadcrumbs";
 import {
   PrimaryButton,
@@ -35,10 +35,10 @@ export default function HomePage() {
                 <Breadcrumbs
                   items={["Platform or Solution", "Feature or Page Title"]}
                 />
-                <H2 id="hero-heading" style={{ margin: "1rem 0" }}>
+                <H1 id="hero-heading" style={{ margin: "1rem 0" }}>
                   Lorem ipsum dolor sit amet consect alora
-                </H2>
-                <p style={{ fontSize: "1.5rem" }}>
+                </H1>
+                <p style={{ fontSize: "1.5rem", lineHeight: 1.3 }}>
                   Adipiscing elit, sed do eiusmod tempor incididunt ut labore et
                   dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
                   exercitation ullamco laboris nisi.
@@ -54,7 +54,7 @@ export default function HomePage() {
                 <SecondaryButton>Secondary CTA</SecondaryButton>
               </div>
             </Col>
-            <Col $sm={12} $lg={5}>
+            <Col $sm={12} $lg={6}>
               <HeroImage
                 src={heroImage}
                 alt="A blurred mobile app UI"

@@ -22,7 +22,9 @@ export function SiteHeader({
           justifyContent: "space-between",
         }}
       >
-        <OktaLogoIcon size={36} />
+        <a href="/" style={{ color: "inherit" }}>
+          <OktaLogoIcon size={36} />
+        </a>
         <ThemeToggle />
       </Container>
     </SiteHeaderElement>
