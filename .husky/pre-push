@@ -1,1 +1,4 @@
+set -e
+
+yarn lint
 yarn test:run
