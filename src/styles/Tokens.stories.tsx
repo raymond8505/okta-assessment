@@ -30,7 +30,6 @@ const COLOR_KEYS = [
 ] as const;
 
 const SPACE_KEYS = [1, 2, 3, 4, 5, 6, 7, 8] as const;
-const FONT_SIZE_KEYS = [100, 200, 300, 400, 500, 600, 700] as const;
 
 function Section({
   title,

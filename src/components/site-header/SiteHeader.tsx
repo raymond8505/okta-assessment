@@ -3,6 +3,7 @@ import { Container } from "@/components/grid";
 import { ThemeToggle } from "../theme-toggle/ThemeToggle";
 import { theme } from "@/styles/theme";
 import { OktaLogoIcon } from "../icons/OktaLogoIcon";
+import Link from "next/link";
 
 const SiteHeaderElement = styled.header`
   background: ${theme.color.bg};
@@ -22,9 +23,9 @@ export function SiteHeader({
           justifyContent: "space-between",
         }}
       >
-        <a href="/" style={{ color: "inherit" }}>
+        <Link href={"/"} style={{ color: "inherit" }}>
           <OktaLogoIcon size={36} />
-        </a>
+        </Link>
         <ThemeToggle />
       </Container>
     </SiteHeaderElement>
