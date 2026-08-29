@@ -7,6 +7,8 @@ import { ThemeOverrides } from "./ThemeOverrides";
 import { theme } from "./theme";
 
 import localFont from "next/font/local";
+
+/* @ts-ignore @typescript-eslint/no-unused-vars we don't need the class name, the font stack is in the tokens */
 const aeonikFont = localFont({
   display: "swap",
   src: [
