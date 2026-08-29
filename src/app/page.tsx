@@ -20,7 +20,7 @@ export default function HomePage() {
     <main>
       <Row $hasBackground aria-labelledby="hero-heading">
         <Container>
-          <Row $align="stretch" $justify="between" $gap={1}>
+          <Row $align="stretch" $justify="between">
             <Col
               $sm={12}
               $lg={6}
