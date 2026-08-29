@@ -1,0 +1,44 @@
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
+import { expect, fn, userEvent } from "storybook/test";
+
+import {
+  BaseButton,
+  PrimaryButton,
+  SecondaryButton,
+  UnstyledButton,
+} from "./index";
+
+const meta = {
+  title: "primitives/Buttons",
+  component: PrimaryButton,
+  args: {
+    children: "Button",
+    onClick: fn(),
+  },
+} satisfies Meta<typeof PrimaryButton>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+async function clickAndAssert({
+  canvas,
+  args,
+}: Parameters<NonNullable<Story["play"]>>[0]) {
+  const button = canvas.getByRole("button", { name: "Button" });
+  await userEvent.click(button);
+  await expect(args.onClick).toHaveBeenCalledOnce();
+}
+
+export const Primary: Story = {};
+
+export const Secondary: Story = {
+  render: (args) => <SecondaryButton {...args} />,
+};
+
+export const Base: Story = {
+  render: (args) => <BaseButton {...args} />,
+};
+
+export const Unstyled: Story = {
+  render: (args) => <UnstyledButton {...args} />,
+};
