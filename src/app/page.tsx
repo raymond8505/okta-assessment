@@ -2,7 +2,7 @@ import { Row, Container, Col } from "@/components/grid";
 import Image from "next/image";
 import heroImage from "@/resources/images/blurred-ui.png";
 import { styled } from "styled-components";
-import { H2 } from "@/components/headings/headings";
+import { H2 } from "@/components/primitives/headings/headings";
 
 const HeroImage = styled(Image)`
   height: 548px;
@@ -13,11 +13,13 @@ const HeroImage = styled(Image)`
 export default function HomePage() {
   return (
     <main>
-      <Row $hasBackground>
+      <Row $hasBackground aria-labelledby="hero-heading">
         <Container>
           <Row>
             <Col $md={12} $lg={6}>
-              <H2>Lorem ipsum dolor sit amet consect alora</H2>
+              <H2 id="hero-heading">
+                Lorem ipsum dolor sit amet consect alora
+              </H2>
               <p>
                 Adipiscing elit, sed do eiusmod tempor incididunt ut labore et
                 dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
@@ -25,7 +27,11 @@ export default function HomePage() {
               </p>
             </Col>
             <Col $md={12} $lg={6}>
-              <HeroImage src={heroImage} alt="A blurred mobile app UI" />
+              <HeroImage
+                src={heroImage}
+                alt="A blurred mobile app UI"
+                loading="eager"
+              />
             </Col>
           </Row>
         </Container>

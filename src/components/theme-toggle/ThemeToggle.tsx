@@ -8,7 +8,7 @@ import {
   setTheme,
   subscribe,
 } from "./themeStore";
-import { UnstyledButton } from "../primitives/UnstyledButton";
+import { UnstyledButton } from "../primitives/buttons/UnstyledButton";
 import { SunIcon } from "../icons/SunIcon";
 import { MoonIcon } from "../icons/MoonIcon";
 import styled from "styled-components";

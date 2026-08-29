@@ -128,12 +128,18 @@ export const Typography: Story = {
   render: () => (
     <Section title="Type scale">
       <div style={{ display: "grid", gap: theme.space[3] }}>
-        {FONT_SIZE_KEYS.map((key) => (
+        {Object.keys(theme["font-size"]).map((key) => (
           <div key={key}>
-            <span style={{ fontSize: theme["font-size"][key] }}>
-              The quick brown fox
-            </span>{" "}
             <span style={codeStyle}>{theme.vars["font-size"][key]}</span>
+            <div
+              style={{
+                fontSize: theme["font-size"][key],
+                marginBottom: theme.space[2],
+                lineHeight: 1,
+              }}
+            >
+              The quick brown fox
+            </div>
           </div>
         ))}
       </div>
