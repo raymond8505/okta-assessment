@@ -43,7 +43,8 @@ function Section({
     <section style={{ marginBottom: theme.space[7] }}>
       <h2
         style={{
-          fontSize: theme["font-size"][500],
+          fontSize:
+            theme["font-size"]["500" as keyof (typeof theme)["font-size"]],
           marginBottom: theme.space[4],
         }}
       >
@@ -53,12 +54,6 @@ function Section({
     </section>
   );
 }
-
-const codeStyle = {
-  fontFamily: theme.font.mono,
-  fontSize: theme["font-size"][100],
-  color: theme.color["fg-muted"],
-} as const;
 
 export const Colors: Story = {
   render: () => (
@@ -85,7 +80,7 @@ export const Colors: Story = {
             />
             <div>
               <div>{key}</div>
-              <div style={codeStyle}>{theme.vars.color[key]}</div>
+              <div>{theme.vars.color[key]}</div>
             </div>
           </div>
         ))}
@@ -116,7 +111,7 @@ export const Spacing: Story = {
                 flex: "0 0 auto",
               }}
             />
-            <span style={codeStyle}>{theme.vars.space[key]}</span>
+            <span>{theme.vars.space[key]}</span>
           </div>
         ))}
       </div>
@@ -128,20 +123,23 @@ export const Typography: Story = {
   render: () => (
     <Section title="Type scale">
       <div style={{ display: "grid", gap: theme.space[3] }}>
-        {FONT_SIZE_KEYS.map((key) => (
-          <div key={key}>
-            <span style={codeStyle}>{theme.vars["font-size"][key]}</span>
-            <div
-              style={{
-                fontSize: theme["font-size"][key],
-                marginBottom: theme.space[2],
-                lineHeight: 1,
-              }}
-            >
-              The quick brown fox
+        {Object.keys(theme["font-size"]).map((key) => {
+          const fontSizeKey = key as keyof (typeof theme)["font-size"];
+          return (
+            <div key={key}>
+              <span>{theme.vars["font-size"][fontSizeKey]}</span>
+              <div
+                style={{
+                  fontSize: theme["font-size"][fontSizeKey],
+                  marginBottom: theme.space[2],
+                  lineHeight: 1,
+                }}
+              >
+                The quick brown fox
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </Section>
   ),
@@ -154,12 +152,12 @@ export const Breakpoints: Story = {
         style={{ color: theme.color["fg-muted"], marginBottom: theme.space[4] }}
       >
         The one token family kept in TypeScript rather than as custom properties
-        — <code style={codeStyle}>@media (min-width: var(--x))</code> is invalid
-        CSS. Duplicated literally in grid.css.
+        — <code>@media (min-width: var(--x))</code> is invalid CSS. Duplicated
+        literally in grid.css.
       </p>
       <div style={{ display: "grid", gap: theme.space[2] }}>
         {Object.entries(breakpoints).map(([name, value]) => (
-          <div key={name} style={codeStyle}>
+          <div key={name}>
             {name} — {value}
           </div>
         ))}

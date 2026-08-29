@@ -26,6 +26,11 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
 
+  h1,h2,h3,h4,h5,h6,p
+  {
+    text-wrap: balance;
+  }
+
   :focus-visible {
     outline: 2px solid ${theme.color.focus};
     outline-offset: 2px;

@@ -4,6 +4,10 @@ import heroImage from "@/resources/images/blurred-ui.png";
 import { styled } from "styled-components";
 import { H2 } from "@/components/primitives/headings/headings";
 import { Breadcrumbs } from "@/components/breadcrumbs/Breadcrumbs";
+import {
+  PrimaryButton,
+  SecondaryButton,
+} from "@/components/primitives/buttons";
 
 const HeroImage = styled(Image)`
   height: 548px;
@@ -16,7 +20,7 @@ export default function HomePage() {
     <main>
       <Row $hasBackground aria-labelledby="hero-heading">
         <Container>
-          <Row $align="stretch">
+          <Row $align="stretch" $justify="between" $gap={1}>
             <Col
               $sm={12}
               $lg={6}
@@ -40,12 +44,17 @@ export default function HomePage() {
                   exercitation ullamco laboris nisi.
                 </p>
               </div>
-              <div>
-                <button>Primary CTA</button>
-                <button>Secondary CTA</button>
+              <div
+                style={{
+                  display: "flex",
+                  gap: "1rem",
+                }}
+              >
+                <PrimaryButton>Primary CTA</PrimaryButton>
+                <SecondaryButton>Secondary CTA</SecondaryButton>
               </div>
             </Col>
-            <Col $sm={12} $lg={6}>
+            <Col $sm={12} $lg={5}>
               <HeroImage
                 src={heroImage}
                 alt="A blurred mobile app UI"

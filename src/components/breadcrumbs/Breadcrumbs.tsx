@@ -43,7 +43,7 @@ export function Breadcrumbs({ items, ...rest }: BreadcrumbsProps) {
             ) : (
               <a href={item.href}>{item.label}</a>
             )}
-            {!isLast && <ChevronRight size={8} />}
+            {!isLast && <ChevronRight size={8} aria-hidden />}
           </BreadcrumbListItem>
         );
       })}

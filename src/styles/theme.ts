@@ -47,7 +47,7 @@ export const theme = createTheme(
     },
     radius: {
       sm: "4px",
-      md: "8px",
+      md: "6px",
       lg: "16px",
       full: "9999px",
     },
