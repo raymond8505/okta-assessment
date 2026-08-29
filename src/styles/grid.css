@@ -113,7 +113,7 @@
  * Twelve span-1 columns therefore sum to 100% - 11*gap, and flex adds the 11
  * gaps back for exactly 100%. No negative-margin gutters needed.
  */
-@media (min-width: 40rem) {
+@media (max-width: 47.999rem) {
   .col.sm-1 {
     flex: 0 0 auto;
     width: calc(1 / 12 * (100% + var(--row-gap)) - var(--row-gap));

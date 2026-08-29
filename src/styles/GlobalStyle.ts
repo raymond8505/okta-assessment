@@ -21,6 +21,11 @@ export const GlobalStyle = createGlobalStyle`
     line-height: ${theme["line-height"].normal};
   }
 
+  h1,h2,h3,h4,h5,h6,li,ul {
+    margin: 0;
+    padding: 0;
+  }
+
   :focus-visible {
     outline: 2px solid ${theme.color.focus};
     outline-offset: 2px;

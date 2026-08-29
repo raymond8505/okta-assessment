@@ -62,6 +62,7 @@ export const theme = createTheme(
     "font-size": {
       "1rem": "16px",
       h2: "3.5rem",
+      breadcrumbs: "1.25rem",
     },
     "line-height": {
       tight: "1.2",

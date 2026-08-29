@@ -128,7 +128,7 @@ export const Typography: Story = {
   render: () => (
     <Section title="Type scale">
       <div style={{ display: "grid", gap: theme.space[3] }}>
-        {Object.keys(theme["font-size"]).map((key) => (
+        {FONT_SIZE_KEYS.map((key) => (
           <div key={key}>
             <span style={codeStyle}>{theme.vars["font-size"][key]}</span>
             <div
