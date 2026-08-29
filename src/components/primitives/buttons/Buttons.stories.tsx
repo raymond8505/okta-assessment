@@ -20,15 +20,6 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-async function clickAndAssert({
-  canvas,
-  args,
-}: Parameters<NonNullable<Story["play"]>>[0]) {
-  const button = canvas.getByRole("button", { name: "Button" });
-  await userEvent.click(button);
-  await expect(args.onClick).toHaveBeenCalledOnce();
-}
-
 export const Primary: Story = {};
 
 export const Secondary: Story = {
