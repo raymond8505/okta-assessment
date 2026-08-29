@@ -8,7 +8,7 @@ import { theme } from "./theme";
 
 import localFont from "next/font/local";
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars -- next/font requires the localFont() call be assigned; the font stack lives in the theme token, not this className
+// eslint-disable-next-line @typescript-eslint/no-unused-vars -- we're loading the font the Next.js way, but we set the font with a token, so we dont need to use the var, but it _has_ to be a var
 const aeonikFont = localFont({
   display: "swap",
   src: [
