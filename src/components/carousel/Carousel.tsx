@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { ReactNode, TouchEvent as ReactTouchEvent } from "react";
 import { styled } from "styled-components";
 import { theme } from "@/styles/theme";
@@ -49,28 +49,49 @@ const CarouselRoot = styled.section`
 
   --preview-shift: 10.29%;
   --preview-scale: 0.62;
-  /* Multipliers reproduce the look tuned at a 1152px container with
-     perspective 1000px and depth 54px (1% of the 984px slide = 9.84px). */
-  --scene-unit: calc(var(--current-slide-fraction) * 1cqw);
+
+  /*
+   * Without container queries a cq unit goes invalid at substitution time
+   * and kills the preview transforms outright, so the base --scene-unit is a
+   * no-cq approximation: the carousel assumed to span the viewport capped at
+   * the site container (horizontal) or the 628px reference height
+   * (vertical). The ResizeObserver in the component replaces it with the
+   * measured box on legacy browsers. The @supports blocks restore the exact
+   * container measure; engines ship container-type and cq units together,
+   * so the probe covers both.
+   *
+   * Multipliers reproduce the look tuned at a 1152px container with
+   * perspective 1000px and depth 54px (1% of the 984px slide = 9.84px).
+   */
+  --scene-unit: calc(
+    var(--current-slide-fraction) * min(100vw, ${theme["container-max"]}) / 100
+  );
   --scene-perspective: calc(var(--scene-unit) * 102);
   --scene-depth: calc(var(--scene-unit) * 5.5);
 
+  @supports (container-type: size) {
+    --scene-unit: calc(var(--current-slide-fraction) * 1cqw);
+  }
+
   width: 100%;
-  height: 628px;
+  height: 100%;
 
   &[data-direction="vertical"] {
     --current-slide-fraction: 0.8;
     --preview-shift: 18%;
-    /* Same reference look against the 502px slide height (1% = 5.02px). */
-    --scene-unit: calc(var(--current-slide-fraction) * 1cqh);
+
+    --scene-unit: calc(var(--current-slide-fraction) * 628px / 100);
     --scene-perspective: calc(var(--scene-unit) * 199);
     --scene-depth: calc(var(--scene-unit) * 10.75);
+
+    @supports (container-type: size) {
+      --scene-unit: calc(var(--current-slide-fraction) * 1cqh);
+    }
   }
 
   /*
-   * && outranks the direction block (0,3,0 vs 0,2,0) so overflow wins on both
-   * axes regardless of source order. Stylis cannot parse a tag-qualified &,
-   * so the class is doubled instead.
+   * so overflow wins on both axes regardless of source order. 
+   * Stylis cannot parse a tag-qualified &, so the class is doubled instead.
    */
   &&[data-mode="overflow"] {
     --current-slide-fraction: 1;
@@ -140,12 +161,12 @@ const CarouselSlide = styled.div`
 
   [data-direction="vertical"] &.Carousel--next {
     transform: translateY(var(--preview-shift)) translateZ(var(--scene-depth))
-      scale(0.7) rotateX(32deg);
+      scale(var(--preview-scale)) rotateX(32deg);
   }
 
   [data-direction="vertical"] &.Carousel--prev {
     transform: translateY(calc(-1 * var(--preview-shift)))
-      translateZ(var(--scene-depth)) scale(0.7) rotateX(-32deg);
+      translateZ(var(--scene-depth)) scale(var(--preview-scale)) rotateX(-32deg);
   }
 `;
 
@@ -178,8 +199,8 @@ const CarouselControls = styled.div`
   gap: ${theme.space[2]};
   /* Offset by the slide inset so the controls hug the current slide's
      corner — which is the viewport corner in overflow mode (inset 0). */
-  bottom: ${theme.space[3]};
-  right: calc(var(--current-slide-inset) + ${theme.space[3]});
+  bottom: ${theme.space[6]};
+  right: calc(var(--current-slide-inset) + ${theme.space[6]});
 
   [data-direction="vertical"] & {
     bottom: calc(var(--current-slide-inset) + ${theme.space[3]});
@@ -239,6 +260,36 @@ export function Carousel({
 }: CarouselProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const touchOrigin = useRef<{ x: number; y: number } | null>(null);
+  const rootRef = useRef<HTMLElement>(null);
+
+  // Legacy fallback for browsers without container queries: the stylesheet's
+  // no-cq --scene-unit assumes a full-width carousel, so measure the real box
+  // and feed the unit in px. The fraction stays a var so mode/direction
+  // switches keep resolving in CSS without re-measuring. Supporting browsers
+  // never enter this path; the observer fires once on observe, so the inline
+  // value is present from first layout after hydration.
+  useEffect(() => {
+    const root = rootRef.current;
+    if (!root || typeof ResizeObserver === "undefined") return;
+    if (typeof CSS !== "undefined" && CSS.supports("container-type", "size")) {
+      return;
+    }
+    const observer = new ResizeObserver(([entry]) => {
+      const size =
+        direction === "vertical"
+          ? entry.contentRect.height
+          : entry.contentRect.width;
+      root.style.setProperty(
+        "--scene-unit",
+        `calc(var(--current-slide-fraction) * ${size}px / 100)`,
+      );
+    });
+    observer.observe(root);
+    return () => {
+      observer.disconnect();
+      root.style.removeProperty("--scene-unit");
+    };
+  }, [direction]);
 
   const goTo = (index: number) =>
     setCurrentSlide(((index % SLIDE_COUNT) + SLIDE_COUNT) % SLIDE_COUNT);
@@ -269,6 +320,7 @@ export function Carousel({
 
   return (
     <CarouselRoot
+      ref={rootRef}
       aria-roledescription="carousel"
       aria-label={label}
       data-direction={direction}

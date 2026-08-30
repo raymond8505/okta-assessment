@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { userEvent } from "@testing-library/user-event";
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { carouselItemsFixture } from "@/fixtures/carousel-items.fixture";
 import { Carousel } from "./Carousel";
 import type { CarouselProps } from "./Carousel";
@@ -202,6 +202,57 @@ describe("Carousel", () => {
       const region = screen.getByRole("region", { name: LABEL });
       expect(region).toHaveAttribute("data-direction", "vertical");
       expect(region).toHaveAttribute("data-mode", "overflow");
+    });
+  });
+
+  describe("scene-unit legacy fallback", () => {
+    type ResizeObserverCallback = (
+      entries: { contentRect: { width: number; height: number } }[],
+    ) => void;
+
+    // Fires synchronously on observe() with a fixed box, mirroring the real
+    // observer's initial delivery.
+    class ResizeObserverStub {
+      private readonly callback: ResizeObserverCallback;
+      constructor(callback: ResizeObserverCallback) {
+        this.callback = callback;
+      }
+      observe() {
+        this.callback([{ contentRect: { width: 512, height: 384 } }]);
+      }
+      disconnect() {}
+    }
+
+    afterEach(() => {
+      vi.unstubAllGlobals();
+    });
+
+    it("feeds the measured width as a px scene unit when container queries are unsupported", () => {
+      vi.stubGlobal("CSS", { supports: () => false });
+      vi.stubGlobal("ResizeObserver", ResizeObserverStub);
+      renderCarousel();
+      const region = screen.getByRole("region", { name: LABEL });
+      expect(region.style.getPropertyValue("--scene-unit")).toBe(
+        "calc(var(--current-slide-fraction) * 512px / 100)",
+      );
+    });
+
+    it("measures the height instead on the vertical axis", () => {
+      vi.stubGlobal("CSS", { supports: () => false });
+      vi.stubGlobal("ResizeObserver", ResizeObserverStub);
+      renderCarousel({ direction: "vertical" });
+      const region = screen.getByRole("region", { name: LABEL });
+      expect(region.style.getPropertyValue("--scene-unit")).toBe(
+        "calc(var(--current-slide-fraction) * 384px / 100)",
+      );
+    });
+
+    it("leaves the stylesheet untouched when container queries are supported", () => {
+      vi.stubGlobal("CSS", { supports: () => true });
+      vi.stubGlobal("ResizeObserver", ResizeObserverStub);
+      renderCarousel();
+      const region = screen.getByRole("region", { name: LABEL });
+      expect(region.style.getPropertyValue("--scene-unit")).toBe("");
     });
   });
 
