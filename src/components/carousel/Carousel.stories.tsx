@@ -22,8 +22,9 @@ function toItem(quote: Quote): CarouselItem {
 }
 
 const items: CarouselItems = [
+  toItem(quotes[3]),
   toItem(quotes[0]),
-  toItem(quotes[1]),
+
   toItem(quotes[2]),
 ];
 

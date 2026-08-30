@@ -69,12 +69,14 @@ const CarouselSlide = styled.div`
   }
 
   &.Carousel--next {
-    transform: translate3d(100%, 0, -80px);
+    // transform: translate3d(100%, 0, -80px);
+    transform: translateX(13%) translateZ(54px) scale(0.7) rotateY(-32deg);
     z-index: 1;
   }
 
   &.Carousel--prev {
-    transform: translate3d(-100%, 0, -80px);
+    // transform: translate3d(-100%, 0, -80px);
+    transform: translateX(-13%) translateZ(54px) scale(0.7) rotateY(32deg);
     z-index: 1;
   }
 
@@ -171,12 +173,6 @@ const CarouselDot = styled(UnstyledButton)`
   }
 `;
 
-/**
- * Infinite three-slide carousel following the W3C APG carousel pattern
- * (grouped-buttons slide picker, no auto-rotation). The prev and next slides
- * peek in from the edges of the travel axis; swiping past a threshold moves
- * one slide per gesture.
- */
 export function Carousel({
   items,
   label,
