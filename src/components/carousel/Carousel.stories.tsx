@@ -24,7 +24,6 @@ function toItem(quote: Quote): CarouselItem {
 const items: CarouselItems = [
   toItem(quotes[3]),
   toItem(quotes[0]),
-
   toItem(quotes[2]),
 ];
 
@@ -34,50 +33,47 @@ const meta = {
   args: {
     items,
     label: "Programming quotes",
+    height: "90vh",
   },
 } satisfies Meta<typeof Carousel>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-/**
- * Prev/next slides peek in from the left and right of the current slide;
- * the picker dots sit bottom-center and the controls bottom-right, aligned
- * with the current slide's edge.
- */
 export const Default: Story = {};
 
-/**
- * The same carousel travelling on the vertical axis: prev/next slides peek
- * in from the top and bottom, and swipes are read from vertical movement.
- */
 export const Vertical: Story = {
   args: { direction: "vertical" },
 };
 
-/**
- * The 3D scene derives its perspective and depth from the slide's container
- * size, so a narrow carousel shows the same projected preview geometry as
- * Default, just smaller — not a flatter or more distorted one.
- */
+const verboseItem = { ...items[0] };
+verboseItem.caption = (
+  <div style={{ padding: "16px", fontSize: "1.2em" }}>
+    One trick is to tell stories that don't go anywhere. Like the time I caught
+    the ferry to Shelbyville? I needed a new heel for m'shoe. So I decided to go
+    to Morganville, which is what they called Shelbyville in those days. So I
+    tied an onion to my belt, which was the style at the time. Now, to take the
+    ferry cost a nickel, and in those days, nickels had pictures of bumblebees
+    on 'em. "Gimme five bees for a quarter," you'd say. Now where were we? Oh,
+    yeah. The important thing was that I had an onion on my belt, which was the
+    style at the time. They didn't have any white onions, because of the war.
+    The only thing you could get was those big yellow ones...
+  </div>
+);
+export const VerboseCaption: Story = {
+  args: { items: [verboseItem, items[1], items[2]] },
+};
+
 export const Narrow: Story = {
   decorators: [
     (Story) => (
-      <div style={{ maxWidth: "420px" }}>
+      <div style={{ maxWidth: "50vw" }}>
         <Story />
       </div>
     ),
   ],
 };
 
-/**
- * Overflow mode: the current slide spans the full container width and the
- * prev/next previews stick out beyond its edges. The component deliberately
- * does not clip itself — the consumer must put `overflow-x: clip` on an
- * ancestor (as the outer decorator wrapper does) or the previews widen the
- * page. The inner wrapper is narrower than the canvas so the overhang stays
- * visible.
- */
 export const Overflow: Story = {
   args: { mode: "overflow" },
   decorators: [
@@ -86,22 +82,6 @@ export const Overflow: Story = {
         <div style={{ maxWidth: "70%", marginInline: "auto" }}>
           <Story />
         </div>
-      </div>
-    ),
-  ],
-};
-
-/**
- * Vertical travel combined with overflow mode: previews escape above and
- * below the carousel, so the consumer must leave vertical breathing room —
- * or clip, as the decorator does — to keep them off adjacent page content.
- */
-export const VerticalOverflow: Story = {
-  args: { direction: "vertical", mode: "overflow" },
-  decorators: [
-    (Story) => (
-      <div style={{ overflowY: "clip", paddingBlock: "160px" }}>
-        <Story />
       </div>
     ),
   ],
