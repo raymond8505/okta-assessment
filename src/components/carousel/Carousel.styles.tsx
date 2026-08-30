@@ -10,7 +10,9 @@ export const CarouselRoot = styled.section<{ $height: string }>`
   --preview-shift: 10.29%;
   --preview-scale: 0.62;
 
-  --scene-unit: calc(var(--current-slide-fraction) * 100vw / 100);
+  --scene-unit: calc(
+    var(--current-slide-fraction) * min(100vw, ${theme["container-max"]}) / 100
+  );
   --scene-perspective: calc(var(--scene-unit) * 102);
   --scene-depth: calc(var(--scene-unit) * 5.5);
 
@@ -21,7 +23,15 @@ export const CarouselRoot = styled.section<{ $height: string }>`
   width: 100%;
   height: ${(props) => props.$height};
 
+  /*
+   * Reserve the travel axis for the swipe handler. React's touch listeners are
+   * passive (preventDefault is a no-op), so this is the only way to stop the
+   * browser scrolling the page on the same gesture; the cross axis still pans.
+   */
+  touch-action: pan-y pinch-zoom;
+
   &[data-direction="vertical"] {
+    touch-action: pan-x pinch-zoom;
     --current-slide-fraction: 0.8;
     --preview-shift: 18%;
 
