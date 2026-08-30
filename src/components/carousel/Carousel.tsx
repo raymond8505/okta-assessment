@@ -152,10 +152,10 @@ export function Carousel({
             aria-label="Previous slide"
             onClick={prev}
           >
-            <ArrowLeftIcon />
+            <ArrowLeftIcon aria-hidden />
           </CarouselControl>
           <CarouselControl type="button" aria-label="Next slide" onClick={next}>
-            <ArrowRightIcon />
+            <ArrowRightIcon aria-hidden />
           </CarouselControl>
         </CarouselControls>
       </CarouselViewport>

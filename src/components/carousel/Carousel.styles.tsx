@@ -158,6 +158,7 @@ export const CarouselControls = styled.div`
   right: calc(var(--current-slide-inset) + ${theme.space[6]});
 
   [data-direction="vertical"] & {
+    flex-direction: column;
     bottom: calc(var(--current-slide-inset) + ${theme.space[6]});
     right: ${theme.space[6]};
   }
