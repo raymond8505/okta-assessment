@@ -72,6 +72,8 @@ const items: CarouselItems = [
   toItem(quotes[2]),
 ];
 
+const CarouselContainer = styled(Container)``;
+
 export default function HomePage() {
   return (
     <main>
@@ -112,15 +114,15 @@ export default function HomePage() {
         aria-label="Some of our favourite quotes"
         style={{ margin: `${theme.space[9]} 0` }}
       >
-        <Container style={{ paddingLeft: 0, paddingRight: 0 }}>
+        <CarouselContainer>
           <Carousel
             items={items}
             label="quotes"
             mode="overflow"
             height="70vh"
-            //height={`calc(100vh - (${theme.space[9]} * 2))`}
+            direction="vertical"
           />
-        </Container>
+        </CarouselContainer>
       </Row>
     </main>
   );

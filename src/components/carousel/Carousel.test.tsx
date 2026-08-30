@@ -9,7 +9,12 @@ const LABEL = "Programming quotes";
 
 function renderCarousel(props: Partial<CarouselProps> = {}) {
   return render(
-    <Carousel items={carouselItemsFixture} label={LABEL} {...props} />,
+    <Carousel
+      items={carouselItemsFixture}
+      label={LABEL}
+      {...props}
+      height="70vh"
+    />,
   );
 }
 
@@ -142,8 +147,12 @@ describe("Carousel", () => {
       renderCarousel();
       const region = screen.getByRole("region", { name: LABEL });
 
-      fireEvent.touchStart(region, { touches: [{ clientX: 200, clientY: 100 }] });
-      fireEvent.touchMove(region, { touches: [{ clientX: 140, clientY: 100 }] });
+      fireEvent.touchStart(region, {
+        touches: [{ clientX: 200, clientY: 100 }],
+      });
+      fireEvent.touchMove(region, {
+        touches: [{ clientX: 140, clientY: 100 }],
+      });
       expect(getSlide(2)).toHaveClass("Carousel--current");
 
       // Same gesture keeps moving — must not fire again.
@@ -155,8 +164,12 @@ describe("Carousel", () => {
       renderCarousel();
       const region = screen.getByRole("region", { name: LABEL });
 
-      fireEvent.touchStart(region, { touches: [{ clientX: 100, clientY: 100 }] });
-      fireEvent.touchMove(region, { touches: [{ clientX: 160, clientY: 100 }] });
+      fireEvent.touchStart(region, {
+        touches: [{ clientX: 100, clientY: 100 }],
+      });
+      fireEvent.touchMove(region, {
+        touches: [{ clientX: 160, clientY: 100 }],
+      });
       expect(getSlide(3)).toHaveClass("Carousel--current");
     });
 
@@ -164,7 +177,9 @@ describe("Carousel", () => {
       renderCarousel();
       const region = screen.getByRole("region", { name: LABEL });
 
-      fireEvent.touchStart(region, { touches: [{ clientX: 100, clientY: 100 }] });
+      fireEvent.touchStart(region, {
+        touches: [{ clientX: 100, clientY: 100 }],
+      });
       fireEvent.touchMove(region, { touches: [{ clientX: 80, clientY: 100 }] });
       expect(getSlide(1)).toHaveClass("Carousel--current");
     });
@@ -269,12 +284,18 @@ describe("Carousel", () => {
       renderCarousel({ direction: "vertical" });
       const region = screen.getByRole("region", { name: LABEL });
 
-      fireEvent.touchStart(region, { touches: [{ clientX: 100, clientY: 200 }] });
+      fireEvent.touchStart(region, {
+        touches: [{ clientX: 100, clientY: 200 }],
+      });
       fireEvent.touchMove(region, { touches: [{ clientX: 20, clientY: 200 }] });
       expect(getSlide(1)).toHaveClass("Carousel--current");
 
-      fireEvent.touchStart(region, { touches: [{ clientX: 100, clientY: 200 }] });
-      fireEvent.touchMove(region, { touches: [{ clientX: 100, clientY: 140 }] });
+      fireEvent.touchStart(region, {
+        touches: [{ clientX: 100, clientY: 200 }],
+      });
+      fireEvent.touchMove(region, {
+        touches: [{ clientX: 100, clientY: 140 }],
+      });
       expect(getSlide(2)).toHaveClass("Carousel--current");
     });
   });

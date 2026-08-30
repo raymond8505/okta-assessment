@@ -65,16 +65,9 @@ export const CarouselViewport = styled.div`
 export const CarouselSlides = styled.div`
   position: absolute;
   inset: 0;
-  /* Gives the slides' translate3d z-component visible depth. */
   perspective: var(--scene-perspective);
 `;
 
-/*
- * The current slide sits inset by --current-slide-inset on the travel axis;
- * prev/next are the same box shifted by ±--preview-shift, shrunk and rotated,
- * so their projected slivers fill whatever space the mode leaves them —
- * inside the viewport margins (inset mode) or beyond it (overflow mode).
- */
 export const CarouselSlide = styled.div`
   position: absolute;
   inset: 0 var(--current-slide-inset);
@@ -136,7 +129,7 @@ export const CarouselCaption = styled.div`
   border-radius: ${theme.radius.lg};
   color: ${theme.color.fg};
   padding: 0;
-  background: ${theme.color.carousel.caption.bg};
+  background: ${theme.carousel.caption.bg};
   backdrop-filter: blur(50px);
 `;
 
@@ -147,12 +140,13 @@ export const CarouselControls = styled.div`
   gap: ${theme.space[2]};
   /* Offset by the slide inset so the controls hug the current slide's
      corner — which is the viewport corner in overflow mode (inset 0). */
+
   bottom: ${theme.space[6]};
   right: calc(var(--current-slide-inset) + ${theme.space[6]});
 
   [data-direction="vertical"] & {
-    bottom: calc(var(--current-slide-inset) + ${theme.space[3]});
-    right: ${theme.space[3]};
+    bottom: calc(var(--current-slide-inset) + ${theme.space[6]});
+    right: ${theme.space[6]};
   }
 `;
 
@@ -178,21 +172,23 @@ export const CarouselDots = styled.div`
   gap: ${theme.space[2]};
   left: 50%;
   transform: translateX(-50%);
+
   bottom: ${theme.space[6]};
 
   [data-direction="vertical"] & {
-    bottom: calc(var(--current-slide-inset) + ${theme.space[2]});
+    bottom: calc(var(--current-slide-inset) + ${theme.space[6]});
   }
 `;
 
 export const CarouselDot = styled(UnstyledButton)`
-  width: ${theme.space[3]};
-  height: ${theme.space[3]};
+  width: ${theme.carousel.dots.dot.width};
+  height: ${theme.carousel.dots.dot.height};
+
   border-radius: ${theme.radius.full};
-  background: ${theme.color.border};
+  background: ${theme.carousel.dots.dot.bg};
 
   &[aria-disabled="true"] {
-    background: ${theme.color.accent};
+    background: ${theme.carousel.dots.dot.activeBg};
   }
 
   &:focus-visible {

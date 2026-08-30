@@ -34,9 +34,17 @@ export const theme = createTheme(
       "accent-hover": "#0f4ba8",
       "accent-fg": "#ffffff",
       focus: "#1662d4",
-      carousel: {
-        caption: {
-          bg: "#F6F1E7",
+    },
+    carousel: {
+      caption: {
+        bg: "#F6F1E7",
+      },
+      dots: {
+        dot: {
+          width: "75px",
+          height: "5px",
+          bg: "rgba(255, 255, 255, 0.5)",
+          activeBg: "#FFFEFA",
         },
       },
     },
