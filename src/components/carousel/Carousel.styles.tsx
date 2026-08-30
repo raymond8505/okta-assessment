@@ -9,12 +9,18 @@ export const CarouselRoot = styled.section<{ $height: string }>`
 
   --preview-shift: 10.29%;
   --preview-scale: 0.62;
+  --preview-tilt: 32deg;
+
+  /* 3D scene lengths as % of the current slide's travel-axis size —
+     --scene-unit is 1% of that size. */
+  --scene-perspective-pct: 102;
+  --scene-depth-pct: 5.5;
 
   --scene-unit: calc(
     var(--current-slide-fraction) * min(100vw, ${theme.container.max}) / 100
   );
-  --scene-perspective: calc(var(--scene-unit) * 102);
-  --scene-depth: calc(var(--scene-unit) * 5.5);
+  --scene-perspective: calc(var(--scene-unit) * var(--scene-perspective-pct));
+  --scene-depth: calc(var(--scene-unit) * var(--scene-depth-pct));
 
   @supports (container-type: size) {
     --scene-unit: calc(var(--current-slide-fraction) * 1cqw);
@@ -24,9 +30,7 @@ export const CarouselRoot = styled.section<{ $height: string }>`
   height: ${(props) => props.$height};
 
   /*
-   * Reserve the travel axis for the swipe handler. React's touch listeners are
-   * passive (preventDefault is a no-op), so this is the only way to stop the
-   * browser scrolling the page on the same gesture; the cross axis still pans.
+   * React's touch listeners are passive, so this stops the browser scrolling the page on swipe
    */
   touch-action: pan-y pinch-zoom;
 
@@ -34,10 +38,15 @@ export const CarouselRoot = styled.section<{ $height: string }>`
     touch-action: pan-x pinch-zoom;
     --current-slide-fraction: 0.8;
     --preview-shift: 18%;
+    --scene-perspective-pct: 199;
+    --scene-depth-pct: 10.75;
 
-    --scene-unit: calc(var(--current-slide-fraction) * 628px / 100);
-    --scene-perspective: calc(var(--scene-unit) * 199);
-    --scene-depth: calc(var(--scene-unit) * 10.75);
+    /* Height has no viewport-based cap to fall back on, so the no-cq
+       approximation assumes the height the scene was tuned at. */
+    --no-cq-reference-height: 628px;
+    --scene-unit: calc(
+      var(--current-slide-fraction) * var(--no-cq-reference-height) / 100
+    );
 
     @supports (container-type: size) {
       --scene-unit: calc(var(--current-slide-fraction) * 1cqh);
@@ -85,14 +94,15 @@ export const CarouselSlide = styled.div`
   &.Carousel--next {
     transition: transform ${theme.transition.medium};
     transform: translateX(var(--preview-shift)) translateZ(var(--scene-depth))
-      scale(var(--preview-scale)) rotateY(-32deg);
+      scale(var(--preview-scale)) rotateY(calc(-1 * var(--preview-tilt)));
     z-index: 1;
   }
 
   &.Carousel--prev {
     transition: transform ${theme.transition.medium};
     transform: translateX(calc(-1 * var(--preview-shift)))
-      translateZ(var(--scene-depth)) scale(var(--preview-scale)) rotateY(32deg);
+      translateZ(var(--scene-depth)) scale(var(--preview-scale))
+      rotateY(var(--preview-tilt));
     z-index: 1;
   }
 
@@ -102,12 +112,13 @@ export const CarouselSlide = styled.div`
 
   [data-direction="vertical"] &.Carousel--next {
     transform: translateY(var(--preview-shift)) translateZ(var(--scene-depth))
-      scale(var(--preview-scale)) rotateX(32deg);
+      scale(var(--preview-scale)) rotateX(var(--preview-tilt));
   }
 
   [data-direction="vertical"] &.Carousel--prev {
     transform: translateY(calc(-1 * var(--preview-shift)))
-      translateZ(var(--scene-depth)) scale(var(--preview-scale)) rotateX(-32deg);
+      translateZ(var(--scene-depth)) scale(var(--preview-scale))
+      rotateX(calc(-1 * var(--preview-tilt)));
   }
 `;
 
@@ -180,17 +191,21 @@ export const CarouselDots = styled.div`
   }
 `;
 
-/*
- * The pill is a visual cue only — the button is the tap target and must meet
- * WCAG 2.5.8's 24px minimum, upgraded to 44px where the pointer is a finger.
- */
 export const CarouselDot = styled(UnstyledButton)`
   display: grid;
   place-items: center;
+
+  /**
+   * 24px is WCAG AA min size for pointer target
+   * @see https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html
+   */
   min-width: 24px;
   min-height: 24px;
 
   @media (pointer: coarse) {
+    /**
+     * 44px is ideal min for touch target
+     */
     min-width: 44px;
     min-height: 44px;
   }
