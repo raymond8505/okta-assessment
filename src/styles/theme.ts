@@ -35,7 +35,6 @@ export const theme = createTheme(
       "accent-fg": "#ffffff",
       focus: "#1662d4",
     },
-
     space: {
       1: "0.25rem",
       2: "0.5rem",
