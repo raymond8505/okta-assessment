@@ -54,3 +54,40 @@ export const Default: Story = {};
 export const Vertical: Story = {
   args: { direction: "vertical" },
 };
+
+/**
+ * Overflow mode: the current slide spans the full container width and the
+ * prev/next previews stick out beyond its edges. The component deliberately
+ * does not clip itself — the consumer must put `overflow-x: clip` on an
+ * ancestor (as the outer decorator wrapper does) or the previews widen the
+ * page. The inner wrapper is narrower than the canvas so the overhang stays
+ * visible.
+ */
+export const Overflow: Story = {
+  args: { mode: "overflow" },
+  decorators: [
+    (Story) => (
+      <div style={{ overflowX: "clip" }}>
+        <div style={{ maxWidth: "70%", marginInline: "auto" }}>
+          <Story />
+        </div>
+      </div>
+    ),
+  ],
+};
+
+/**
+ * Vertical travel combined with overflow mode: previews escape above and
+ * below the carousel, so the consumer must leave vertical breathing room —
+ * or clip, as the decorator does — to keep them off adjacent page content.
+ */
+export const VerticalOverflow: Story = {
+  args: { direction: "vertical", mode: "overflow" },
+  decorators: [
+    (Story) => (
+      <div style={{ overflowY: "clip", paddingBlock: "160px" }}>
+        <Story />
+      </div>
+    ),
+  ],
+};

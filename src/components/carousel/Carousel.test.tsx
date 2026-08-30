@@ -170,6 +170,41 @@ describe("Carousel", () => {
     });
   });
 
+  describe("overflow mode", () => {
+    it("defaults to inset mode on the region", () => {
+      renderCarousel();
+      expect(screen.getByRole("region", { name: LABEL })).toHaveAttribute(
+        "data-mode",
+        "inset",
+      );
+    });
+
+    it("renders the mode on the region for the CSS geometry switch", () => {
+      renderCarousel({ mode: "overflow" });
+      expect(screen.getByRole("region", { name: LABEL })).toHaveAttribute(
+        "data-mode",
+        "overflow",
+      );
+    });
+
+    it("keeps position classes and navigation behaviour in overflow mode", async () => {
+      const user = userEvent.setup();
+      renderCarousel({ mode: "overflow" });
+
+      await user.click(screen.getByRole("button", { name: "Next slide" }));
+      expect(getSlide(2)).toHaveClass("Carousel--current");
+      expect(getSlide(3)).toHaveClass("Carousel--next");
+      expect(getSlide(1)).toHaveClass("Carousel--prev");
+    });
+
+    it("combines with the vertical direction", () => {
+      renderCarousel({ direction: "vertical", mode: "overflow" });
+      const region = screen.getByRole("region", { name: LABEL });
+      expect(region).toHaveAttribute("data-direction", "vertical");
+      expect(region).toHaveAttribute("data-mode", "overflow");
+    });
+  });
+
   describe("vertical direction", () => {
     it("renders the direction on the region for the CSS axis switch", () => {
       renderCarousel({ direction: "vertical" });
