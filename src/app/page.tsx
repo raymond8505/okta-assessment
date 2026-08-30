@@ -44,36 +44,6 @@ const CtaRow = styled.div`
   gap: ${theme.space[4]};
 `;
 
-/**
- * carousel testing
- */
-type Quote = (typeof quotes)[number];
-
-function QuoteCaption({ quote, author }: Pick<Quote, "quote" | "author">) {
-  return (
-    <blockquote style={{ padding: "16px" }}>
-      <p>{quote}</p>
-      <footer>— {author}</footer>
-    </blockquote>
-  );
-}
-
-function toItem(quote: Quote): CarouselItem {
-  return {
-    image: quote.image,
-    caption: <QuoteCaption quote={quote.quote} author={quote.author} />,
-  };
-}
-
-const items: CarouselItems = [
-  toItem(quotes[3]),
-  toItem(quotes[0]),
-
-  toItem(quotes[2]),
-];
-
-const CarouselContainer = styled(Container)``;
-
 export default function HomePage() {
   return (
     <main>
@@ -113,17 +83,7 @@ export default function HomePage() {
       <Row
         aria-label="Some of our favourite quotes"
         style={{ margin: `${theme.space[9]} 0` }}
-      >
-        <CarouselContainer>
-          <Carousel
-            items={items}
-            label="quotes"
-            mode="overflow"
-            height="70vh"
-            direction="horizontal"
-          />
-        </CarouselContainer>
-      </Row>
+      ></Row>
     </main>
   );
 }
