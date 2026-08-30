@@ -45,21 +45,43 @@ type SlidePosition = (typeof POSITIONS)[number];
 const CarouselRoot = styled.section`
   /*
    * Geometry knobs. Each direction × mode combination only overrides these
-   * values; the transform declarations on CarouselSlide are shared.
-   * --preview-shift translates along the travel axis, so % resolves against
-   * the slide's own width (horizontal) or height (vertical) — which is why
-   * the two directions keep separate values.
+   * values; the transform declarations on CarouselSlide are shared. All
+   * overrides sit on this same element, so the derived vars below recompute —
+   * overriding the fraction from a descendant would NOT work (custom
+   * properties resolve at declaration scope).
+   *
+   * Every length in the scene is relative to the current slide's travel-axis
+   * size: translate % and scale() are inherently relative, and the 3D lengths
+   * (perspective, translateZ depth) derive from --scene-unit, 1% of the slide
+   * in container units. The projected preview geometry is therefore similar
+   * at every container size and in both modes — overflow mode is the same
+   * composition grown to the full container, which is exactly what pushes
+   * the previews past the edges. Fixed px here would flatten the projection
+   * as the container grows and exaggerate it as it shrinks.
    */
-  --current-slide-size: 85.42%;
+  --current-slide-fraction: 0.8542;
+  --current-slide-size: calc(var(--current-slide-fraction) * 100%);
   --current-slide-inset: calc((100% - var(--current-slide-size)) / 2);
-  --preview-shift: var(--current-slide-inset);
+  /* The base fraction's inset as a literal: the shift must not follow the
+     fraction to 1 in overflow mode (a 0 shift parks previews behind the
+     current slide). */
+  --preview-shift: 7.29%;
+  /* Multipliers reproduce the look tuned at a 1152px container with
+     perspective 1000px and depth 54px (1% of the 984px slide = 9.84px). */
+  --scene-unit: calc(var(--current-slide-fraction) * 1cqw);
+  --scene-perspective: calc(var(--scene-unit) * 102);
+  --scene-depth: calc(var(--scene-unit) * 5.5);
 
   width: 100%;
   height: 628px;
 
   &[data-direction="vertical"] {
-    --current-slide-size: 80%;
+    --current-slide-fraction: 0.8;
     --preview-shift: 18%;
+    /* Same reference look against the 502px slide height (1% = 5.02px). */
+    --scene-unit: calc(var(--current-slide-fraction) * 1cqh);
+    --scene-perspective: calc(var(--scene-unit) * 199);
+    --scene-depth: calc(var(--scene-unit) * 10.75);
   }
 
   /*
@@ -68,13 +90,7 @@ const CarouselRoot = styled.section`
    * so the class is doubled instead.
    */
   &&[data-mode="overflow"] {
-    --current-slide-size: 100%;
-    /*
-     * scale(0.7) about center pulls each slide edge in by 15%, so an 85%
-     * shift puts the scaled inner edge at the container edge before the 3D
-     * projection nudges it. Tune visually in Storybook (~78–88% band).
-     */
-    --preview-shift: 85%;
+    --current-slide-fraction: 1;
   }
 `;
 
@@ -83,6 +99,9 @@ const CarouselViewport = styled.div`
   overflow: hidden;
   width: 100%;
   height: 100%;
+  /* The scene's cq units measure this box. Size containment needs the
+     definite height the root provides — an auto height would collapse to 0. */
+  container-type: size;
 
   /* Overflow mode's whole point: previews escape the container. Clipping is
      the consumer's job (overflow-x/y: clip on an ancestor). */
@@ -95,7 +114,7 @@ const CarouselSlides = styled.div`
   position: absolute;
   inset: 0;
   /* Gives the slides' translate3d z-component visible depth. */
-  perspective: 1000px;
+  perspective: var(--scene-perspective);
 `;
 
 /*
@@ -119,14 +138,14 @@ const CarouselSlide = styled.div`
 
   &.Carousel--next {
     transition: transform ${theme.transition.medium};
-    transform: translateX(var(--preview-shift)) translateZ(54px) scale(0.7)
+    transform: translateX(var(--preview-shift)) translateZ(var(--scene-depth)) scale(0.7)
       rotateY(-32deg);
     z-index: 1;
   }
 
   &.Carousel--prev {
     transition: transform ${theme.transition.medium};
-    transform: translateX(calc(-1 * var(--preview-shift))) translateZ(54px)
+    transform: translateX(calc(-1 * var(--preview-shift))) translateZ(var(--scene-depth))
       scale(0.7) rotateY(32deg);
     z-index: 1;
   }
@@ -136,12 +155,12 @@ const CarouselSlide = styled.div`
   }
 
   [data-direction="vertical"] &.Carousel--next {
-    transform: translateY(var(--preview-shift)) translateZ(54px) scale(0.7)
+    transform: translateY(var(--preview-shift)) translateZ(var(--scene-depth)) scale(0.7)
       rotateX(32deg);
   }
 
   [data-direction="vertical"] &.Carousel--prev {
-    transform: translateY(calc(-1 * var(--preview-shift))) translateZ(54px)
+    transform: translateY(calc(-1 * var(--preview-shift))) translateZ(var(--scene-depth))
       scale(0.7) rotateX(-32deg);
   }
 `;

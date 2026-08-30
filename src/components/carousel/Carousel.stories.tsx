@@ -56,6 +56,21 @@ export const Vertical: Story = {
 };
 
 /**
+ * The 3D scene derives its perspective and depth from the slide's container
+ * size, so a narrow carousel shows the same projected preview geometry as
+ * Default, just smaller — not a flatter or more distorted one.
+ */
+export const Narrow: Story = {
+  decorators: [
+    (Story) => (
+      <div style={{ maxWidth: "420px" }}>
+        <Story />
+      </div>
+    ),
+  ],
+};
+
+/**
  * Overflow mode: the current slide spans the full container width and the
  * prev/next previews stick out beyond its edges. The component deliberately
  * does not clip itself — the consumer must put `overflow-x: clip` on an
