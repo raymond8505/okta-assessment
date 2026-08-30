@@ -46,7 +46,7 @@ export function Carousel({
 
   /**
    * graceful degredation for browsers that don't support container queries
-   * manually scene unit on resize
+   * set scene unit with js on resize
    */
   useEffect(() => {
     const root = rootRef.current;

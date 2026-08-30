@@ -37,13 +37,15 @@ export const CarouselRoot = styled.section<{ $height: string }>`
   &[data-direction="vertical"] {
     touch-action: pan-x pinch-zoom;
     --current-slide-fraction: 0.8;
+
     --preview-shift: 18%;
     --scene-perspective-pct: 199;
     --scene-depth-pct: 10.75;
 
     /* Height has no viewport-based cap to fall back on, so the no-cq
-       approximation assumes the height the scene was tuned at. */
+       approximation assumes the height from the initial design. */
     --no-cq-reference-height: 628px;
+
     --scene-unit: calc(
       var(--current-slide-fraction) * var(--no-cq-reference-height) / 100
     );
