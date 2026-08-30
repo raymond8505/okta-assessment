@@ -43,29 +43,12 @@ const POSITIONS = ["current", "next", "prev"] as const;
 type SlidePosition = (typeof POSITIONS)[number];
 
 const CarouselRoot = styled.section`
-  /*
-   * Geometry knobs. Each direction × mode combination only overrides these
-   * values; the transform declarations on CarouselSlide are shared. All
-   * overrides sit on this same element, so the derived vars below recompute —
-   * overriding the fraction from a descendant would NOT work (custom
-   * properties resolve at declaration scope).
-   *
-   * Every length in the scene is relative to the current slide's travel-axis
-   * size: translate % and scale() are inherently relative, and the 3D lengths
-   * (perspective, translateZ depth) derive from --scene-unit, 1% of the slide
-   * in container units. The projected preview geometry is therefore similar
-   * at every container size and in both modes — overflow mode is the same
-   * composition grown to the full container, which is exactly what pushes
-   * the previews past the edges. Fixed px here would flatten the projection
-   * as the container grows and exaggerate it as it shrinks.
-   */
   --current-slide-fraction: 0.8542;
   --current-slide-size: calc(var(--current-slide-fraction) * 100%);
   --current-slide-inset: calc((100% - var(--current-slide-size)) / 2);
-  /* The base fraction's inset as a literal: the shift must not follow the
-     fraction to 1 in overflow mode (a 0 shift parks previews behind the
-     current slide). */
-  --preview-shift: 7.29%;
+
+  --preview-shift: 10.29%;
+  --preview-scale: 0.62;
   /* Multipliers reproduce the look tuned at a 1152px container with
      perspective 1000px and depth 54px (1% of the 984px slide = 9.84px). */
   --scene-unit: calc(var(--current-slide-fraction) * 1cqw);
@@ -134,19 +117,20 @@ const CarouselSlide = styled.div`
     border-radius: ${theme.radius.xl};
     transform: translate3d(0, 0, 0);
     z-index: 2;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   }
 
   &.Carousel--next {
     transition: transform ${theme.transition.medium};
-    transform: translateX(var(--preview-shift)) translateZ(var(--scene-depth)) scale(0.7)
-      rotateY(-32deg);
+    transform: translateX(var(--preview-shift)) translateZ(var(--scene-depth))
+      scale(var(--preview-scale)) rotateY(-32deg);
     z-index: 1;
   }
 
   &.Carousel--prev {
     transition: transform ${theme.transition.medium};
-    transform: translateX(calc(-1 * var(--preview-shift))) translateZ(var(--scene-depth))
-      scale(0.7) rotateY(32deg);
+    transform: translateX(calc(-1 * var(--preview-shift)))
+      translateZ(var(--scene-depth)) scale(var(--preview-scale)) rotateY(32deg);
     z-index: 1;
   }
 
@@ -155,13 +139,13 @@ const CarouselSlide = styled.div`
   }
 
   [data-direction="vertical"] &.Carousel--next {
-    transform: translateY(var(--preview-shift)) translateZ(var(--scene-depth)) scale(0.7)
-      rotateX(32deg);
+    transform: translateY(var(--preview-shift)) translateZ(var(--scene-depth))
+      scale(0.7) rotateX(32deg);
   }
 
   [data-direction="vertical"] &.Carousel--prev {
-    transform: translateY(calc(-1 * var(--preview-shift))) translateZ(var(--scene-depth))
-      scale(0.7) rotateX(-32deg);
+    transform: translateY(calc(-1 * var(--preview-shift)))
+      translateZ(var(--scene-depth)) scale(0.7) rotateX(-32deg);
   }
 `;
 
