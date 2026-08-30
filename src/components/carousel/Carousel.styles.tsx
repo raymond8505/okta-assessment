@@ -10,22 +10,7 @@ export const CarouselRoot = styled.section`
   --preview-shift: 10.29%;
   --preview-scale: 0.62;
 
-  /*
-   * Without container queries a cq unit goes invalid at substitution time
-   * and kills the preview transforms outright, so the base --scene-unit is a
-   * no-cq approximation: the carousel assumed to span the viewport capped at
-   * the site container (horizontal) or the 628px reference height
-   * (vertical). The ResizeObserver in the component replaces it with the
-   * measured box on legacy browsers. The @supports blocks restore the exact
-   * container measure; engines ship container-type and cq units together,
-   * so the probe covers both.
-   *
-   * Multipliers reproduce the look tuned at a 1152px container with
-   * perspective 1000px and depth 54px (1% of the 984px slide = 9.84px).
-   */
-  --scene-unit: calc(
-    var(--current-slide-fraction) * min(100vw, ${theme["container-max"]}) / 100
-  );
+  --scene-unit: calc(var(--current-slide-fraction) * 100vw / 100);
   --scene-perspective: calc(var(--scene-unit) * 102);
   --scene-depth: calc(var(--scene-unit) * 5.5);
 

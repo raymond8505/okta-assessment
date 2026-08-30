@@ -115,7 +115,7 @@ export default function HomePage() {
         style={{ margin: `${theme.space[9]} 0`, overflowX: "clip" }}
       >
         <Container style={{ paddingLeft: 0, paddingRight: 0, height: "628px" }}>
-          <Carousel items={items} label="quotes" mode="inset" />
+          <Carousel items={items} label="quotes" mode="overflow" />
         </Container>
       </Row>
     </main>

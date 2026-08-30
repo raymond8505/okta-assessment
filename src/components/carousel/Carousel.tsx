@@ -41,12 +41,10 @@ export function Carousel({
   const touchOrigin = useRef<{ x: number; y: number } | null>(null);
   const rootRef = useRef<HTMLElement>(null);
 
-  // Legacy fallback for browsers without container queries: the stylesheet's
-  // no-cq --scene-unit assumes a full-width carousel, so measure the real box
-  // and feed the unit in px. The fraction stays a var so mode/direction
-  // switches keep resolving in CSS without re-measuring. Supporting browsers
-  // never enter this path; the observer fires once on observe, so the inline
-  // value is present from first layout after hydration.
+  /**
+   * graceful degredation for browsers that don't support container queries
+   * manually scene unit on resize
+   */
   useEffect(() => {
     const root = rootRef.current;
     if (!root || typeof ResizeObserver === "undefined") return;
