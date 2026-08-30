@@ -11,7 +11,7 @@ export const CarouselRoot = styled.section<{ $height: string }>`
   --preview-scale: 0.62;
 
   --scene-unit: calc(
-    var(--current-slide-fraction) * min(100vw, ${theme["container-max"]}) / 100
+    var(--current-slide-fraction) * min(100vw, ${theme.container.max}) / 100
   );
   --scene-perspective: calc(var(--scene-unit) * 102);
   --scene-depth: calc(var(--scene-unit) * 5.5);
@@ -181,14 +181,14 @@ export const CarouselDots = styled.div`
 `;
 
 export const CarouselDot = styled(UnstyledButton)`
-  width: ${theme.carousel.dots.dot.width};
-  height: ${theme.carousel.dots.dot.height};
+  width: ${theme.carousel.dot.width};
+  height: ${theme.carousel.dot.height};
 
   border-radius: ${theme.radius.full};
-  background: ${theme.carousel.dots.dot.bg};
+  background: ${theme.carousel.dot.bg};
 
   &[aria-disabled="true"] {
-    background: ${theme.carousel.dots.dot.activeBg};
+    background: ${theme.carousel.dot.activeBg};
   }
 
   &:focus-visible {

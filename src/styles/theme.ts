@@ -35,19 +35,7 @@ export const theme = createTheme(
       "accent-fg": "#ffffff",
       focus: "#1662d4",
     },
-    carousel: {
-      caption: {
-        bg: "#F6F1E7",
-      },
-      dots: {
-        dot: {
-          width: "75px",
-          height: "5px",
-          bg: "rgba(255, 255, 255, 0.5)",
-          activeBg: "#FFFEFA",
-        },
-      },
-    },
+
     space: {
       1: "0.25rem",
       2: "0.5rem",
@@ -88,9 +76,23 @@ export const theme = createTheme(
       tight: "-1.12px",
       normal: "0px",
     },
-    "container-max": "72rem",
-    "row-background":
-      "linear-gradient(75.01deg, #FFFEFA -65.58%, #F6F1E7 29.37%, #E8DCC7 217.98%)",
+    container: {
+      max: "72rem",
+    },
+    row: {
+      bg: "linear-gradient(75.01deg, #FFFEFA -65.58%, #F6F1E7 29.37%, #E8DCC7 217.98%)",
+    },
+    carousel: {
+      caption: {
+        bg: "#F6F1E7",
+      },
+      dot: {
+        width: "75px",
+        height: "5px",
+        bg: "rgba(255, 255, 255, 0.5)",
+        activeBg: "#FFFEFA",
+      },
+    },
     transition: {
       fast: ".125s ease-in-out",
       medium: ".250s ease-in-out",

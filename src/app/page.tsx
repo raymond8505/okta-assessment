@@ -120,7 +120,7 @@ export default function HomePage() {
             label="quotes"
             mode="overflow"
             height="70vh"
-            direction="vertical"
+            direction="horizontal"
           />
         </CarouselContainer>
       </Row>
