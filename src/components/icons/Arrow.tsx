@@ -36,9 +36,8 @@ export function ArrowRightIcon({
 }
 
 /*
- * The rotated variants would otherwise inherit "Chevron point right" as their
+ * The rotated variants would otherwise inherit "Arrow point right" as their
  * accessible name. Function-form attrs so a consumer-passed title still wins
- * (static attrs override props).
  */
 export const ArrowDownIcon = styled(ArrowRightIcon).attrs<IconProps>(
   ({ title }) => ({ title: title ?? "Arrow point down" }),
