@@ -180,18 +180,33 @@ export const CarouselDots = styled.div`
   }
 `;
 
+/*
+ * The pill is a visual cue only — the button is the tap target and must meet
+ * WCAG 2.5.8's 24px minimum, upgraded to 44px where the pointer is a finger.
+ */
 export const CarouselDot = styled(UnstyledButton)`
-  width: ${theme.carousel.dot.width};
-  height: ${theme.carousel.dot.height};
+  display: grid;
+  place-items: center;
+  min-width: 24px;
+  min-height: 24px;
 
-  border-radius: ${theme.radius.full};
-  background: ${theme.carousel.dot.bg};
-
-  &[aria-disabled="true"] {
-    background: ${theme.carousel.dot.activeBg};
+  @media (pointer: coarse) {
+    min-width: 44px;
+    min-height: 44px;
   }
 
   &:focus-visible {
     outline: 2px solid ${theme.color.focus};
+  }
+`;
+
+export const CarouselDotVisual = styled.span`
+  width: ${theme.carousel.dot.width};
+  height: ${theme.carousel.dot.height};
+  border-radius: ${theme.radius.full};
+  background: ${theme.carousel.dot.bg};
+
+  [aria-disabled="true"] > & {
+    background: ${theme.carousel.dot.activeBg};
   }
 `;

@@ -8,6 +8,7 @@ import {
   CarouselControls,
   CarouselDot,
   CarouselDots,
+  CarouselDotVisual,
   CarouselImage,
   CarouselRoot,
   CarouselSlide,
@@ -139,7 +140,9 @@ export function Carousel({
               // per the APG grouped slide-picker variant.
               aria-disabled={index === currentSlide || undefined}
               onClick={() => goTo(index)}
-            />
+            >
+              <CarouselDotVisual />
+            </CarouselDot>
           ))}
         </CarouselDots>
         <CarouselControls>
