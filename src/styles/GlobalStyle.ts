@@ -17,8 +17,18 @@ export const GlobalStyle = createGlobalStyle`
     background: ${theme.color.bg};
     color: ${theme.color.fg};
     font-family: ${theme.font.sans};
-    font-size: ${theme["font-size"][300]};
+    font-size: ${theme["font-size"]["1rem"]};
     line-height: ${theme["line-height"].normal};
+  }
+
+  h1,h2,h3,h4,h5,h6,li,ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  h1,h2,h3,h4,h5,h6,p
+  {
+    text-wrap: balance;
   }
 
   :focus-visible {

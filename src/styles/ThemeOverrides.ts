@@ -12,7 +12,7 @@ const { vars } = theme;
  */
 const darkPalette = css`
   color-scheme: dark;
-  ${vars.color.bg}: #101317;
+  ${vars.color.bg}: #1E1E1E;
   ${vars.color.surface}: #181c22;
   ${vars.color["surface-raised"]}: #20252c;
   ${vars.color.fg}: #eef1f5;
@@ -22,6 +22,7 @@ const darkPalette = css`
   ${vars.color["accent-hover"]}: #93c0ff;
   ${vars.color["accent-fg"]}: #0b1220;
   ${vars.color.focus}: #6ea8fe;
+  ${vars["row-background"]}: linear-gradient(75.01deg, ${theme.color.bg} -65.58%, #181c22 29.37%, #20252c 217.98%);
 `;
 
 /**

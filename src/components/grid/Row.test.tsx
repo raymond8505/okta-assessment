@@ -16,9 +16,13 @@ describe("Row", () => {
 
   it("emits only the base class when no modifiers are set", () => {
     render(<Row data-testid="row" />);
+    const row = screen.getByTestId("row");
     // $wrap defaults to true, which is .row's own default — so it must NOT add
     // a class. Only the opt-out (nowrap) is expressed as a modifier.
-    expect(screen.getByTestId("row").className).toBe("row");
+    // styled-components mixes its own generated classes into className, so
+    // check the semantic classes individually rather than the full string.
+    expect(row).toHaveClass("row");
+    expect(row).not.toHaveClass("nowrap", "column");
   });
 
   it("maps gap, align and justify to class names", () => {
@@ -44,6 +48,16 @@ describe("Row", () => {
 
     rerender(<Row $direction="column" data-testid="row" />);
     expect(screen.getByTestId("row")).toHaveClass("column");
+  });
+
+  it("applies distinct styled-components output only when $hasBackground is set", () => {
+    const { rerender } = render(<Row data-testid="row" />);
+    const withoutBackground = screen.getByTestId("row").className;
+
+    rerender(<Row $hasBackground data-testid="row" />);
+    const withBackground = screen.getByTestId("row").className;
+
+    expect(withBackground).not.toBe(withoutBackground);
   });
 
   it("renders children", () => {

@@ -24,7 +24,7 @@ import { createTheme } from "styled-components";
 export const theme = createTheme(
   {
     color: {
-      bg: "#ffffff",
+      bg: "#FFFEFA",
       surface: "#f6f7f9",
       "surface-raised": "#ffffff",
       fg: "#16191d",
@@ -47,28 +47,35 @@ export const theme = createTheme(
     },
     radius: {
       sm: "4px",
-      md: "8px",
+      md: "6px",
       lg: "16px",
       full: "9999px",
     },
     font: {
-      sans: 'ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
-      mono: 'ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace',
+      sans: "Aeonik, sans-serif",
+    },
+    "font-weight": {
+      normal: "400",
+      medium: "500",
+      bold: "700",
     },
     "font-size": {
-      100: "0.75rem",
-      200: "0.875rem",
-      300: "1rem",
-      400: "1.125rem",
-      500: "1.5rem",
-      600: "2rem",
-      700: "2.5rem",
+      "1rem": "16px",
+      h1: "3.5rem",
+      breadcrumbs: "1.25rem",
     },
     "line-height": {
       tight: "1.2",
       normal: "1.5",
+      h1: "1.143",
+    },
+    "letter-spacing": {
+      tight: "-1.12px",
+      normal: "0px",
     },
     "container-max": "72rem",
+    "row-background":
+      "linear-gradient(75.01deg, #FFFEFA -65.58%, #F6F1E7 29.37%, #E8DCC7 217.98%)",
     transition: {
       fast: "120ms ease",
       medium: "200ms ease",
