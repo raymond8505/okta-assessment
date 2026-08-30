@@ -35,14 +35,25 @@ export function ArrowRightIcon({
   );
 }
 
-export const ArrowDownIcon = styled(ArrowRightIcon)`
+/*
+ * The rotated variants would otherwise inherit "Chevron point right" as their
+ * accessible name. Function-form attrs so a consumer-passed title still wins
+ * (static attrs override props).
+ */
+export const ArrowDownIcon = styled(ArrowRightIcon).attrs<IconProps>(
+  ({ title }) => ({ title: title ?? "Chevron point down" }),
+)`
   transform: rotate(90deg);
 `;
 
-export const ArrowLeftIcon = styled(ArrowRightIcon)`
+export const ArrowLeftIcon = styled(ArrowRightIcon).attrs<IconProps>(
+  ({ title }) => ({ title: title ?? "Chevron point left" }),
+)`
   transform: rotate(180deg);
 `;
 
-export const ArrowUpIcon = styled(ArrowRightIcon)`
+export const ArrowUpIcon = styled(ArrowRightIcon).attrs<IconProps>(
+  ({ title }) => ({ title: title ?? "Chevron point up" }),
+)`
   transform: rotate(270deg);
 `;

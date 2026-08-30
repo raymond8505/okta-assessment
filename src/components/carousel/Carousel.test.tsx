@@ -117,6 +117,18 @@ describe("Carousel", () => {
     expect(getSlide(2)).toHaveClass("Carousel--prev");
   });
 
+  it("renders left/right arrows on the controls", () => {
+    renderCarousel();
+    expect(
+      screen
+        .getByRole("button", { name: "Previous slide" })
+        .querySelector("svg"),
+    ).toHaveAttribute("aria-label", "Chevron point left");
+    expect(
+      screen.getByRole("button", { name: "Next slide" }).querySelector("svg"),
+    ).toHaveAttribute("aria-label", "Chevron point right");
+  });
+
   it("keeps focus on the control after activation", async () => {
     const user = userEvent.setup();
     renderCarousel();
@@ -278,6 +290,18 @@ describe("Carousel", () => {
         "data-direction",
         "vertical",
       );
+    });
+
+    it("renders up/down arrows on the controls", () => {
+      renderCarousel({ direction: "vertical" });
+      expect(
+        screen
+          .getByRole("button", { name: "Previous slide" })
+          .querySelector("svg"),
+      ).toHaveAttribute("aria-label", "Chevron point up");
+      expect(
+        screen.getByRole("button", { name: "Next slide" }).querySelector("svg"),
+      ).toHaveAttribute("aria-label", "Chevron point down");
     });
 
     it("responds to vertical swipes and ignores horizontal ones", () => {

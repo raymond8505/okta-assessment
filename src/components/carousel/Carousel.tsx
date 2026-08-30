@@ -16,7 +16,12 @@ import {
   CarouselViewport,
 } from "./Carousel.styles";
 import type { CarouselProps } from "./types";
-import { ArrowLeftIcon, ArrowRightIcon } from "../icons/Arrow";
+import {
+  ArrowDownIcon,
+  ArrowLeftIcon,
+  ArrowRightIcon,
+  ArrowUpIcon,
+} from "../icons/Arrow";
 
 export type {
   CarouselDirection,
@@ -152,10 +157,18 @@ export function Carousel({
             aria-label="Previous slide"
             onClick={prev}
           >
-            <ArrowLeftIcon aria-hidden />
+            {direction === "vertical" ? (
+              <ArrowUpIcon aria-hidden />
+            ) : (
+              <ArrowLeftIcon aria-hidden />
+            )}
           </CarouselControl>
           <CarouselControl type="button" aria-label="Next slide" onClick={next}>
-            <ArrowRightIcon aria-hidden />
+            {direction === "vertical" ? (
+              <ArrowDownIcon aria-hidden />
+            ) : (
+              <ArrowRightIcon aria-hidden />
+            )}
           </CarouselControl>
         </CarouselControls>
       </CarouselViewport>
