@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 import { theme } from "@/styles/theme";
 import { UnstyledButton } from "../primitives/buttons";
 
-export const CarouselRoot = styled.section`
+export const CarouselRoot = styled.section<{ $height: string }>`
   --current-slide-fraction: 0.8542;
   --current-slide-size: calc(var(--current-slide-fraction) * 100%);
   --current-slide-inset: calc((100% - var(--current-slide-size)) / 2);
@@ -19,7 +19,7 @@ export const CarouselRoot = styled.section`
   }
 
   width: 100%;
-  height: 100%;
+  height: ${(props) => props.$height};
 
   &[data-direction="vertical"] {
     --current-slide-fraction: 0.8;
@@ -48,11 +48,8 @@ export const CarouselViewport = styled.div`
 
   width: 100%;
   height: 100%;
-  container-type: size;
 
-  [data-mode="overflow"] & {
-    overflow: visible;
-  }
+  container-type: size;
 `;
 
 export const CarouselSlides = styled.div`

@@ -27,4 +27,6 @@ export interface CarouselProps {
    * clip on an ancestor (overflow-x/y: clip) or the previews widen the page.
    */
   mode?: CarouselMode;
+
+  height: string;
 }

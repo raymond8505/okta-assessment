@@ -107,15 +107,19 @@ export default function HomePage() {
           </Row>
         </Container>
       </Row>
-      {/* clip, not hidden: hidden would make the Row a scroll container.
-          Without it the overflowing previews widen the page on narrow
-          screens. */}
+
       <Row
         aria-label="Some of our favourite quotes"
-        style={{ margin: `${theme.space[9]} 0`, overflowX: "clip" }}
+        style={{ margin: `${theme.space[9]} 0` }}
       >
-        <Container style={{ paddingLeft: 0, paddingRight: 0, height: "628px" }}>
-          <Carousel items={items} label="quotes" mode="overflow" />
+        <Container style={{ paddingLeft: 0, paddingRight: 0 }}>
+          <Carousel
+            items={items}
+            label="quotes"
+            mode="overflow"
+            height="70vh"
+            //height={`calc(100vh - (${theme.space[9]} * 2))`}
+          />
         </Container>
       </Row>
     </main>

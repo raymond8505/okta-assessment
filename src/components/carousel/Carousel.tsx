@@ -36,6 +36,7 @@ export function Carousel({
   label,
   direction = "horizontal",
   mode = "inset",
+  height,
 }: CarouselProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const touchOrigin = useRef<{ x: number; y: number } | null>(null);
@@ -104,6 +105,7 @@ export function Carousel({
       data-mode={mode}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
+      $height={height}
     >
       <CarouselViewport>
         <CarouselSlides aria-live="polite" aria-atomic="false">
