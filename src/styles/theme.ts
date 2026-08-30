@@ -82,5 +82,5 @@ export const theme = createTheme(
       slow: "400ms ease",
     },
   },
-  { prefix: "okta", selector: ":root" },
+  { prefix: "sc", selector: ":root" },
 );
