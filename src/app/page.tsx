@@ -9,12 +9,6 @@ import {
   PrimaryButton,
   SecondaryButton,
 } from "@/components/primitives/buttons";
-import quotes from "@/data/quotes.json";
-import { Carousel } from "@/components/carousel/Carousel";
-import type {
-  CarouselItem,
-  CarouselItems,
-} from "@/components/carousel/Carousel";
 
 const HeroImage = styled(Image)`
   height: 548px;
