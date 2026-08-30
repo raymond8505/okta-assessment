@@ -9,6 +9,7 @@ import {
   PrimaryButton,
   SecondaryButton,
 } from "@/components/primitives/buttons";
+import { Carousel } from "@/components/carousel/Carousel";
 
 const HeroImage = styled(Image)`
   height: 548px;
@@ -70,6 +71,7 @@ export default function HomePage() {
               />
             </Col>
           </Row>
+          <Row aria-label="Some of our favourite quotes"></Row>
         </Container>
       </Row>
     </main>
