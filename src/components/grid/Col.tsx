@@ -12,12 +12,6 @@ type ColProps<T extends ElementType> = {
   Omit<ComponentPropsWithoutRef<T>, "as">;
 
 /**
- * Flex column. Span props map to the static class names defined in grid.css:
- * `<Col $sm={12} $md={6} $lg={4}>` renders `class="col sm-12 md-6 lg-4"`.
- *
- * With no span props it falls back to `.col`'s `flex: 1 1 0` — an equal share
- * of the row. Spans are mobile-first: each applies from its breakpoint upward.
- *
  * No "use client" — this renders in Server Components.
  */
 export function Col<T extends ElementType = "div">({

@@ -22,6 +22,9 @@ type RowProps<T extends ElementType> = {
   $hasBackground?: boolean;
 } & Omit<ComponentPropsWithoutRef<T>, "as">;
 
+/**
+ * section is Row default, Row passes as to override as needed
+ */
 const StyledRow = styled.section<{ $hasBackground?: boolean }>`
   ${({ $hasBackground }) =>
     $hasBackground &&

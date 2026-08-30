@@ -108,10 +108,7 @@
 }
 
 /*
- * Span widths. The calc is exact rather than approximate: N of 12 columns take
- *   N/12 * (100% + gap) - gap
- * Twelve span-1 columns therefore sum to 100% - 11*gap, and flex adds the 11
- * gaps back for exactly 100%. No negative-margin gutters needed.
+ * max-width because this is our smallest breakpoint, so we cover all widths below this
  */
 @media (max-width: 47.999rem) {
   .col.sm-1 {
