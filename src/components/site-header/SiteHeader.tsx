@@ -12,22 +12,26 @@ const SiteHeaderElement = styled.header`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.06);
 `;
 
+const HeaderContainer = styled(Container)`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const LogoLink = styled(Link)`
+  color: inherit;
+`;
+
 export function SiteHeader({
   ...props
 }: React.ComponentProps<typeof SiteHeaderElement>) {
   return (
     <SiteHeaderElement {...props}>
-      <Container
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-        }}
-      >
-        <Link href={"/"} style={{ color: "inherit" }}>
+      <HeaderContainer>
+        <LogoLink href={"/"}>
           <OktaLogoIcon size={36} />
-        </Link>
+        </LogoLink>
         <ThemeToggle />
-      </Container>
+      </HeaderContainer>
     </SiteHeaderElement>
   );
 }

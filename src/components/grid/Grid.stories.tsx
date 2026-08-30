@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
+import { styled } from "styled-components";
 
 import { Col } from "./Col";
 import { Row } from "./Row";
@@ -16,22 +17,18 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const CellElement = styled.div`
+  background: var(--sc-color-surface);
+  border: 1px solid var(--sc-color-border);
+  border-radius: var(--sc-radius-md);
+  padding: var(--sc-space-3);
+  font-family: var(--sc-font-mono);
+  font-size: var(--sc-font-size-200);
+`;
+
 /** Marks out a column so the spans are visible. */
 function Cell({ children }: { children: React.ReactNode }) {
-  return (
-    <div
-      style={{
-        background: "var(--sc-color-surface)",
-        border: "1px solid var(--sc-color-border)",
-        borderRadius: "var(--sc-radius-md)",
-        padding: "var(--sc-space-3)",
-        fontFamily: "var(--sc-font-mono)",
-        fontSize: "var(--sc-font-size-200)",
-      }}
-    >
-      {children}
-    </div>
-  );
+  return <CellElement>{children}</CellElement>;
 }
 
 /** With no span props every column takes an equal share of the row. */
@@ -87,13 +84,17 @@ export const Responsive: Story = {
   ),
 };
 
+const GapsRow = styled(Row)`
+  margin-bottom: var(--sc-space-5);
+`;
+
 /** Gap indexes the space token scale. */
 export const Gaps: Story = {
   args: {},
   render: () => (
     <>
       {([1, 4, 6] as const).map((gap) => (
-        <Row key={gap} $gap={gap} style={{ marginBottom: "var(--sc-space-5)" }}>
+        <GapsRow key={gap} $gap={gap}>
           <Col $sm={4}>
             <Cell>gap-{gap}</Cell>
           </Col>
@@ -103,7 +104,7 @@ export const Gaps: Story = {
           <Col $sm={4}>
             <Cell>gap-{gap}</Cell>
           </Col>
-        </Row>
+        </GapsRow>
       ))}
     </>
   ),

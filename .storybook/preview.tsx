@@ -2,7 +2,7 @@ import * as React from "react";
 
 import type { Preview } from "@storybook/nextjs-vite";
 import { DecoratorHelpers } from "@storybook/addon-themes";
-import { ThemeProvider } from "styled-components";
+import { styled, ThemeProvider } from "styled-components";
 
 import "modern-normalize/modern-normalize.css";
 import "../src/styles/grid.css";
@@ -16,6 +16,13 @@ const { initializeThemeState, pluckThemeFromContext } = DecoratorHelpers;
 
 const THEMES = { light: "light", dark: "dark" };
 initializeThemeState(Object.keys(THEMES), "light");
+
+const PreviewSurface = styled.div`
+  background: ${theme.color.bg};
+  color: ${theme.color.fg};
+  padding: ${theme.space[4]};
+  min-height: 100vh;
+`;
 
 /**
  * Every story is wrapped in the same chrome the app uses: the global style
@@ -43,18 +50,11 @@ const preview: Preview = {
         <theme.GlobalStyle />
         <ThemeOverrides />
         <GlobalStyle />
-        <div
-          style={{
-            background: theme.color.bg,
-            color: theme.color.fg,
-            padding: theme.space[4],
-            minHeight: "100vh",
-          }}
-        >
+        <PreviewSurface>
           <Container>
             <Story />
           </Container>
-        </div>
+        </PreviewSurface>
       </ThemeProvider>
     ),
 

@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
+import { styled } from "styled-components";
 
 import { theme } from "./theme";
 import { breakpoints } from "./breakpoints";
@@ -31,6 +32,59 @@ const COLOR_KEYS = [
 
 const SPACE_KEYS = [1, 2, 3, 4, 5, 6, 7, 8] as const;
 
+const SectionElement = styled.section`
+  margin-bottom: ${theme.space[7]};
+`;
+
+const SectionHeading = styled.h2`
+  font-size: ${theme["font-size"]["500" as keyof (typeof theme)["font-size"]]};
+  margin-bottom: ${theme.space[4]};
+`;
+
+const TokenGrid = styled.div`
+  display: grid;
+  gap: ${theme.space[3]};
+`;
+
+const TokenRow = styled.div`
+  display: flex;
+  align-items: center;
+  gap: ${theme.space[4]};
+`;
+
+const ColorSwatch = styled.div<{ $color: string }>`
+  width: 3rem;
+  height: 3rem;
+  border-radius: ${theme.radius.md};
+  background: ${({ $color }) => $color};
+  border: 1px solid ${theme.color.border};
+  flex: 0 0 auto;
+`;
+
+const SpaceSwatch = styled.div<{ $width: string }>`
+  width: ${({ $width }) => $width};
+  height: 1.5rem;
+  background: ${theme.color.accent};
+  border-radius: ${theme.radius.sm};
+  flex: 0 0 auto;
+`;
+
+const TypeSample = styled.div<{ $fontSize: string }>`
+  font-size: ${({ $fontSize }) => $fontSize};
+  margin-bottom: ${theme.space[2]};
+  line-height: 1;
+`;
+
+const BreakpointsIntro = styled.p`
+  color: ${theme.color["fg-muted"]};
+  margin-bottom: ${theme.space[4]};
+`;
+
+const BreakpointsList = styled.div`
+  display: grid;
+  gap: ${theme.space[2]};
+`;
+
 function Section({
   title,
   children,
@@ -39,51 +93,27 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section style={{ marginBottom: theme.space[7] }}>
-      <h2
-        style={{
-          fontSize:
-            theme["font-size"]["500" as keyof (typeof theme)["font-size"]],
-          marginBottom: theme.space[4],
-        }}
-      >
-        {title}
-      </h2>
+    <SectionElement>
+      <SectionHeading>{title}</SectionHeading>
       {children}
-    </section>
+    </SectionElement>
   );
 }
 
 export const Colors: Story = {
   render: () => (
     <Section title="Colour">
-      <div style={{ display: "grid", gap: theme.space[3] }}>
+      <TokenGrid>
         {COLOR_KEYS.map((key) => (
-          <div
-            key={key}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: theme.space[4],
-            }}
-          >
-            <div
-              style={{
-                width: "3rem",
-                height: "3rem",
-                borderRadius: theme.radius.md,
-                background: theme.color[key],
-                border: `1px solid ${theme.color.border}`,
-                flex: "0 0 auto",
-              }}
-            />
+          <TokenRow key={key}>
+            <ColorSwatch $color={theme.color[key]} />
             <div>
               <div>{key}</div>
               <div>{theme.vars.color[key]}</div>
             </div>
-          </div>
+          </TokenRow>
         ))}
-      </div>
+      </TokenGrid>
     </Section>
   ),
 };
@@ -91,29 +121,14 @@ export const Colors: Story = {
 export const Spacing: Story = {
   render: () => (
     <Section title="Space">
-      <div style={{ display: "grid", gap: theme.space[3] }}>
+      <TokenGrid>
         {SPACE_KEYS.map((key) => (
-          <div
-            key={key}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: theme.space[4],
-            }}
-          >
-            <div
-              style={{
-                width: theme.space[key],
-                height: "1.5rem",
-                background: theme.color.accent,
-                borderRadius: theme.radius.sm,
-                flex: "0 0 auto",
-              }}
-            />
+          <TokenRow key={key}>
+            <SpaceSwatch $width={theme.space[key]} />
             <span>{theme.vars.space[key]}</span>
-          </div>
+          </TokenRow>
         ))}
-      </div>
+      </TokenGrid>
     </Section>
   ),
 };
@@ -121,25 +136,19 @@ export const Spacing: Story = {
 export const Typography: Story = {
   render: () => (
     <Section title="Type scale">
-      <div style={{ display: "grid", gap: theme.space[3] }}>
+      <TokenGrid>
         {Object.keys(theme["font-size"]).map((key) => {
           const fontSizeKey = key as keyof (typeof theme)["font-size"];
           return (
             <div key={key}>
               <span>{theme.vars["font-size"][fontSizeKey]}</span>
-              <div
-                style={{
-                  fontSize: theme["font-size"][fontSizeKey],
-                  marginBottom: theme.space[2],
-                  lineHeight: 1,
-                }}
-              >
+              <TypeSample $fontSize={theme["font-size"][fontSizeKey]}>
                 The quick brown fox
-              </div>
+              </TypeSample>
             </div>
           );
         })}
-      </div>
+      </TokenGrid>
     </Section>
   ),
 };
@@ -147,20 +156,18 @@ export const Typography: Story = {
 export const Breakpoints: Story = {
   render: () => (
     <Section title="Breakpoints">
-      <p
-        style={{ color: theme.color["fg-muted"], marginBottom: theme.space[4] }}
-      >
+      <BreakpointsIntro>
         The one token family kept in TypeScript rather than as custom properties
         — <code>@media (min-width: var(--x))</code> is invalid CSS. Duplicated
         literally in grid.css.
-      </p>
-      <div style={{ display: "grid", gap: theme.space[2] }}>
+      </BreakpointsIntro>
+      <BreakpointsList>
         {Object.entries(breakpoints).map(([name, value]) => (
           <div key={name}>
             {name} — {value}
           </div>
         ))}
-      </div>
+      </BreakpointsList>
     </Section>
   ),
 };
