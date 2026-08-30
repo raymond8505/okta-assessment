@@ -69,13 +69,11 @@ const CarouselSlide = styled.div`
   }
 
   &.Carousel--next {
-    // transform: translate3d(100%, 0, -80px);
     transform: translateX(13%) translateZ(54px) scale(0.7) rotateY(-32deg);
     z-index: 1;
   }
 
   &.Carousel--prev {
-    // transform: translate3d(-100%, 0, -80px);
     transform: translateX(-13%) translateZ(54px) scale(0.7) rotateY(32deg);
     z-index: 1;
   }
@@ -85,11 +83,11 @@ const CarouselSlide = styled.div`
   }
 
   [data-direction="vertical"] &.Carousel--next {
-    transform: translate3d(0, 100%, -80px);
+    transform: translateY(13%) translateZ(54px) scale(0.7) rotateX(32deg);
   }
 
   [data-direction="vertical"] &.Carousel--prev {
-    transform: translate3d(0, -100%, -80px);
+    transform: translateY(-13%) translateZ(54px) scale(0.7) rotateX(-32deg);
   }
 `;
 
