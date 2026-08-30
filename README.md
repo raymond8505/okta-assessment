@@ -88,10 +88,12 @@ are not permitted in media query conditions.
 ## Quote data
 
 `src/data/quotes.json` is the committed dataset — 120 entries of
-`{ id, author, quote, image }` built from
+`{ id, author, quote, image: { src, alt } }` built from
 `prior-art/Quotes Exercise Dataset - quotes.csv` by `yarn data:quotes`. It is
 checked in, so the app needs no Unsplash key at runtime; you only need one to
-regenerate it.
+regenerate it. The alt text is Unsplash's `alt_description` of the chosen photo
+(falling back to the search query that matched it) with a
+"photo by NAME on Unsplash" credit appended.
 
 **Images are chosen by concept, not by quote text.** Passing a whole quote to
 Unsplash matches loosely and returns generic stock — the full text of
@@ -120,8 +122,9 @@ interrupted by the rate limit resumes where it stopped.
 
 `src/data/credits.json` is a sidecar keyed by quote id holding the photographer
 name and UTM-tagged profile/photo links. It exists because Unsplash's API
-Guidelines require attribution, while `quotes.json` is kept to exactly the four
-specified fields. Hotlinking `urls.regular` — with its `ixid` parameter intact —
+Guidelines require attribution, while `quotes.json` keeps the same four
+top-level fields, with `image` carrying just the src/alt pair the UI needs.
+Hotlinking `urls.regular` — with its `ixid` parameter intact —
 is the compliant way to display these; the `/photos/:id/download` ping applies
 only to actual downloads, which this app does not do.
 

@@ -54,6 +54,33 @@ describe("Carousel", () => {
     expect(getSlide(3)).toHaveClass("Carousel--prev");
   });
 
+  it("renders each slide's image with its src and alt", () => {
+    renderCarousel();
+    const images = screen.getAllByRole("img", { hidden: true });
+    expect(images).toHaveLength(3);
+    carouselItemsFixture.forEach((item, index) => {
+      expect(images[index]).toHaveAttribute("src", item.image.src);
+      expect(images[index]).toHaveAttribute("alt", item.image.alt);
+    });
+  });
+
+  it("exposes only the current slide's image, alongside its caption", async () => {
+    const user = userEvent.setup();
+    renderCarousel();
+
+    // Default query excludes the aria-hidden prev/next slides' images.
+    const visible = screen.getAllByRole("img");
+    expect(visible).toHaveLength(1);
+    expect(visible[0]).toHaveAccessibleName(carouselItemsFixture[0].image.alt);
+    expect(getSlide(1)).toContainElement(visible[0]);
+    expect(getSlide(1)).toHaveTextContent("Caption one");
+
+    await user.click(screen.getByRole("button", { name: "Next slide" }));
+    expect(
+      screen.getByRole("img", { name: carouselItemsFixture[1].image.alt }),
+    ).toBeInTheDocument();
+  });
+
   it("only exposes the current slide to assistive tech", () => {
     renderCarousel();
     expect(getSlide(1)).not.toHaveAttribute("aria-hidden");

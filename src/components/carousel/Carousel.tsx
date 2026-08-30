@@ -1,5 +1,4 @@
 "use client";
-// Client boundary: currentSlide state plus click/touch handlers.
 
 import { useRef, useState } from "react";
 import type { ReactNode, TouchEvent as ReactTouchEvent } from "react";
@@ -8,10 +7,7 @@ import { theme } from "@/styles/theme";
 import { UnstyledButton } from "../primitives/buttons";
 
 export type CarouselItem = {
-  /** URL rendered as the slide's background image. */
-  image: string;
-  /** Content layered above the image. Assumed non-interactive: preview slides
-   * are aria-hidden, so focusable caption content would need `inert` instead. */
+  image: { src: string; alt: string };
   caption: ReactNode;
 };
 
@@ -23,9 +19,7 @@ export type CarouselDirection = "horizontal" | "vertical";
 export interface CarouselProps {
   items: CarouselItems;
   /**
-   * Accessible name for the carousel region. Per the APG carousel pattern it
-   * must not contain the word "carousel" — aria-roledescription already
-   * announces that.
+   * Accessible name for the carousel region.
    */
   label: string;
   /** Axis on which the prev/next slides are previewed. */
@@ -62,12 +56,10 @@ const CarouselSlides = styled.div`
  * translated ±100% of itself therefore overlaps the viewport edge by exactly
  * the 10% margin — that sliver is the prev/next preview.
  */
-const CarouselSlide = styled.div<{ $image: string }>`
+const CarouselSlide = styled.div`
   position: absolute;
   inset: 0 10%;
-  background-image: url("${(props) => props.$image}");
-  background-size: cover;
-  background-position: center;
+  overflow: hidden;
   border-radius: ${theme.radius.md};
   transition: transform ${theme.transition.slow};
 
@@ -99,9 +91,17 @@ const CarouselSlide = styled.div<{ $image: string }>`
   }
 `;
 
+const CarouselImage = styled.img`
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+`;
+
 const CarouselCaption = styled.div`
   position: absolute;
-  /* background-image has no stacking presence; any positive z-index sits above it. */
   z-index: 1;
   left: ${theme.space[4]};
   bottom: ${theme.space[4]};
@@ -235,8 +235,8 @@ export function Carousel({
                 // exposed — the live region then announces exactly one slide.
                 aria-hidden={position !== "current" || undefined}
                 className={`Carousel--${position}`}
-                $image={item.image}
               >
+                <CarouselImage src={item.image.src} alt={item.image.alt} />
                 <CarouselCaption>{item.caption}</CarouselCaption>
               </CarouselSlide>
             );
@@ -256,7 +256,11 @@ export function Carousel({
           ))}
         </CarouselDots>
         <CarouselControls>
-          <CarouselControl type="button" aria-label="Previous slide" onClick={prev}>
+          <CarouselControl
+            type="button"
+            aria-label="Previous slide"
+            onClick={prev}
+          >
             ‹
           </CarouselControl>
           <CarouselControl type="button" aria-label="Next slide" onClick={next}>
