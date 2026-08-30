@@ -11,17 +11,23 @@ import { theme } from "./theme";
  * won't: bind the page to our own tokens.
  */
 export const GlobalStyle = createGlobalStyle`
+
+  html,body
+  {
+    font-family: ${theme.font.sans};
+    font-size: ${theme["font-size"]["1rem"]};
+  }
+    
   body {
     min-height: 100dvh;
     margin: 0;
     background: ${theme.color.bg};
     color: ${theme.color.fg};
-    font-family: ${theme.font.sans};
-    font-size: ${theme["font-size"]["1rem"]};
+    
     line-height: ${theme["line-height"].normal};
   }
 
-  h1,h2,h3,h4,h5,h6,li,ul {
+  h1,h2,h3,h4,h5,h6,li,ul,blockquote,p {
     margin: 0;
     padding: 0;
   }

@@ -9,7 +9,12 @@ import {
   PrimaryButton,
   SecondaryButton,
 } from "@/components/primitives/buttons";
+import quotes from "@/data/quotes.json";
 import { Carousel } from "@/components/carousel/Carousel";
+import type {
+  CarouselItem,
+  CarouselItems,
+} from "@/components/carousel/Carousel";
 
 const HeroImage = styled(Image)`
   height: 548px;
@@ -38,6 +43,35 @@ const CtaRow = styled.div`
   display: flex;
   gap: ${theme.space[4]};
 `;
+
+/**
+ * carousel testing
+ */
+type Quote = (typeof quotes)[number];
+
+function QuoteCaption({ quote, author }: Pick<Quote, "quote" | "author">) {
+  return (
+    <blockquote style={{ padding: "16px" }}>
+      <p>{quote}</p>
+      <footer>— {author}</footer>
+    </blockquote>
+  );
+}
+
+function toItem(quote: Quote): CarouselItem {
+  return {
+    image: quote.image,
+    caption: <QuoteCaption quote={quote.quote} author={quote.author} />,
+  };
+}
+
+const items: CarouselItems = [
+  toItem(quotes[3]),
+  toItem(quotes[0]),
+
+  toItem(quotes[2]),
+];
+
 export default function HomePage() {
   return (
     <main>
@@ -71,7 +105,11 @@ export default function HomePage() {
               />
             </Col>
           </Row>
-          <Row aria-label="Some of our favourite quotes"></Row>
+          <Row aria-label="Some of our favourite quotes">
+            <Container>
+              <Carousel items={items} label="quotes" />
+            </Container>
+          </Row>
         </Container>
       </Row>
     </main>

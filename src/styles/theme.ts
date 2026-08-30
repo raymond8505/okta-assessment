@@ -34,6 +34,11 @@ export const theme = createTheme(
       "accent-hover": "#0f4ba8",
       "accent-fg": "#ffffff",
       focus: "#1662d4",
+      carousel: {
+        caption: {
+          bg: "#F6F1E7",
+        },
+      },
     },
     space: {
       1: "0.25rem",
@@ -49,6 +54,7 @@ export const theme = createTheme(
       sm: "4px",
       md: "6px",
       lg: "16px",
+      xl: "24px",
       full: "9999px",
     },
     font: {
@@ -77,9 +83,9 @@ export const theme = createTheme(
     "row-background":
       "linear-gradient(75.01deg, #FFFEFA -65.58%, #F6F1E7 29.37%, #E8DCC7 217.98%)",
     transition: {
-      fast: "120ms ease",
-      medium: "200ms ease",
-      slow: "400ms ease",
+      fast: ".125s ease-in-out",
+      medium: ".250s ease-in-out",
+      slow: ".500s ease-in-out",
     },
   },
   { prefix: "sc", selector: ":root" },

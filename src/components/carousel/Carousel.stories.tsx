@@ -7,7 +7,7 @@ type Quote = (typeof quotes)[number];
 
 function QuoteCaption({ quote, author }: Pick<Quote, "quote" | "author">) {
   return (
-    <blockquote>
+    <blockquote style={{ padding: "16px" }}>
       <p>{quote}</p>
       <footer>— {author}</footer>
     </blockquote>

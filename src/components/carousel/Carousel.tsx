@@ -60,20 +60,23 @@ const CarouselSlide = styled.div`
   position: absolute;
   inset: 0 10%;
   overflow: hidden;
-  border-radius: ${theme.radius.md};
   transition: transform ${theme.transition.slow};
+  border-radius: ${theme.radius.lg};
 
   &.Carousel--current {
+    border-radius: ${theme.radius.xl};
     transform: translate3d(0, 0, 0);
     z-index: 2;
   }
 
   &.Carousel--next {
+    transition: transform ${theme.transition.medium};
     transform: translateX(13%) translateZ(54px) scale(0.7) rotateY(-32deg);
     z-index: 1;
   }
 
   &.Carousel--prev {
+    transition: transform ${theme.transition.medium};
     transform: translateX(-13%) translateZ(54px) scale(0.7) rotateY(32deg);
     z-index: 1;
   }
@@ -83,11 +86,11 @@ const CarouselSlide = styled.div`
   }
 
   [data-direction="vertical"] &.Carousel--next {
-    transform: translateY(13%) translateZ(54px) scale(0.7) rotateX(32deg);
+    transform: translateY(18%) translateZ(54px) scale(0.7) rotateX(32deg);
   }
 
   [data-direction="vertical"] &.Carousel--prev {
-    transform: translateY(-13%) translateZ(54px) scale(0.7) rotateX(-32deg);
+    transform: translateY(-18%) translateZ(54px) scale(0.7) rotateX(-32deg);
   }
 `;
 
@@ -103,13 +106,15 @@ const CarouselImage = styled.img`
 const CarouselCaption = styled.div`
   position: absolute;
   z-index: 1;
-  left: ${theme.space[4]};
-  bottom: ${theme.space[4]};
+  left: ${theme.space[6]};
+  top: ${theme.space[6]};
   max-width: 80%;
-  padding: ${theme.space[3]} ${theme.space[4]};
-  border-radius: ${theme.radius.sm};
-  background: ${theme.color.surface};
+  border-radius: ${theme.radius.lg};
   color: ${theme.color.fg};
+
+  padding: 0;
+  background: ${theme.color.carousel.caption.bg};
+  backdrop-filter: blur(50px);
 `;
 
 const CarouselControls = styled.div`
