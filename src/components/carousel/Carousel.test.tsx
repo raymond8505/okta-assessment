@@ -30,7 +30,7 @@ function getSlide(n: number) {
 }
 
 describe("Carousel", () => {
-  it("renders an APG carousel region with the given label", () => {
+  it("renders a region with the given label", () => {
     renderCarousel();
     const region = screen.getByRole("region", { name: LABEL });
     expect(region).toHaveAttribute("aria-roledescription", "carousel");
