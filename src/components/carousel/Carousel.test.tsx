@@ -123,10 +123,10 @@ describe("Carousel", () => {
       screen
         .getByRole("button", { name: "Previous slide" })
         .querySelector("svg"),
-    ).toHaveAttribute("aria-label", "Chevron point left");
+    ).toHaveAttribute("aria-label", "Arrow point left");
     expect(
       screen.getByRole("button", { name: "Next slide" }).querySelector("svg"),
-    ).toHaveAttribute("aria-label", "Chevron point right");
+    ).toHaveAttribute("aria-label", "Arrow point right");
   });
 
   it("keeps focus on the control after activation", async () => {
@@ -298,10 +298,10 @@ describe("Carousel", () => {
         screen
           .getByRole("button", { name: "Previous slide" })
           .querySelector("svg"),
-      ).toHaveAttribute("aria-label", "Chevron point up");
+      ).toHaveAttribute("aria-label", "Arrow point up");
       expect(
         screen.getByRole("button", { name: "Next slide" }).querySelector("svg"),
-      ).toHaveAttribute("aria-label", "Chevron point down");
+      ).toHaveAttribute("aria-label", "Arrow point down");
     });
 
     it("responds to vertical swipes and ignores horizontal ones", () => {

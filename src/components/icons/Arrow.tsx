@@ -3,7 +3,7 @@ import { IconProps } from "./types";
 
 export function ArrowRightIcon({
   size = 15,
-  title = "Chevron point right",
+  title = "Arrow point right",
   ...props
 }: IconProps) {
   return (
@@ -41,19 +41,19 @@ export function ArrowRightIcon({
  * (static attrs override props).
  */
 export const ArrowDownIcon = styled(ArrowRightIcon).attrs<IconProps>(
-  ({ title }) => ({ title: title ?? "Chevron point down" }),
+  ({ title }) => ({ title: title ?? "Arrow point down" }),
 )`
   transform: rotate(90deg);
 `;
 
 export const ArrowLeftIcon = styled(ArrowRightIcon).attrs<IconProps>(
-  ({ title }) => ({ title: title ?? "Chevron point left" }),
+  ({ title }) => ({ title: title ?? "Arrow point left" }),
 )`
   transform: rotate(180deg);
 `;
 
 export const ArrowUpIcon = styled(ArrowRightIcon).attrs<IconProps>(
-  ({ title }) => ({ title: title ?? "Chevron point up" }),
+  ({ title }) => ({ title: title ?? "Arrow point up" }),
 )`
   transform: rotate(270deg);
 `;
