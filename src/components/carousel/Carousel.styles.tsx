@@ -45,15 +45,11 @@ export const CarouselRoot = styled.section`
 
 export const CarouselViewport = styled.div`
   position: relative;
-  overflow: hidden;
+
   width: 100%;
   height: 100%;
-  /* The scene's cq units measure this box. Size containment needs the
-     definite height the root provides — an auto height would collapse to 0. */
   container-type: size;
 
-  /* Overflow mode's whole point: previews escape the container. Clipping is
-     the consumer's job (overflow-x/y: clip on an ancestor). */
   [data-mode="overflow"] & {
     overflow: visible;
   }
