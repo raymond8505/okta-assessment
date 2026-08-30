@@ -114,7 +114,7 @@ export default function HomePage() {
         aria-label="Some of our favourite quotes"
         style={{ margin: `${theme.space[9]} 0`, overflowX: "clip" }}
       >
-        <Container style={{ paddingLeft: 0, paddingRight: 0 }}>
+        <Container style={{ paddingLeft: 0, paddingRight: 0, height: "628px" }}>
           <Carousel items={items} label="quotes" mode="inset" />
         </Container>
       </Row>

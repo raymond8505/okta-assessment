@@ -230,7 +230,7 @@ const CarouselDots = styled.div`
   gap: ${theme.space[2]};
   left: 50%;
   transform: translateX(-50%);
-  bottom: ${theme.space[2]};
+  bottom: ${theme.space[6]};
 
   [data-direction="vertical"] & {
     bottom: calc(var(--current-slide-inset) + ${theme.space[2]});
