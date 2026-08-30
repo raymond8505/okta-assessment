@@ -88,7 +88,7 @@ export const theme = createTheme(
       dot: {
         width: "75px",
         height: "5px",
-        bg: "rgba(255, 255, 255, 0.5)",
+        bg: "rgba(255, 255, 255, 0.75)",
         activeBg: "#FFFEFA",
       },
     },

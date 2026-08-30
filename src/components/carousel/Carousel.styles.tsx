@@ -183,7 +183,7 @@ export const CarouselDots = styled.div`
   position: absolute;
   z-index: 3;
   display: flex;
-  gap: ${theme.space[2]};
+  gap: ${theme.space[3]};
   left: 50%;
   transform: translateX(-50%);
 
