@@ -108,3 +108,6 @@ mask failures.
 
     yarn typecheck      yarn lint       yarn test:run
     yarn build          yarn storybook  yarn build-storybook
+
+`git push` runs `yarn lint` and `yarn test:run` via the husky pre-push hook, so a
+rejected push is usually a lint/test failure, not an auth problem.
