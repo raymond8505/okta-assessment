@@ -16,6 +16,8 @@ export interface QuoteCarouselProps {
    */
   label?: string;
   direction?: CarouselDirection;
+  /** Root width in px below which `direction` flips — see `CarouselProps`. */
+  toggleDirectionBelow?: number;
   mode?: CarouselMode;
 }
 

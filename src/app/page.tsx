@@ -98,7 +98,11 @@ export default function HomePage() {
 
       <QuotesRow>
         <QuotesContainer>
-          <QuoteCarousel height="80vh" mode="overflow" />
+          <QuoteCarousel
+            height="80vh"
+            mode="overflow"
+            toggleDirectionBelow={390}
+          />
         </QuotesContainer>
       </QuotesRow>
 
