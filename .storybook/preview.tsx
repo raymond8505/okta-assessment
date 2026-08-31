@@ -5,10 +5,10 @@ import { DecoratorHelpers } from "@storybook/addon-themes";
 import { styled, ThemeProvider } from "styled-components";
 
 import "modern-normalize/modern-normalize.css";
-import "../src/styles/grid.css";
 import { Container } from "../src/components/grid";
 import { setTheme } from "../src/components/theme-toggle/themeStore";
 import { GlobalStyle } from "../src/styles/GlobalStyle";
+import { GridStyle } from "../src/styles/GridStyle";
 import { ThemeOverrides } from "../src/styles/ThemeOverrides";
 import { theme } from "../src/styles/theme";
 
@@ -50,6 +50,7 @@ const preview: Preview = {
         <theme.GlobalStyle />
         <ThemeOverrides />
         <GlobalStyle />
+        <GridStyle />
         <PreviewSurface>
           <Container>
             <Story />

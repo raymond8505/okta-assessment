@@ -3,6 +3,7 @@
 import { ThemeProvider } from "styled-components";
 
 import { GlobalStyle } from "./GlobalStyle";
+import { GridStyle } from "./GridStyle";
 import { ThemeOverrides } from "./ThemeOverrides";
 import { theme } from "./theme";
 
@@ -31,6 +32,7 @@ export function GlobalStyles() {
       <theme.GlobalStyle />
       <ThemeOverrides />
       <GlobalStyle />
+      <GridStyle />
     </ThemeProvider>
   );
 }
