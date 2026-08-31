@@ -80,6 +80,7 @@ export const theme = createTheme(
     footer: {
       bg: "#191919",
       color: "#fffefa",
+      border: "rgb(255, 254, 250, .2)",
       fontSize: ".875rem",
     },
     transition: {

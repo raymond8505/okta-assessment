@@ -9,13 +9,14 @@ const SiteFooterElement = styled.footer`
   display: flex;
   align-items: center;
   justify-content: center;
+  border-top: 0.5px solid ${theme.footer.border};
 `;
 export function SiteFooter({
   ...props
 }: React.ComponentProps<typeof SiteFooterElement>) {
   return (
     <SiteFooterElement {...props}>
-      Copyright © 2026 Acme. All rights reserved.
+      <span>Copyright © 2026 Acme. All rights reserved.</span>
     </SiteFooterElement>
   );
 }
