@@ -7,6 +7,7 @@ import "@/styles/grid.css";
 import StyledComponentsRegistry from "@/lib/styled-components-registry";
 import { GlobalStyles } from "@/styles/GlobalStyles";
 import { SiteHeader } from "@/components/site-header/SiteHeader";
+import { SiteFooter } from "@/components/site-footer/SiteFooter";
 
 export const metadata: Metadata = {
   title: "Okta Assessment",
@@ -21,6 +22,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <GlobalStyles />
           <SiteHeader />
           {children}
+          <SiteFooter />
         </StyledComponentsRegistry>
       </body>
     </html>
