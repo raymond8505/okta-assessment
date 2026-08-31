@@ -1,6 +1,19 @@
-import { styled } from "styled-components";
+import { css, styled } from "styled-components";
 import { theme } from "@/styles/theme";
 import { UnstyledButton } from "../primitives/buttons";
+
+/** Root width at or below which the narrow dot positioning applies. */
+export const NARROW_ROOT_MAX_WIDTH_PX = 390;
+
+/**
+ * Applied twice: by the container query on capable browsers, and by the
+ * data-narrow attribute the JS fallback in Carousel.tsx sets on the root
+ * everywhere else — author the styles once here.
+ */
+const narrowDots = css`
+  left: 5%;
+  transform: translateY(20%);
+`;
 
 export const CarouselRoot = styled.section<{ $height: string }>`
   --current-slide-fraction: 0.8542;
@@ -200,8 +213,13 @@ export const CarouselDots = styled.div`
    * which is always exactly the root's size — the root has no padding and
    * the viewport fills it.
    */
-  @container (max-width: 390px) {
-    /* narrow-root dot positioning goes here */
+  @container (max-width: ${NARROW_ROOT_MAX_WIDTH_PX}px) {
+    ${narrowDots}
+  }
+
+  /* The JS fallback mirrors the query where container queries are missing. */
+  [data-narrow] & {
+    ${narrowDots}
   }
 `;
 

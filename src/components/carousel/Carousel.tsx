@@ -14,6 +14,7 @@ import {
   CarouselSlide,
   CarouselSlides,
   CarouselViewport,
+  NARROW_ROOT_MAX_WIDTH_PX,
 } from "./Carousel.styles";
 import type { CarouselProps } from "./types";
 import {
@@ -75,7 +76,7 @@ export function Carousel({
 
   /**
    * graceful degredation for browsers that don't support container queries
-   * set scene unit with js on resize
+   * set scene unit and the narrow-root marker with js on resize
    */
   useEffect(() => {
     const root = rootRef.current;
@@ -92,11 +93,16 @@ export function Carousel({
         "--scene-unit",
         `calc(var(--current-slide-fraction) * ${size}px / 100)`,
       );
+      root.toggleAttribute(
+        "data-narrow",
+        entry.contentRect.width <= NARROW_ROOT_MAX_WIDTH_PX,
+      );
     });
     observer.observe(root);
     return () => {
       observer.disconnect();
       root.style.removeProperty("--scene-unit");
+      root.removeAttribute("data-narrow");
     };
   }, [effectiveDirection]);
 
