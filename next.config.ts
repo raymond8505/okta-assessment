@@ -15,6 +15,15 @@ const nextConfig: NextConfig = {
   // runner stage needs no node_modules of its own.
   output: "standalone",
 
+  experimental: {
+    // Every generated CSS <link> becomes an inline <style>, removing the
+    // render-blocking request Lighthouse flags as a critical request chain.
+    // Cheap here: the only external CSS is the ~7 KB grid + normalize chunk —
+    // everything else is already inlined by the styled-components registry.
+    // Costs repeat visitors stylesheet caching. Production builds only.
+    inlineCss: true,
+  },
+
   compiler: {
     // SWC transform for styled-components. Turbopack compiles via SWC, so this
     // applies under Turbopack with no extra config — note that a `webpack()`
