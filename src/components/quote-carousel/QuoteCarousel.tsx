@@ -12,6 +12,6 @@ export type { QuoteCarouselProps } from "./types";
  */
 export async function QuoteCarousel(props: QuoteCarouselProps) {
   await connection();
-  const [first, second, third] = shuffle(quotes, 3);
-  return <QuoteCarouselView quotes={[first, second, third]} {...props} />;
+  const picks = shuffle(quotes, 3);
+  return <QuoteCarouselView quotes={picks} {...props} />;
 }

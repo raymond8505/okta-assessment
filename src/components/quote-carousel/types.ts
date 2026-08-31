@@ -7,9 +7,6 @@ import type {
 /** One entry of src/data/quotes.json — derived so the type cannot drift. */
 export type Quote = (typeof quotesData)[number];
 
-/** Exactly three quotes, mirroring Carousel's three-slide tuple constraint. */
-export type QuoteTriple = [Quote, Quote, Quote];
-
 export interface QuoteCarouselProps {
   /** Forwarded to Carousel as its CSS height (e.g. `"90vh"`). */
   height: string;
@@ -24,5 +21,5 @@ export interface QuoteCarouselProps {
 
 export interface QuoteCarouselViewProps extends QuoteCarouselProps {
   /** The three quotes to render, in slide order. */
-  quotes: QuoteTriple;
+  quotes: Quote[];
 }

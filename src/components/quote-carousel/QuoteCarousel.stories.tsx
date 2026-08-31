@@ -20,7 +20,6 @@ const meta = {
     },
   },
   args: {
-    // assert expected length and types for testing
     quotes: shuffle(quotes, 3) as [
       (typeof quotes)[0],
       (typeof quotes)[0],
