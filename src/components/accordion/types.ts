@@ -14,8 +14,8 @@ export type AccordionHeadingLevel = 2 | 3 | 4 | 5 | 6;
 export interface AccordionProps {
   items: AccordionItem[];
   /**
-   * Level of the heading element wrapping each trigger. Purely semantic —
-   * pick it to fit the surrounding document outline.
+   * Level of the heading element wrapping each trigger.
+   * Purely semantic, same style for all levels
    * @default 3
    */
   headingLevel?: AccordionHeadingLevel;

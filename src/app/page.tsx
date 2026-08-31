@@ -110,7 +110,7 @@ export default function HomePage() {
               </p>
             </Col>
             <Col $sm={12} $lg={6}>
-              <FAQAccordion headingLevel={3} />
+              <FAQAccordion headingLevel={3} defaultExpandedIndex={0} />
             </Col>
           </Row>
         </Container>

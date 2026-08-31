@@ -130,15 +130,11 @@ describe("Accordion", () => {
 
   it("keeps collapsed content in the DOM, hidden from assistive tech", () => {
     renderAccordion();
-    // Guards the SSR/crawler contract: a refactor to conditional rendering
-    // would drop collapsed panels from the server payload. Visual collapse is
-    // class-driven CSS that jsdom does not compute, so the testable contract
-    // is DOM presence + aria-hidden.
+
     const panel = getPanelFor(getTrigger("Section two"));
     expect(panel).toHaveAttribute("aria-hidden", "true");
     expect(panel).toHaveTextContent("Content of section two");
-    // The hidden attribute would set display:none and break the open/close
-    // height animation.
+
     expect(panel).not.toHaveAttribute("hidden");
   });
 

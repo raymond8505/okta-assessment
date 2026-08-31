@@ -6,7 +6,7 @@ export const theme = createTheme(
       bg: "#FFFEFA",
       surface: "#f6f7f9",
       "surface-raised": "#ffffff",
-      fg: "#16191d",
+      fg: "#191919",
       "fg-muted": "#5c636e",
       border: "#191919",
       accent: "#1662d4",

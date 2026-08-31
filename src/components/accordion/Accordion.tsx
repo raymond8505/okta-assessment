@@ -36,15 +36,12 @@ export function Accordion({
         const panelId = `${itemId}-panel`;
         return (
           <AccordionItem key={itemId}>
-            {/* The trigger must be the heading's only child, per the APG. */}
             <AccordionHeading as={`h${headingLevel}`}>
               <AccordionTrigger
                 type="button"
                 id={triggerId}
                 aria-expanded={expanded}
                 aria-controls={panelId}
-                // Replacing the single index collapses the previous panel;
-                // re-clicking the open trigger collapses to none.
                 onClick={() => setExpandedIndex(expanded ? null : index)}
               >
                 {item.heading}

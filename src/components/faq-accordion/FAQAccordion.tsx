@@ -11,10 +11,6 @@ function toItem(entry: (typeof faq)[number]): AccordionItem {
 
 /**
  * Accordion of the site FAQ from `src/data/faq.json`.
- *
- * Unlike QuoteCarousel this stays a synchronous Server Component — the data
- * is static, so no dynamic API is invoked and consuming routes keep their
- * static rendering. Entry ids seed the Accordion's deterministic element ids.
  */
 export function FAQAccordion(props: FAQAccordionProps) {
   return <Accordion items={faq.map(toItem)} {...props} />;

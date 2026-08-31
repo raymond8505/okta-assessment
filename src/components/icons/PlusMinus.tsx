@@ -1,8 +1,8 @@
 import { IconProps } from "./types";
 
 /**
- * A plus sign that consumers can morph into a minus by rotating the
- * `.PlusMinusIcon--vertical` bar 90° onto the horizontal one.
+ * A plus sign with the two sticks separated and named with classes
+ * so they can be animated
  */
 export function PlusMinusIcon({
   size = 15,
@@ -16,7 +16,6 @@ export function PlusMinusIcon({
       viewBox="0 0 15 15"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      // use aria-label instead of title because dynamic <title> in an SSR SVG breaks hydration
       aria-label={title}
       {...props}
     >

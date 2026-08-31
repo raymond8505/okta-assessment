@@ -49,7 +49,6 @@ export const AccordionPanel = styled.div`
 
   overflow: hidden;
   padding: ${theme.space[3]} 0;
-  color: ${theme.color["fg-muted"]};
   max-height: var(--accordion-panel-max-height);
 
   transition:
