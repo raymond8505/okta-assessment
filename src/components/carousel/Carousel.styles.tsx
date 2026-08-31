@@ -5,11 +5,6 @@ import { UnstyledButton } from "../primitives/buttons";
 /** Root width at or below which the narrow dot positioning applies. */
 export const NARROW_ROOT_MAX_WIDTH_PX = 390;
 
-/**
- * Applied twice: by the container query on capable browsers, and by the
- * data-narrow attribute the JS fallback in Carousel.tsx sets on the root
- * everywhere else — author the styles once here.
- */
 const narrowDots = css`
   left: 5%;
   transform: translateY(20%);
@@ -25,7 +20,8 @@ export const CarouselRoot = styled.section<{ $height: string }>`
   --preview-tilt: 32deg;
 
   /* 3D scene lengths as % of the current slide's travel-axis size —
-     --scene-unit is 1% of that size. */
+     --scene-unit is 1% of that size. 
+  */
   --scene-perspective-pct: 102;
   --scene-depth-pct: 5.5;
 
@@ -211,11 +207,6 @@ export const CarouselDots = styled.div`
     bottom: calc(var(--current-slide-inset) + ${theme.space[6]});
   }
 
-  /*
-   * Queries the viewport container (a container can't match its own query),
-   * which is always exactly the root's size — the root has no padding and
-   * the viewport fills it.
-   */
   @container (max-width: ${NARROW_ROOT_MAX_WIDTH_PX}px) {
     ${narrowDots}
   }

@@ -52,6 +52,11 @@ export const ThemeToggleButton = styled(UnstyledButton)`
     margin-right: var(--icon-gap);
   }
 
+  &:focus-visible {
+    outline: 2px solid ${theme.color.focus};
+    outline-offset: -2px;
+  }
+
   .ThemeToggle__icon-viewport {
     height: var(--icon-size);
     width: var(--icon-size);

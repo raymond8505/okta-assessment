@@ -15,7 +15,6 @@ import { FAQAccordion } from "@/components/faq-accordion/FAQAccordion";
 const HeroImage = styled(Image)`
   // fixed height to prevent CLS
   height: 548px;
-  width: auto;
   width: 100%;
   object-fit: contain;
 
@@ -26,6 +25,9 @@ const HeroImage = styled(Image)`
 
 const HeroCol = styled(Col)`
   padding: 6% 0;
+  @media (max-width: 900px) {
+    padding-bottom: 0;
+  }
   display: flex;
   flex-direction: column;
   justify-content: space-between;
