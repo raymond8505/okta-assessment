@@ -62,6 +62,10 @@ export const Vertical: Story = {
   args: { direction: "vertical" },
 };
 
+export const ResponsiveDirection: Story = {
+  args: { toggleDirectionBelow: 390 },
+};
+
 const verboseItem = { ...items[0] };
 verboseItem.caption = (
   <div style={{ padding: "16px", fontSize: "1.2em" }}>

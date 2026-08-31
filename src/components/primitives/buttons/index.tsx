@@ -11,6 +11,12 @@ export const BaseButton = styled(UnstyledButton)`
   display: inline-block;
   padding: 1em 3em;
   border-radius: 6px;
+  text-align: center;
+
+  &:focus-visible {
+    outline: 2px solid ${theme.color.focus};
+    outline-offset: -2px;
+  }
 `;
 
 export const PrimaryButton = styled(BaseButton)`

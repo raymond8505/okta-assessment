@@ -1,6 +1,14 @@
-import { styled } from "styled-components";
+import { css, styled } from "styled-components";
 import { theme } from "@/styles/theme";
 import { UnstyledButton } from "../primitives/buttons";
+
+/** Root width at or below which the narrow dot positioning applies. */
+export const NARROW_ROOT_MAX_WIDTH_PX = 390;
+
+const narrowDots = css`
+  left: 5%;
+  transform: translateY(20%);
+`;
 
 export const CarouselRoot = styled.section<{ $height: string }>`
   --current-slide-fraction: 0.8542;
@@ -12,15 +20,19 @@ export const CarouselRoot = styled.section<{ $height: string }>`
   --preview-tilt: 32deg;
 
   /* 3D scene lengths as % of the current slide's travel-axis size —
-     --scene-unit is 1% of that size. */
+     --scene-unit is 1% of that size. 
+  */
   --scene-perspective-pct: 102;
   --scene-depth-pct: 5.5;
 
   --scene-unit: calc(
     var(--current-slide-fraction) * min(100vw, ${theme.container.max}) / 100
   );
+
   --scene-perspective: calc(var(--scene-unit) * var(--scene-perspective-pct));
   --scene-depth: calc(var(--scene-unit) * var(--scene-depth-pct));
+
+  --slide-padding: 4.53%;
 
   @supports (container-type: size) {
     --scene-unit: calc(var(--current-slide-fraction) * 1cqw);
@@ -136,9 +148,9 @@ export const CarouselImage = styled.img`
 export const CarouselCaption = styled.div`
   position: absolute;
   z-index: 1;
-  left: ${theme.space[6]};
-  top: ${theme.space[6]};
-  max-width: 80%;
+  left: var(--slide-padding);
+  top: var(--slide-padding);
+  max-width: 62%;
   border-radius: ${theme.radius.lg};
   color: ${theme.color.fg};
   padding: 0;
@@ -154,13 +166,13 @@ export const CarouselControls = styled.div`
   /* Offset by the slide inset so the controls hug the current slide's
      corner — which is the viewport corner in overflow mode (inset 0). */
 
-  bottom: ${theme.space[6]};
-  right: calc(var(--current-slide-inset) + ${theme.space[6]});
+  bottom: var(--slide-padding);
+  right: calc(var(--current-slide-inset) + var(--slide-padding));
 
   [data-direction="vertical"] & {
     flex-direction: column;
-    bottom: calc(var(--current-slide-inset) + ${theme.space[6]});
-    right: ${theme.space[6]};
+    bottom: calc(var(--current-slide-inset) + var(--slide-padding));
+    right: var(--slide-padding);
   }
 `;
 
@@ -189,10 +201,19 @@ export const CarouselDots = styled.div`
   left: 50%;
   transform: translateX(-50%);
 
-  bottom: ${theme.space[6]};
+  bottom: var(--slide-padding);
 
   [data-direction="vertical"] & {
     bottom: calc(var(--current-slide-inset) + ${theme.space[6]});
+  }
+
+  @container (max-width: ${NARROW_ROOT_MAX_WIDTH_PX}px) {
+    ${narrowDots}
+  }
+
+  /* The JS fallback mirrors the query where container queries are missing. */
+  [data-narrow] & {
+    ${narrowDots}
   }
 `;
 

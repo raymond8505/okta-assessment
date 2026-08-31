@@ -24,11 +24,6 @@ export const AccordionTrigger = styled(UnstyledButton)`
   color: ${theme.color.fg};
   transition: background ${theme.transition.fast};
 
-  &:focus-visible {
-    outline: 2px solid ${theme.color.focus};
-    outline-offset: -2px;
-  }
-
   .PlusMinusIcon--vertical {
     transition: transform ${theme.transition.medium};
   }

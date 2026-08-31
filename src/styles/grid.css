@@ -110,7 +110,7 @@
 /*
  * max-width because this is our smallest breakpoint, so we cover all widths below this
  */
-@media (max-width: 47.999rem) {
+@media (max-width: 390px) {
   .col.sm-1 {
     flex: 0 0 auto;
     width: calc(1 / 12 * (100% + var(--row-gap)) - var(--row-gap));
@@ -161,7 +161,7 @@
   }
 }
 
-@media (min-width: 48rem) {
+@media (max-width: 900px) {
   .col.md-1 {
     flex: 0 0 auto;
     width: calc(1 / 12 * (100% + var(--row-gap)) - var(--row-gap));
@@ -212,7 +212,7 @@
   }
 }
 
-@media (min-width: 64rem) {
+@media (min-width: 901px) {
   .col.lg-1 {
     flex: 0 0 auto;
     width: calc(1 / 12 * (100% + var(--row-gap)) - var(--row-gap));
@@ -258,57 +258,6 @@
     width: calc(11 / 12 * (100% + var(--row-gap)) - var(--row-gap));
   }
   .col.lg-12 {
-    flex: 0 0 auto;
-    width: calc(12 / 12 * (100% + var(--row-gap)) - var(--row-gap));
-  }
-}
-
-@media (min-width: 80rem) {
-  .col.xl-1 {
-    flex: 0 0 auto;
-    width: calc(1 / 12 * (100% + var(--row-gap)) - var(--row-gap));
-  }
-  .col.xl-2 {
-    flex: 0 0 auto;
-    width: calc(2 / 12 * (100% + var(--row-gap)) - var(--row-gap));
-  }
-  .col.xl-3 {
-    flex: 0 0 auto;
-    width: calc(3 / 12 * (100% + var(--row-gap)) - var(--row-gap));
-  }
-  .col.xl-4 {
-    flex: 0 0 auto;
-    width: calc(4 / 12 * (100% + var(--row-gap)) - var(--row-gap));
-  }
-  .col.xl-5 {
-    flex: 0 0 auto;
-    width: calc(5 / 12 * (100% + var(--row-gap)) - var(--row-gap));
-  }
-  .col.xl-6 {
-    flex: 0 0 auto;
-    width: calc(6 / 12 * (100% + var(--row-gap)) - var(--row-gap));
-  }
-  .col.xl-7 {
-    flex: 0 0 auto;
-    width: calc(7 / 12 * (100% + var(--row-gap)) - var(--row-gap));
-  }
-  .col.xl-8 {
-    flex: 0 0 auto;
-    width: calc(8 / 12 * (100% + var(--row-gap)) - var(--row-gap));
-  }
-  .col.xl-9 {
-    flex: 0 0 auto;
-    width: calc(9 / 12 * (100% + var(--row-gap)) - var(--row-gap));
-  }
-  .col.xl-10 {
-    flex: 0 0 auto;
-    width: calc(10 / 12 * (100% + var(--row-gap)) - var(--row-gap));
-  }
-  .col.xl-11 {
-    flex: 0 0 auto;
-    width: calc(11 / 12 * (100% + var(--row-gap)) - var(--row-gap));
-  }
-  .col.xl-12 {
     flex: 0 0 auto;
     width: calc(12 / 12 * (100% + var(--row-gap)) - var(--row-gap));
   }

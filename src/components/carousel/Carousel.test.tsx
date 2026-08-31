@@ -1,9 +1,10 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { act, fireEvent, render, screen } from "@testing-library/react";
 import { userEvent } from "@testing-library/user-event";
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { carouselItemsFixture } from "@/fixtures/carousel-items.fixture";
 import { Carousel } from "./Carousel";
 import type { CarouselProps } from "./Carousel";
+import { NARROW_ROOT_MAX_WIDTH_PX } from "./Carousel.styles";
 
 const LABEL = "Programming quotes";
 
@@ -16,6 +17,41 @@ function renderCarousel(props: Partial<CarouselProps> = {}) {
       height="70vh"
     />,
   );
+}
+
+type ResizeObserverCallback = (
+  entries: { contentRect: { width: number; height: number } }[],
+) => void;
+
+let fireResize: (width: number) => void;
+let observerCount = 0;
+
+// Fires synchronously on observe() like the real observer's initial
+// delivery; fireResize replays every observer with a new width.
+function stubResizeObserver(initialWidth: number) {
+  let width = initialWidth;
+  const callbacks = new Set<ResizeObserverCallback>();
+  fireResize = (nextWidth) => {
+    width = nextWidth;
+    act(() => {
+      for (const callback of callbacks) {
+        callback([{ contentRect: { width, height: 384 } }]);
+      }
+    });
+  };
+  class ResizeObserverStub {
+    private readonly callback: ResizeObserverCallback;
+    constructor(callback: ResizeObserverCallback) {
+      observerCount += 1;
+      this.callback = callback;
+      callbacks.add(callback);
+    }
+    observe() {
+      this.callback([{ contentRect: { width, height: 384 } }]);
+    }
+    disconnect() {}
+  }
+  vi.stubGlobal("ResizeObserver", ResizeObserverStub);
 }
 
 // The prev/next previews are aria-hidden, which both excludes them from role
@@ -321,6 +357,138 @@ describe("Carousel", () => {
         touches: [{ clientX: 100, clientY: 140 }],
       });
       expect(getSlide(2)).toHaveClass("Carousel--current");
+    });
+  });
+
+  describe("toggleDirectionBelow", () => {
+    beforeEach(() => {
+      observerCount = 0;
+      // Container queries "supported" keeps the scene-unit fallback observer
+      // inert, so only the direction observer is constructed.
+      vi.stubGlobal("CSS", { supports: () => true });
+    });
+
+    afterEach(() => {
+      vi.unstubAllGlobals();
+    });
+
+    it("flips a horizontal carousel vertical below the threshold", () => {
+      stubResizeObserver(320);
+      renderCarousel({ toggleDirectionBelow: 390 });
+      const region = screen.getByRole("region", { name: LABEL });
+      expect(region).toHaveAttribute("data-direction", "vertical");
+      expect(
+        screen
+          .getByRole("button", { name: "Previous slide" })
+          .querySelector("svg"),
+      ).toHaveAttribute("aria-label", "Arrow point up");
+    });
+
+    it("keeps the passed direction at the threshold — below is strict", () => {
+      stubResizeObserver(390);
+      renderCarousel({ toggleDirectionBelow: 390 });
+      expect(screen.getByRole("region", { name: LABEL })).toHaveAttribute(
+        "data-direction",
+        "horizontal",
+      );
+    });
+
+    it("switches the swipe axis along with the direction", () => {
+      stubResizeObserver(320);
+      renderCarousel({ toggleDirectionBelow: 390 });
+      const region = screen.getByRole("region", { name: LABEL });
+
+      fireEvent.touchStart(region, {
+        touches: [{ clientX: 100, clientY: 200 }],
+      });
+      fireEvent.touchMove(region, { touches: [{ clientX: 20, clientY: 200 }] });
+      expect(getSlide(1)).toHaveClass("Carousel--current");
+
+      fireEvent.touchStart(region, {
+        touches: [{ clientX: 100, clientY: 200 }],
+      });
+      fireEvent.touchMove(region, {
+        touches: [{ clientX: 100, clientY: 140 }],
+      });
+      expect(getSlide(2)).toHaveClass("Carousel--current");
+    });
+
+    it("follows resizes across the threshold in both directions", () => {
+      stubResizeObserver(512);
+      renderCarousel({ toggleDirectionBelow: 390 });
+      const region = screen.getByRole("region", { name: LABEL });
+      expect(region).toHaveAttribute("data-direction", "horizontal");
+
+      fireResize(320);
+      expect(region).toHaveAttribute("data-direction", "vertical");
+
+      fireResize(512);
+      expect(region).toHaveAttribute("data-direction", "horizontal");
+    });
+
+    it("flips a vertical carousel horizontal below the threshold", () => {
+      stubResizeObserver(320);
+      renderCarousel({ direction: "vertical", toggleDirectionBelow: 390 });
+      expect(screen.getByRole("region", { name: LABEL })).toHaveAttribute(
+        "data-direction",
+        "horizontal",
+      );
+    });
+
+    it("observes nothing when the prop is omitted", () => {
+      stubResizeObserver(320);
+      renderCarousel();
+      expect(observerCount).toBe(0);
+    });
+  });
+
+  describe("narrow-root fallback", () => {
+    beforeEach(() => {
+      // No container queries, so the scene-unit fallback observer must also
+      // mirror the @container narrow-dots marker.
+      vi.stubGlobal("CSS", { supports: () => false });
+    });
+
+    afterEach(() => {
+      vi.unstubAllGlobals();
+    });
+
+    it("marks the root data-narrow at or below the narrow width", () => {
+      stubResizeObserver(NARROW_ROOT_MAX_WIDTH_PX);
+      renderCarousel();
+      expect(screen.getByRole("region", { name: LABEL })).toHaveAttribute(
+        "data-narrow",
+      );
+    });
+
+    it("leaves wide roots unmarked", () => {
+      stubResizeObserver(512);
+      renderCarousel();
+      expect(screen.getByRole("region", { name: LABEL })).not.toHaveAttribute(
+        "data-narrow",
+      );
+    });
+
+    it("tracks resizes across the narrow threshold in both directions", () => {
+      stubResizeObserver(512);
+      renderCarousel();
+      const region = screen.getByRole("region", { name: LABEL });
+      expect(region).not.toHaveAttribute("data-narrow");
+
+      fireResize(320);
+      expect(region).toHaveAttribute("data-narrow");
+
+      fireResize(512);
+      expect(region).not.toHaveAttribute("data-narrow");
+    });
+
+    it("never marks the root when container queries are supported", () => {
+      vi.stubGlobal("CSS", { supports: () => true });
+      stubResizeObserver(320);
+      renderCarousel();
+      expect(screen.getByRole("region", { name: LABEL })).not.toHaveAttribute(
+        "data-narrow",
+      );
     });
   });
 });

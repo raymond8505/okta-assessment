@@ -13,14 +13,21 @@ import {
 import { FAQAccordion } from "@/components/faq-accordion/FAQAccordion";
 
 const HeroImage = styled(Image)`
+  // fixed height to prevent CLS
   height: 548px;
-  width: auto;
-  max-width: 100%;
-  object-fit: cover;
+  width: 100%;
+  object-fit: contain;
+
+  @media (max-width: 900px) {
+    height: auto;
+  }
 `;
 
 const HeroCol = styled(Col)`
   padding: 6% 0;
+  @media (max-width: 900px) {
+    padding-bottom: 0;
+  }
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -33,11 +40,16 @@ const HeroHeading = styled(H1)`
 const HeroLead = styled.p`
   font-size: 1.5rem;
   line-height: 1.3;
+  margin-bottom: ${theme.space[7]};
 `;
 
 const CtaRow = styled.div`
   display: flex;
   gap: ${theme.space[4]};
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+  }
 `;
 
 /*
@@ -48,6 +60,18 @@ const CtaRow = styled.div`
 const QuotesRow = styled(Row)`
   margin: ${theme.space[9]} 0 0;
   overflow-x: clip;
+
+  /* 
+  * manual responsive adjustment for carousel previews 
+  * 1500 = slightly bigger than container max
+  * so it starts shrinking before previews clip
+  * no css vars in media query selector
+  */
+  @media (max-width: 1500px) {
+    width: 90%;
+    margin-inline: auto;
+    overflow-x: visible;
+  }
 `;
 
 const FAQRow = styled(Row)`
@@ -66,7 +90,7 @@ export default function HomePage() {
       <Row $hasBackground aria-labelledby="hero-heading">
         <Container>
           <Row $align="stretch" $justify="between">
-            <HeroCol $sm={12} $lg={6}>
+            <HeroCol $sm={12} $md={12} $lg={6}>
               <div>
                 <Breadcrumbs
                   items={["Platform or Solution", "Feature or Page Title"]}
@@ -85,7 +109,7 @@ export default function HomePage() {
                 <SecondaryButton>Secondary CTA</SecondaryButton>
               </CtaRow>
             </HeroCol>
-            <Col $sm={12} $lg={6}>
+            <Col $sm={12} $md={12} $lg={6}>
               <HeroImage
                 src={heroImage}
                 alt="A blurred mobile app UI"
@@ -98,14 +122,18 @@ export default function HomePage() {
 
       <QuotesRow>
         <QuotesContainer>
-          <QuoteCarousel height="70vh" mode="overflow" />
+          <QuoteCarousel
+            height="80vh"
+            mode="overflow"
+            toggleDirectionBelow={390}
+          />
         </QuotesContainer>
       </QuotesRow>
 
       <FAQRow>
         <Container>
           <Row>
-            <Col $sm={12} $lg={6}>
+            <Col $sm={12} $md={12} $lg={6}>
               <H2>Frequently asked questions</H2>
               <p>
                 Itaque earum rerum hic tenetur a sapiente delectus, ut aut
@@ -113,7 +141,7 @@ export default function HomePage() {
                 perferendis.
               </p>
             </Col>
-            <Col $sm={12} $lg={6}>
+            <Col $sm={12} $md={12} $lg={6}>
               <FAQAccordion headingLevel={3} defaultExpandedIndex={0} />
             </Col>
           </Row>

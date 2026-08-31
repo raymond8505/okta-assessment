@@ -44,6 +44,7 @@ export const theme = createTheme(
       "1rem": "16px",
       h1: "3.5rem",
       h2: "2.5rem",
+      h3: "2rem",
     },
     "line-height": {
       tight: "1.2",
@@ -58,7 +59,7 @@ export const theme = createTheme(
       fontSize: "1.25rem",
     },
     container: {
-      max: "72rem",
+      max: "90rem",
     },
     row: {
       bg: "linear-gradient(75.01deg, #FFFEFA -65.58%, #F6F1E7 29.37%, #E8DCC7 217.98%)",
