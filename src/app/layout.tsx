@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 import "modern-normalize/modern-normalize.css";
-import "@/styles/grid.css";
 
 import StyledComponentsRegistry from "@/lib/styled-components-registry";
 import { GlobalStyles } from "@/styles/GlobalStyles";
