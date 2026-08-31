@@ -10,4 +10,9 @@ export const QuoteBlockquote = styled.blockquote`
     margin-top: ${theme.space[2]};
     color: ${theme.color["fg-muted"]};
   }
+
+  &,
+  & * {
+    text-wrap: wrap;
+  }
 `;

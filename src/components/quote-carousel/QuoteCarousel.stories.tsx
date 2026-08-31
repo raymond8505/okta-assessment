@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { quotesFixture } from "@/fixtures/quotes.fixture";
+import quotes from "@/data/quotes.json";
 import { QuoteCarouselView } from "./QuoteCarouselView";
+import { shuffle } from "../../lib/array";
 
 const meta = {
   title: "components/QuoteCarousel",
@@ -19,7 +20,12 @@ const meta = {
     },
   },
   args: {
-    quotes: quotesFixture,
+    // assert expected length and types for testing
+    quotes: shuffle(quotes, 3) as [
+      (typeof quotes)[0],
+      (typeof quotes)[0],
+      (typeof quotes)[0],
+    ],
     height: "90vh",
   },
 } satisfies Meta<typeof QuoteCarouselView>;
