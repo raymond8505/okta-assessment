@@ -126,10 +126,7 @@ export function Carousel({
                 aria-roledescription="slide"
                 aria-label={`${index + 1} of ${SLIDE_COUNT}`}
                 // Only the current slide is exposed to AT, so the live region
-                // announces exactly one slide. The APG's carousel example goes
-                // further (display:none on non-current slides); the WAI carousel
-                // tutorial uses aria-hidden for visible-but-non-current items:
-                // https://www.w3.org/WAI/tutorials/carousels/animations/
+                // announces exactly one slide.
                 aria-hidden={position !== "current" || undefined}
                 className={`Carousel--${position}`}
               >
