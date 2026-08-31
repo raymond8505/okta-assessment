@@ -7,15 +7,6 @@ import type { Align, Justify } from "@/components/grid/types";
 import { breakpoints, GRID_COLUMNS } from "./breakpoints";
 import { theme } from "./theme";
 
-/**
- * Formerly grid.css, kept static because its rules never changed at runtime.
- * That tradeoff no longer applies now that styles are moving inline for CWV,
- * and folding it in here lets the column/gap/align/justify blocks be looped
- * from GRID_COLUMNS/theme.space instead of hand-copied, and lets breakpoints
- * be imported directly instead of duplicated (a static .css file couldn't
- * import breakpoints.ts, which is why the values used to be retyped there).
- */
-
 const GAP_SCALE = [1, 2, 3, 4, 5, 6, 7, 8] as const;
 
 const alignItems: Record<Align, string> = {
