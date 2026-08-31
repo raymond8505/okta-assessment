@@ -48,7 +48,7 @@ export const AccordionPanel = styled.div`
   letter-spacing: 0.2px;
 
   overflow: hidden;
-  padding: ${theme.space[3]} 0;
+  padding: 0 0 ${theme.space[3]};
   max-height: var(--accordion-panel-max-height);
 
   transition:

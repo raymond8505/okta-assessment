@@ -46,8 +46,12 @@ const CtaRow = styled.div`
  * the page on screens narrower than the Container max-width.
  */
 const QuotesRow = styled(Row)`
-  margin: ${theme.space[9]} 0;
+  margin: ${theme.space[9]} 0 0;
   overflow-x: clip;
+`;
+
+const FAQRow = styled(Row)`
+  margin: ${theme.space[9]} 0;
 `;
 
 /* Zero side padding so the overflow previews spill past the Container edge. */
@@ -98,7 +102,7 @@ export default function HomePage() {
         </QuotesContainer>
       </QuotesRow>
 
-      <Row>
+      <FAQRow>
         <Container>
           <Row>
             <Col $sm={12} $lg={6}>
@@ -114,7 +118,7 @@ export default function HomePage() {
             </Col>
           </Row>
         </Container>
-      </Row>
+      </FAQRow>
     </main>
   );
 }
