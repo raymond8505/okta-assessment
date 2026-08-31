@@ -14,7 +14,7 @@ export const breakpoints = {
 export type Breakpoint = keyof typeof breakpoints;
 
 /** Mobile-first order — narrowest first, so later entries override earlier. */
-export const breakpointOrder = ["sm", "md", "lg", "xl"] as const;
+export const breakpointOrder = ["sm", "md", "lg"] as const;
 
 /** Number of columns in the grid. Span props are validated against this. */
 export const GRID_COLUMNS = 12;
