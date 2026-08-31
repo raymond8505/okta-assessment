@@ -5,7 +5,7 @@ const SiteFooterElement = styled.footer`
   background: ${theme.footer.bg};
   color: ${theme.footer.color};
   font-size: ${theme.footer.fontSize};
-  padding: 24px;
+  padding: 1.71em;
   display: flex;
   align-items: center;
   justify-content: center;
