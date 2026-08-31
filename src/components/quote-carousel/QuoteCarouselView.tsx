@@ -13,13 +13,7 @@ function toItem(quote: Quote): CarouselItem {
 }
 
 /**
- * Presentational half of QuoteCarousel: renders three given quotes as
- * Carousel slides with blockquote captions.
- *
- * @remarks
- * Holds no randomness or request dependency so Storybook and tests can render
- * it deterministically; `QuoteCarousel` supplies the per-request random
- * quotes.
+ * Renders three given quotes as Carousel slides with blockquote captions.
  */
 export function QuoteCarouselView({
   quotes,
