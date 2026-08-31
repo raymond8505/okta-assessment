@@ -76,10 +76,10 @@ export function Carousel({
     };
   }, [direction]);
 
-  const goTo = (index: number) =>
-    setCurrentSlide(((index % SLIDE_COUNT) + SLIDE_COUNT) % SLIDE_COUNT);
-  const next = () => goTo(currentSlide + 1);
-  const prev = () => goTo(currentSlide - 1);
+  const next = () =>
+    setCurrentSlide(currentSlide === SLIDE_COUNT - 1 ? 0 : currentSlide + 1);
+  const prev = () =>
+    setCurrentSlide(currentSlide === 0 ? SLIDE_COUNT - 1 : currentSlide - 1);
 
   const handleTouchStart = (event: ReactTouchEvent) => {
     const touch = event.touches[0];
@@ -125,8 +125,11 @@ export function Carousel({
                 role="group"
                 aria-roledescription="slide"
                 aria-label={`${index + 1} of ${SLIDE_COUNT}`}
-                // Preview slivers are decorative, so only the current slide is
-                // exposed — the live region then announces exactly one slide.
+                // Only the current slide is exposed to AT, so the live region
+                // announces exactly one slide. The APG's carousel example goes
+                // further (display:none on non-current slides); the WAI carousel
+                // tutorial uses aria-hidden for visible-but-non-current items:
+                // https://www.w3.org/WAI/tutorials/carousels/animations/
                 aria-hidden={position !== "current" || undefined}
                 className={`Carousel--${position}`}
               >
@@ -145,7 +148,7 @@ export function Carousel({
               // aria-disabled (not disabled) keeps the current dot focusable,
               // per the APG grouped slide-picker variant.
               aria-disabled={index === currentSlide || undefined}
-              onClick={() => goTo(index)}
+              onClick={() => setCurrentSlide(index)}
             >
               <CarouselDotVisual />
             </CarouselDot>
