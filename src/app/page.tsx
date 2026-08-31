@@ -91,9 +91,6 @@ export default function HomePage() {
         </Container>
       </Row>
 
-      {/* The carousel region carries the "Some of our favourite quotes"
-          accessible name, so the Row stays unlabelled — labelling both would
-          nest two landmarks with the same name. */}
       <QuotesRow>
         <QuotesContainer>
           <QuoteCarousel height="70vh" mode="overflow" />
