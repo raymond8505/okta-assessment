@@ -38,10 +38,7 @@ const HeroHeading = styled(H1)`
 const HeroLead = styled.p`
   font-size: 1.5rem;
   line-height: 1.3;
-
-  @media (max-width: 900px) {
-    margin-bottom: ${theme.space[7]};
-  }
+  margin-bottom: ${theme.space[7]};
 `;
 
 const CtaRow = styled.div`
