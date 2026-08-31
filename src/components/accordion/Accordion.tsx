@@ -57,16 +57,8 @@ export function Accordion({
                 {item.heading}
               </AccordionTrigger>
             </AccordionHeading>
-            {/* aria-hidden (not conditional render, not the hidden attribute)
-                keeps collapsed content in the SSR payload for crawlers and
-                out of the a11y tree, while leaving the panel displayed so its
-                height can animate — the paired CSS collapses it visually and
-                removes focusability via visibility:hidden. */}
             <AccordionPanel
               id={panelId}
-              // At most one panel is ever perceivable under single-expand, so
-              // region landmarks cannot proliferate (the APG's caveat for
-              // accordions with >~6 simultaneously open panels).
               role="region"
               aria-labelledby={triggerId}
               aria-hidden={expanded ? undefined : true}
