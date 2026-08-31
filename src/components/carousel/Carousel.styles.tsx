@@ -177,6 +177,8 @@ export const CarouselControl = styled(UnstyledButton)`
   &:focus-visible {
     outline: 2px solid ${theme.color.focus};
   }
+
+  background: ${theme.carousel.control.bg};
 `;
 
 export const CarouselDots = styled.div`

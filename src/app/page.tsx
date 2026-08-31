@@ -5,6 +5,7 @@ import { styled } from "styled-components";
 import { theme } from "@/styles/theme";
 import { H1 } from "@/components/primitives/headings/headings";
 import { Breadcrumbs } from "@/components/breadcrumbs/Breadcrumbs";
+import { QuoteCarousel } from "@/components/quote-carousel/QuoteCarousel";
 import {
   PrimaryButton,
   SecondaryButton,
@@ -36,6 +37,22 @@ const HeroLead = styled.p`
 const CtaRow = styled.div`
   display: flex;
   gap: ${theme.space[4]};
+`;
+
+/*
+ * clip, not hidden: hidden would make the Row a scroll container and break
+ * position:sticky descendants. Without it the overflow-mode previews widen
+ * the page on screens narrower than the Container max-width.
+ */
+const QuotesRow = styled(Row)`
+  margin: ${theme.space[9]} 0;
+  overflow-x: clip;
+`;
+
+/* Zero side padding so the overflow previews spill past the Container edge. */
+const QuotesContainer = styled(Container)`
+  padding-left: 0;
+  padding-right: 0;
 `;
 
 export default function HomePage() {
@@ -74,10 +91,11 @@ export default function HomePage() {
         </Container>
       </Row>
 
-      <Row
-        aria-label="Some of our favourite quotes"
-        style={{ margin: `${theme.space[9]} 0` }}
-      ></Row>
+      <QuotesRow>
+        <QuotesContainer>
+          <QuoteCarousel height="70vh" mode="overflow" />
+        </QuotesContainer>
+      </QuotesRow>
     </main>
   );
 }
