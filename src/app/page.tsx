@@ -10,8 +10,7 @@ import {
   PrimaryButton,
   SecondaryButton,
 } from "@/components/primitives/buttons";
-import { Accordion } from "@/components/accordion/Accordion";
-import { accordionFaqFixture } from "@/fixtures/accordion-items.fixture";
+import { FAQAccordion } from "@/components/faq-accordion/FAQAccordion";
 
 const HeroImage = styled(Image)`
   height: 548px;
@@ -111,7 +110,7 @@ export default function HomePage() {
               </p>
             </Col>
             <Col $sm={12} $lg={6}>
-              <Accordion items={accordionFaqFixture} headingLevel={3} />
+              <FAQAccordion headingLevel={3} />
             </Col>
           </Row>
         </Container>
