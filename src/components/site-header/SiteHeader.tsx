@@ -15,6 +15,7 @@ const SiteHeaderElement = styled.header`
 const HeaderContainer = styled(Container)`
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `;
 
 const LogoLink = styled(Link)`
