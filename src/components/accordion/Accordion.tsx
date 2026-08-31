@@ -3,12 +3,12 @@
 import { useId, useState } from "react";
 import {
   AccordionHeading,
-  AccordionItemRoot,
   AccordionPanel,
   AccordionRoot,
   AccordionTrigger,
 } from "./Accordion.styles";
 import type { AccordionProps } from "./types";
+import { PlusMinusIcon } from "../icons/PlusMinus";
 
 export type {
   AccordionHeadingLevel,
@@ -42,7 +42,7 @@ export function Accordion({
         const triggerId = `${itemId}-trigger`;
         const panelId = `${itemId}-panel`;
         return (
-          <AccordionItemRoot key={itemId}>
+          <div key={itemId}>
             {/* The trigger must be the heading's only child, per the APG. */}
             <AccordionHeading as={`h${headingLevel}`}>
               <AccordionTrigger
@@ -55,6 +55,7 @@ export function Accordion({
                 onClick={() => setExpandedIndex(expanded ? null : index)}
               >
                 {item.heading}
+                <PlusMinusIcon aria-hidden />
               </AccordionTrigger>
             </AccordionHeading>
             <AccordionPanel
@@ -65,7 +66,7 @@ export function Accordion({
             >
               {item.content}
             </AccordionPanel>
-          </AccordionItemRoot>
+          </div>
         );
       })}
     </AccordionRoot>

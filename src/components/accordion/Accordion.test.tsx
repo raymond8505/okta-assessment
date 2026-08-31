@@ -62,6 +62,17 @@ describe("Accordion", () => {
     expect(ids.size).toBe(accordionItemsFixture.length * 2);
   });
 
+  it("renders an aria-hidden plus/minus indicator inside each trigger", () => {
+    renderAccordion();
+    for (const item of accordionItemsFixture) {
+      const icon = getTrigger(item.heading as string).querySelector("svg");
+      expect(icon).toHaveAttribute("aria-label", "Plus minus");
+      expect(icon).toHaveAttribute("aria-hidden", "true");
+      // The class is the CSS hook the trigger rotates to morph plus → minus.
+      expect(icon?.querySelector(".PlusMinusIcon--vertical")).not.toBeNull();
+    }
+  });
+
   it("expands a panel on click, exposing it as a region labelled by its trigger", async () => {
     const user = userEvent.setup();
     renderAccordion();
