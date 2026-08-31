@@ -6,10 +6,9 @@
  * it short of a build step.
  */
 export const breakpoints = {
-  sm: "40rem", // 640px
-  md: "48rem", // 768px
-  lg: "64rem", // 1024px
-  xl: "80rem", // 1280px
+  sm: "390px",
+  md: "900px",
+  lg: "1600px",
 } as const;
 
 export type Breakpoint = keyof typeof breakpoints;

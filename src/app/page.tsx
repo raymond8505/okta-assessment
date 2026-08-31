@@ -13,10 +13,15 @@ import {
 import { FAQAccordion } from "@/components/faq-accordion/FAQAccordion";
 
 const HeroImage = styled(Image)`
+  // fixed height to prevent CLS
   height: 548px;
   width: auto;
-  max-width: 100%;
-  object-fit: cover;
+  width: 100%;
+  object-fit: contain;
+
+  @media (max-width: 900px) {
+    height: auto;
+  }
 `;
 
 const HeroCol = styled(Col)`
@@ -33,11 +38,19 @@ const HeroHeading = styled(H1)`
 const HeroLead = styled.p`
   font-size: 1.5rem;
   line-height: 1.3;
+
+  @media (max-width: 900px) {
+    margin-bottom: ${theme.space[7]};
+  }
 `;
 
 const CtaRow = styled.div`
   display: flex;
   gap: ${theme.space[4]};
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+  }
 `;
 
 /*
@@ -48,6 +61,15 @@ const CtaRow = styled.div`
 const QuotesRow = styled(Row)`
   margin: ${theme.space[9]} 0 0;
   overflow-x: clip;
+
+  /* 
+  * manual responsive adjustment for carousel previews 
+  */
+  @media (max-width: 1500px) {
+    width: 90%;
+    margin-inline: auto;
+    overflow-x: visible;
+  }
 `;
 
 const FAQRow = styled(Row)`
@@ -66,7 +88,7 @@ export default function HomePage() {
       <Row $hasBackground aria-labelledby="hero-heading">
         <Container>
           <Row $align="stretch" $justify="between">
-            <HeroCol $sm={12} $lg={6}>
+            <HeroCol $sm={12} $md={12} $lg={6}>
               <div>
                 <Breadcrumbs
                   items={["Platform or Solution", "Feature or Page Title"]}
@@ -85,7 +107,7 @@ export default function HomePage() {
                 <SecondaryButton>Secondary CTA</SecondaryButton>
               </CtaRow>
             </HeroCol>
-            <Col $sm={12} $lg={6}>
+            <Col $sm={12} $md={12} $lg={6}>
               <HeroImage
                 src={heroImage}
                 alt="A blurred mobile app UI"

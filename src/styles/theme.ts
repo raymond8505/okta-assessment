@@ -44,6 +44,7 @@ export const theme = createTheme(
       "1rem": "16px",
       h1: "3.5rem",
       h2: "2.5rem",
+      h3: "2rem",
     },
     "line-height": {
       tight: "1.2",

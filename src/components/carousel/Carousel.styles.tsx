@@ -32,8 +32,11 @@ export const CarouselRoot = styled.section<{ $height: string }>`
   --scene-unit: calc(
     var(--current-slide-fraction) * min(100vw, ${theme.container.max}) / 100
   );
+
   --scene-perspective: calc(var(--scene-unit) * var(--scene-perspective-pct));
   --scene-depth: calc(var(--scene-unit) * var(--scene-depth-pct));
+
+  --slide-padding: 4.53%;
 
   @supports (container-type: size) {
     --scene-unit: calc(var(--current-slide-fraction) * 1cqw);
@@ -149,9 +152,9 @@ export const CarouselImage = styled.img`
 export const CarouselCaption = styled.div`
   position: absolute;
   z-index: 1;
-  left: ${theme.space[6]};
-  top: ${theme.space[6]};
-  max-width: 80%;
+  left: var(--slide-padding);
+  top: var(--slide-padding);
+  max-width: 62%;
   border-radius: ${theme.radius.lg};
   color: ${theme.color.fg};
   padding: 0;
@@ -167,13 +170,13 @@ export const CarouselControls = styled.div`
   /* Offset by the slide inset so the controls hug the current slide's
      corner — which is the viewport corner in overflow mode (inset 0). */
 
-  bottom: ${theme.space[6]};
-  right: calc(var(--current-slide-inset) + ${theme.space[6]});
+  bottom: var(--slide-padding);
+  right: calc(var(--current-slide-inset) + var(--slide-padding));
 
   [data-direction="vertical"] & {
     flex-direction: column;
-    bottom: calc(var(--current-slide-inset) + ${theme.space[6]});
-    right: ${theme.space[6]};
+    bottom: calc(var(--current-slide-inset) + var(--slide-padding));
+    right: var(--slide-padding);
   }
 `;
 
@@ -202,7 +205,7 @@ export const CarouselDots = styled.div`
   left: 50%;
   transform: translateX(-50%);
 
-  bottom: ${theme.space[6]};
+  bottom: var(--slide-padding);
 
   [data-direction="vertical"] & {
     bottom: calc(var(--current-slide-inset) + ${theme.space[6]});

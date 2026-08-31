@@ -11,6 +11,7 @@ export const BaseButton = styled(UnstyledButton)`
   display: inline-block;
   padding: 1em 3em;
   border-radius: 6px;
+  text-align: center;
 `;
 
 export const PrimaryButton = styled(BaseButton)`
