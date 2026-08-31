@@ -6,6 +6,7 @@ import "@/styles/grid.css";
 
 import StyledComponentsRegistry from "@/lib/styled-components-registry";
 import { GlobalStyles } from "@/styles/GlobalStyles";
+import { SkipLink } from "@/components/skip-link/SkipLink";
 import { SiteHeader } from "@/components/site-header/SiteHeader";
 import { SiteFooter } from "@/components/site-footer/SiteFooter";
 
@@ -20,7 +21,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body>
         <StyledComponentsRegistry>
           <GlobalStyles />
+          <SkipLink />
           <SiteHeader />
+          <span id="main-content" tabIndex={-1} />
           {children}
           <SiteFooter />
         </StyledComponentsRegistry>
