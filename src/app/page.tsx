@@ -61,6 +61,9 @@ const QuotesRow = styled(Row)`
 
   /* 
   * manual responsive adjustment for carousel previews 
+  * 1500 = slightly bigger than container max
+  * so it starts shrinking before previews clip
+  * no css vars in media query selector
   */
   @media (max-width: 1500px) {
     width: 90%;
@@ -128,7 +131,7 @@ export default function HomePage() {
       <FAQRow>
         <Container>
           <Row>
-            <Col $sm={12} $lg={6}>
+            <Col $sm={12} $md={12} $lg={6}>
               <H2>Frequently asked questions</H2>
               <p>
                 Itaque earum rerum hic tenetur a sapiente delectus, ut aut
@@ -136,7 +139,7 @@ export default function HomePage() {
                 perferendis.
               </p>
             </Col>
-            <Col $sm={12} $lg={6}>
+            <Col $sm={12} $md={12} $lg={6}>
               <FAQAccordion headingLevel={3} defaultExpandedIndex={0} />
             </Col>
           </Row>
