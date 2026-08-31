@@ -13,9 +13,8 @@ function getTrigger(name: string) {
   return screen.getByRole("button", { name });
 }
 
-// Collapsed panels carry the hidden attribute, which removes them from the
-// accessibility tree — so they are reached through aria-controls, not a role
-// query.
+// Collapsed panels are aria-hidden, which removes them from the accessibility
+// tree — so they are reached through aria-controls, not a role query.
 function getPanelFor(trigger: HTMLElement) {
   const panelId = trigger.getAttribute("aria-controls");
   const panel = panelId && document.getElementById(panelId);
@@ -98,8 +97,13 @@ describe("Accordion", () => {
 
     expect(getTrigger("Section one")).toHaveAttribute("aria-expanded", "false");
     expect(getTrigger("Section two")).toHaveAttribute("aria-expanded", "true");
-    expect(getPanelFor(getTrigger("Section one"))).not.toBeVisible();
-    expect(getPanelFor(getTrigger("Section two"))).toBeVisible();
+    expect(getPanelFor(getTrigger("Section one"))).toHaveAttribute(
+      "aria-hidden",
+      "true",
+    );
+    expect(getPanelFor(getTrigger("Section two"))).not.toHaveAttribute(
+      "aria-hidden",
+    );
   });
 
   it("collapses to none when the open header is clicked again", async () => {
@@ -113,14 +117,18 @@ describe("Accordion", () => {
     expect(screen.queryByRole("region")).not.toBeInTheDocument();
   });
 
-  it("keeps collapsed content in the DOM via the hidden attribute", () => {
+  it("keeps collapsed content in the DOM, hidden from assistive tech", () => {
     renderAccordion();
     // Guards the SSR/crawler contract: a refactor to conditional rendering
-    // would drop collapsed panels from the server payload.
+    // would drop collapsed panels from the server payload. Visual collapse is
+    // class-driven CSS that jsdom does not compute, so the testable contract
+    // is DOM presence + aria-hidden.
     const panel = getPanelFor(getTrigger("Section two"));
-    expect(panel).toHaveAttribute("hidden");
+    expect(panel).toHaveAttribute("aria-hidden", "true");
     expect(panel).toHaveTextContent("Content of section two");
-    expect(panel).not.toBeVisible();
+    // The hidden attribute would set display:none and break the open/close
+    // height animation.
+    expect(panel).not.toHaveAttribute("hidden");
   });
 
   it("expands the defaultExpandedIndex panel on first render", () => {

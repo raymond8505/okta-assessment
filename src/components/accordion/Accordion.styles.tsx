@@ -49,9 +49,47 @@ export const AccordionTrigger = styled(UnstyledButton)`
   }
 `;
 
-/* No display rule here — the hidden attribute does the collapsing, and any
-   styled display would override it. */
+/*
+ * Expand/collapse is animated on height, so the panel cannot use the hidden
+ * attribute (display:none is not height-animatable). Collapse is driven off
+ * aria-hidden instead: height/padding animate to zero and visibility flips to
+ * hidden when the closing transition ends, which also drops any focusable
+ * panel content from the tab order.
+ */
 export const AccordionPanel = styled.div`
+  /* Fallback ceiling for browsers without calc-size(). Must exceed any real
+     panel height; the gap between the two eats into the perceived duration,
+     so keep it as low as content allows. */
+  --accordion-panel-max-height: 50rem;
+
+  box-sizing: border-box;
+  overflow: hidden;
   padding: ${theme.space[3]} ${theme.space[4]};
   color: ${theme.color["fg-muted"]};
+  max-height: var(--accordion-panel-max-height);
+  transition:
+    max-height ${theme.transition.medium},
+    padding-block ${theme.transition.medium},
+    visibility ${theme.transition.medium};
+
+  &[aria-hidden="true"] {
+    max-height: 0;
+    /* Padding renders even at zero height, so it collapses alongside. */
+    padding-block: 0;
+    visibility: hidden;
+  }
+
+  @supports (height: calc-size(auto, size)) {
+    max-height: none;
+    height: calc-size(auto, size);
+    transition:
+      height ${theme.transition.medium},
+      padding-block ${theme.transition.medium},
+      visibility ${theme.transition.medium};
+
+    &[aria-hidden="true"] {
+      max-height: none;
+      height: 0;
+    }
+  }
 `;

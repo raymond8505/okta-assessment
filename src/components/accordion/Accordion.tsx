@@ -57,11 +57,11 @@ export function Accordion({
                 {item.heading}
               </AccordionTrigger>
             </AccordionHeading>
-            {/* hidden (not conditional render) keeps collapsed content in the
-                SSR payload for crawlers while removing it from the a11y tree
-                and tab order. hidden="until-found" would also allow
-                find-in-page into collapsed panels, but needs a beforematch
-                listener to sync aria-expanded — future enhancement. */}
+            {/* aria-hidden (not conditional render, not the hidden attribute)
+                keeps collapsed content in the SSR payload for crawlers and
+                out of the a11y tree, while leaving the panel displayed so its
+                height can animate — the paired CSS collapses it visually and
+                removes focusability via visibility:hidden. */}
             <AccordionPanel
               id={panelId}
               // At most one panel is ever perceivable under single-expand, so
@@ -69,7 +69,7 @@ export function Accordion({
               // accordions with >~6 simultaneously open panels).
               role="region"
               aria-labelledby={triggerId}
-              hidden={!expanded}
+              aria-hidden={expanded ? undefined : true}
             >
               {item.content}
             </AccordionPanel>
