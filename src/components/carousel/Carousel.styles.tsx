@@ -194,6 +194,15 @@ export const CarouselDots = styled.div`
   [data-direction="vertical"] & {
     bottom: calc(var(--current-slide-inset) + ${theme.space[6]});
   }
+
+  /*
+   * Queries the viewport container (a container can't match its own query),
+   * which is always exactly the root's size — the root has no padding and
+   * the viewport fills it.
+   */
+  @container (max-width: 390px) {
+    /* narrow-root dot positioning goes here */
+  }
 `;
 
 export const CarouselDot = styled(UnstyledButton)`
