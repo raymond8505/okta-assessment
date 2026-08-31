@@ -1,0 +1,17 @@
+[
+  {
+    "id": "rendering",
+    "question": "How is the site rendered?",
+    "answer": "Pages are server-rendered React with styled-components. Only the interactive islands opt into a client boundary."
+  },
+  {
+    "id": "dark-mode",
+    "question": "How does dark mode work?",
+    "answer": "The OS preference is the default and the only durable source. The toggle sets a data-theme attribute for the session; pure CSS resolves the palette."
+  },
+  {
+    "id": "dynamic-home",
+    "question": "Why is the home page dynamic?",
+    "answer": "The quote carousel samples three random quotes per request so crawlers always receive fully rendered blockquote markup."
+  }
+]
