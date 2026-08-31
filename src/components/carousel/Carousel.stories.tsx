@@ -62,6 +62,15 @@ export const Vertical: Story = {
   args: { direction: "vertical" },
 };
 
+/**
+ * Resize the canvas to see the toggle: while the carousel root is narrower
+ * than 390px the direction flips to vertical (arrows and swipe axis included),
+ * and back to horizontal above it.
+ */
+export const ResponsiveDirection: Story = {
+  args: { toggleDirectionBelow: 390 },
+};
+
 const verboseItem = { ...items[0] };
 verboseItem.caption = (
   <div style={{ padding: "16px", fontSize: "1.2em" }}>
