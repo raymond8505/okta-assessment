@@ -7,12 +7,14 @@ const SiteFooterElement = styled.footer`
   font-size: ${theme.footer.fontSize};
   padding: 24px;
   display: flex;
-  flex-align: center;
+  align-items: center;
   justify-content: center;
 `;
-export function SiteFooter({ ...props }) {
+export function SiteFooter({
+  ...props
+}: React.ComponentProps<typeof SiteFooterElement>) {
   return (
-    <SiteFooterElement>
+    <SiteFooterElement {...props}>
       Copyright © 2026 Acme. All rights reserved.
     </SiteFooterElement>
   );
