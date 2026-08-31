@@ -17,14 +17,6 @@ export type {
   AccordionProps,
 } from "./types";
 
-/**
- * Single-expand accordion per the W3C APG pattern.
- * @see https://www.w3.org/WAI/ARIA/apg/patterns/accordion/
- *
- * Keyboard support is the APG-required set only — Enter/Space via the native
- * button and document Tab order. Arrow/Home/End header navigation is an APG
- * *optional* behaviour deliberately left out of this scaffold.
- */
 export function Accordion({
   items,
   headingLevel = 3,
