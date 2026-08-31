@@ -20,16 +20,16 @@ export function ArrowRightIcon({
       <path
         d="M2.3125 7.5L12.3125 7.5"
         stroke="currentColor"
-        stroke-width="1.25"
-        stroke-linecap="square"
-        stroke-linejoin="round"
+        strokeWidth="1.25"
+        strokeLinecap="square"
+        strokeLinejoin="round"
       />
       <path
         d="M7.91675 2.5L12.9167 7.5L7.91675 12.5"
         stroke="currentColor"
-        stroke-width="1.25"
-        stroke-linecap="square"
-        stroke-linejoin="round"
+        strokeWidth="1.25"
+        strokeLinecap="square"
+        strokeLinejoin="round"
       />
     </svg>
   );
