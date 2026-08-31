@@ -1,26 +1,5 @@
 import { createTheme } from "styled-components";
 
-/**
- * Design tokens.
- *
- * `createTheme` (styled-components v6.4+) turns every leaf into a CSS custom
- * property reference, so `theme.color.bg` is the *string*
- * `"var(--sc-color-bg, #ffffff)"` rather than a colour value. Three
- * consequences worth knowing:
- *
- *  1. This module is a plain constant — no React context, no ThemeProvider.
- *     It imports freely into Server Components.
- *  2. There is exactly ONE theme object for both light and dark. The CSS
- *     variable switches (see ThemeOverrides); the JS value never does. So
- *     class-name hashes are identical on server and client and a theme change
- *     triggers no React re-render at all.
- *  3. Token values below are only *fallbacks* baked into the var() call. The
- *     real declarations are emitted by `theme.GlobalStyle`.
- *
- * KEY NAMING: hyphens are inserted between path *segments*, not inside a key —
- * `colorPrimary` would emit `--sc-colorPrimary`. Every key here is therefore
- * written kebab-case so the emitted properties stay kebab-case throughout.
- */
 export const theme = createTheme(
   {
     color: {
@@ -64,16 +43,19 @@ export const theme = createTheme(
     "font-size": {
       "1rem": "16px",
       h1: "3.5rem",
-      breadcrumbs: "1.25rem",
+      h2: "2.5rem",
     },
     "line-height": {
       tight: "1.2",
       normal: "1.5",
-      h1: "1.143",
+      heading: "1.143",
     },
     "letter-spacing": {
-      tight: "-1.12px",
+      tight: "-.8px",
       normal: "0px",
+    },
+    breadcrumbs: {
+      fontSize: "1.25rem",
     },
     container: {
       max: "72rem",
