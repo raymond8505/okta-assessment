@@ -24,6 +24,7 @@ const darkPalette = css`
   ${vars.color.focus}: #6ea8fe;
   ${vars.row.bg}: linear-gradient(75.01deg, ${theme.color.bg} -65.58%, #181c22 29.37%, #20252c 217.98%);
   ${vars.carousel.caption.bg}: #191919;
+  ${vars.carousel.control.bg}: #191919
 `;
 
 /**

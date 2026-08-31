@@ -91,6 +91,9 @@ export const theme = createTheme(
         bg: "rgba(255, 255, 255, 0.75)",
         activeBg: "#FFFEFA",
       },
+      control: {
+        bg: "#F6F1E7",
+      },
     },
     transition: {
       fast: ".125s ease-in-out",
