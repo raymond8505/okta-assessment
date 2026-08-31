@@ -42,6 +42,22 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
 
+const lightItem = toItem(quotes[105]);
+
+export const LightSlide: Story = {
+  args: {
+    items: [lightItem, items[1], items[2]],
+  },
+};
+
+const darkItem = toItem(quotes[72]);
+
+export const DarkSlide: Story = {
+  args: {
+    items: [darkItem, items[1], items[2]],
+  },
+};
+
 export const Vertical: Story = {
   args: { direction: "vertical" },
 };

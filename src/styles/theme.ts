@@ -77,6 +77,12 @@ export const theme = createTheme(
         bg: "#F6F1E7",
       },
     },
+    footer: {
+      bg: "#191919",
+      color: "#fffefa",
+      border: "rgb(255, 254, 250, .2)",
+      fontSize: ".875rem",
+    },
     transition: {
       fast: ".125s ease-in-out",
       medium: ".250s ease-in-out",
