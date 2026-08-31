@@ -37,6 +37,7 @@ const CtaRow = styled.div`
   display: flex;
   gap: ${theme.space[4]};
 `;
+
 export default function HomePage() {
   return (
     <main>
@@ -72,6 +73,11 @@ export default function HomePage() {
           </Row>
         </Container>
       </Row>
+
+      <Row
+        aria-label="Some of our favourite quotes"
+        style={{ margin: `${theme.space[9]} 0` }}
+      ></Row>
     </main>
   );
 }

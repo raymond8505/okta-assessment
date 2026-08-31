@@ -1,7 +1,9 @@
 /**
  * Turns `prior-art/Quotes Exercise Dataset - quotes.csv` into
- * `src/data/quotes.json` ({ id, author, quote, image }) plus a
- * `src/data/credits.json` sidecar carrying Unsplash attribution.
+ * `src/data/quotes.json` ({ id, author, quote, image: { src, alt } }) plus a
+ * `src/data/credits.json` sidecar carrying Unsplash attribution. The alt text
+ * is Unsplash's `alt_description` of the chosen photo (falling back to the
+ * search query that matched it) with a "photo by NAME on Unsplash" credit.
  *
  * Run with `yarn data:quotes`.
  *
@@ -59,6 +61,7 @@ interface Concept {
 /** Only the fields we actually read. */
 interface UnsplashPhoto {
   id: string;
+  alt_description: string | null;
   urls: { regular: string };
   links: { html: string };
   user: { name: string; links: { html: string } };
@@ -70,7 +73,7 @@ interface UnsplashSearchResponse {
 }
 
 interface EnrichedQuote extends QuoteRow {
-  image: string;
+  image: { src: string; alt: string };
 }
 
 interface Credit {
@@ -282,7 +285,13 @@ async function main(): Promise<void> {
       }
 
       usedPhotoIds.add(photo.id);
-      enriched.push({ ...quote, image: photo.urls.regular });
+      enriched.push({
+        ...quote,
+        image: {
+          src: photo.urls.regular,
+          alt: `${photo.alt_description?.trim() || matchedQuery} — photo by ${photo.user.name} on Unsplash`,
+        },
+      });
       credits[String(quote.id)] = {
         photographer: photo.user.name,
         profile: `${photo.user.links.html}?${UTM}`,

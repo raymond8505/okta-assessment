@@ -29,7 +29,7 @@ const StyledRow = styled.section<{ $hasBackground?: boolean }>`
   ${({ $hasBackground }) =>
     $hasBackground &&
     css`
-      background: ${theme["row-background"]};
+      background: ${theme.row.bg};
     `}
 `;
 
