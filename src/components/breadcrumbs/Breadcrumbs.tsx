@@ -16,7 +16,7 @@ const BreadcrumbsList = styled.ul`
   gap: ${theme.space[1]};
 
   font-weight: 400;
-  font-size: ${theme["font-size"].breadcrumbs};
+  font-size: ${theme.breadcrumbs.fontSize};
   line-height: 1.4;
   letter-spacing: 0.1px;
 `;

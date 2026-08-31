@@ -3,13 +3,14 @@ import Image from "next/image";
 import heroImage from "@/resources/images/blurred-ui.png";
 import { styled } from "styled-components";
 import { theme } from "@/styles/theme";
-import { H1 } from "@/components/primitives/headings/headings";
+import { H1, H2 } from "@/components/primitives/headings/headings";
 import { Breadcrumbs } from "@/components/breadcrumbs/Breadcrumbs";
 import { QuoteCarousel } from "@/components/quote-carousel/QuoteCarousel";
 import {
   PrimaryButton,
   SecondaryButton,
 } from "@/components/primitives/buttons";
+import { FAQAccordion } from "@/components/faq-accordion/FAQAccordion";
 
 const HeroImage = styled(Image)`
   height: 548px;
@@ -96,6 +97,24 @@ export default function HomePage() {
           <QuoteCarousel height="70vh" mode="overflow" />
         </QuotesContainer>
       </QuotesRow>
+
+      <Row>
+        <Container>
+          <Row>
+            <Col $sm={12} $lg={6}>
+              <H2>Frequently asked questions</H2>
+              <p>
+                Itaque earum rerum hic tenetur a sapiente delectus, ut aut
+                reiciendis voluptatibus maiores alias consequatur aut
+                perferendis.
+              </p>
+            </Col>
+            <Col $sm={12} $lg={6}>
+              <FAQAccordion headingLevel={3} defaultExpandedIndex={0} />
+            </Col>
+          </Row>
+        </Container>
+      </Row>
     </main>
   );
 }

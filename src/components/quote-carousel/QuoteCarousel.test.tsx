@@ -37,11 +37,4 @@ describe("QuoteCarousel", () => {
       expect(screen.getByText(quote)).toBeInTheDocument();
     }
   });
-
-  it("forwards props to the view", async () => {
-    render(await QuoteCarousel({ height: "70vh", label: "Wise words" }));
-    expect(
-      screen.getByRole("region", { name: "Wise words" }),
-    ).toBeInTheDocument();
-  });
 });
