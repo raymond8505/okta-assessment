@@ -26,10 +26,12 @@ Two things currently force a client boundary, both unavoidable:
   so the global style modules are client modules.
 - `ThemeToggle` uses `useSyncExternalStore`.
 
-`/` must stay statically prerenderable — `next build` should report `○ Static`.
-Do not introduce `cookies()`, `headers()` or other dynamic APIs in the root
-layout without a deliberate decision, as they opt the whole route into dynamic
-rendering.
+`/` is **deliberately `ƒ Dynamic`** (decided Aug 2026): `QuoteCarousel` awaits
+`connection()` so three random quotes are sampled per request with the full
+blockquote markup server-rendered for crawlers. Every other route still
+defaults to static; introducing dynamic APIs (`cookies()`, `headers()`,
+`connection()`) anywhere else remains a deliberate decision, as they opt the
+whole route into dynamic rendering.
 
 ## Theming
 
