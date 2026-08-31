@@ -42,12 +42,36 @@ export function Carousel({
   items,
   label,
   direction = "horizontal",
+  toggleDirectionBelow,
   mode = "inset",
   height,
 }: CarouselProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isBelowToggle, setIsBelowToggle] = useState(false);
   const touchOrigin = useRef<{ x: number; y: number } | null>(null);
   const rootRef = useRef<HTMLElement>(null);
+
+  /*
+   * false until the observer's initial delivery after mount, so the server
+   * and hydration renders always show the passed direction — narrow screens
+   * flip one frame later rather than mismatching.
+   */
+  const effectiveDirection = isBelowToggle
+    ? direction === "horizontal"
+      ? "vertical"
+      : "horizontal"
+    : direction;
+
+  useEffect(() => {
+    const root = rootRef.current;
+    if (toggleDirectionBelow === undefined || !root) return;
+    if (typeof ResizeObserver === "undefined") return;
+    const observer = new ResizeObserver(([entry]) => {
+      setIsBelowToggle(entry.contentRect.width < toggleDirectionBelow);
+    });
+    observer.observe(root);
+    return () => observer.disconnect();
+  }, [toggleDirectionBelow]);
 
   /**
    * graceful degredation for browsers that don't support container queries
@@ -61,7 +85,7 @@ export function Carousel({
     }
     const observer = new ResizeObserver(([entry]) => {
       const size =
-        direction === "vertical"
+        effectiveDirection === "vertical"
           ? entry.contentRect.height
           : entry.contentRect.width;
       root.style.setProperty(
@@ -74,7 +98,7 @@ export function Carousel({
       observer.disconnect();
       root.style.removeProperty("--scene-unit");
     };
-  }, [direction]);
+  }, [effectiveDirection]);
 
   const next = () =>
     setCurrentSlide(currentSlide === SLIDE_COUNT - 1 ? 0 : currentSlide + 1);
@@ -91,7 +115,7 @@ export function Carousel({
     if (!touchOrigin.current) return;
     const touch = event.touches[0];
     const delta =
-      direction === "vertical"
+      effectiveDirection === "vertical"
         ? touch.clientY - touchOrigin.current.y
         : touch.clientX - touchOrigin.current.x;
     if (Math.abs(delta) < SWIPE_THRESHOLD_PX) return;
@@ -108,7 +132,7 @@ export function Carousel({
       ref={rootRef}
       aria-roledescription="carousel"
       aria-label={label}
-      data-direction={direction}
+      data-direction={effectiveDirection}
       data-mode={mode}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
@@ -157,14 +181,14 @@ export function Carousel({
             aria-label="Previous slide"
             onClick={prev}
           >
-            {direction === "vertical" ? (
+            {effectiveDirection === "vertical" ? (
               <ArrowUpIcon aria-hidden />
             ) : (
               <ArrowLeftIcon aria-hidden />
             )}
           </CarouselControl>
           <CarouselControl type="button" aria-label="Next slide" onClick={next}>
-            {direction === "vertical" ? (
+            {effectiveDirection === "vertical" ? (
               <ArrowDownIcon aria-hidden />
             ) : (
               <ArrowRightIcon aria-hidden />

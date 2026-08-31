@@ -19,6 +19,12 @@ export interface CarouselProps {
 
   direction?: CarouselDirection;
 
+  /**
+   * Root width in px below which `direction` flips to its opposite, tracked
+   * live via ResizeObserver. Omit to keep `direction` fixed.
+   */
+  toggleDirectionBelow?: number;
+
   mode?: CarouselMode;
 
   height: string;
