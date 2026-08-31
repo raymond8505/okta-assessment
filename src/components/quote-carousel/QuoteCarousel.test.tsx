@@ -3,7 +3,7 @@ import { connection } from "next/server";
 import { describe, expect, it, vi } from "vitest";
 import quotes from "@/data/quotes.json";
 import { quotesFixture } from "@/fixtures/quotes.fixture";
-import { sample } from "@/lib/sample";
+import { shuffle } from "@/lib/array";
 import { DEFAULT_LABEL } from "./QuoteCarouselView";
 import { QuoteCarousel } from "./QuoteCarousel";
 
@@ -12,9 +12,9 @@ vi.mock("next/server", () => ({
 }));
 
 // Factories are hoisted above imports, so the fixture is loaded lazily.
-vi.mock("@/lib/sample", async () => {
+vi.mock("@/lib/array", async () => {
   const { quotesFixture } = await import("@/fixtures/quotes.fixture");
-  return { sample: vi.fn(() => [...quotesFixture]) };
+  return { shuffle: vi.fn(() => [...quotesFixture]) };
 });
 
 describe("QuoteCarousel", () => {
@@ -25,7 +25,7 @@ describe("QuoteCarousel", () => {
 
   it("samples three quotes from the full pool", async () => {
     render(await QuoteCarousel({ height: "70vh" }));
-    expect(sample).toHaveBeenCalledWith(quotes, 3);
+    expect(shuffle).toHaveBeenCalledWith(quotes, 3);
   });
 
   it("renders the sampled quotes in a carousel with the default label", async () => {
