@@ -17,7 +17,7 @@ const darkPalette = css`
   ${vars.color["surface-raised"]}: #20252c;
   ${vars.color.fg}: #eef1f5;
   ${vars.color["fg-muted"]}: #a3acba;
-  ${vars.color.border}: #2b313a;
+  ${vars.color.border}: #FFFEFA;
   ${vars.color.accent}: #6ea8fe;
   ${vars.color["accent-hover"]}: #93c0ff;
   ${vars.color["accent-fg"]}: #0b1220;

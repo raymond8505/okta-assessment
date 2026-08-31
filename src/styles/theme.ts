@@ -8,7 +8,7 @@ export const theme = createTheme(
       "surface-raised": "#ffffff",
       fg: "#16191d",
       "fg-muted": "#5c636e",
-      border: "#dfe3e8",
+      border: "#191919",
       accent: "#1662d4",
       "accent-hover": "#0f4ba8",
       "accent-fg": "#ffffff",

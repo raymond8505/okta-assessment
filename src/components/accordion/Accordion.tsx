@@ -3,6 +3,7 @@
 import { useId, useState } from "react";
 import {
   AccordionHeading,
+  AccordionItem,
   AccordionPanel,
   AccordionRoot,
   AccordionTrigger,
@@ -42,7 +43,7 @@ export function Accordion({
         const triggerId = `${itemId}-trigger`;
         const panelId = `${itemId}-panel`;
         return (
-          <div key={itemId}>
+          <AccordionItem key={itemId}>
             {/* The trigger must be the heading's only child, per the APG. */}
             <AccordionHeading as={`h${headingLevel}`}>
               <AccordionTrigger
@@ -66,7 +67,7 @@ export function Accordion({
             >
               {item.content}
             </AccordionPanel>
-          </div>
+          </AccordionItem>
         );
       })}
     </AccordionRoot>

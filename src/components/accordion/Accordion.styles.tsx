@@ -8,7 +8,8 @@ export const AccordionRoot = styled.div`
 
 export const AccordionHeading = styled.h3`
   margin: 0;
-  border-bottom: 1px solid ${theme.color.border};
+  font-weight: 500;
+  font-size: 20px;
 `;
 
 export const AccordionTrigger = styled(UnstyledButton)`
@@ -18,15 +19,10 @@ export const AccordionTrigger = styled(UnstyledButton)`
   align-items: center;
   justify-content: space-between;
   gap: ${theme.space[3]};
-  padding: ${theme.space[3]} ${theme.space[4]};
+  padding: 1em 0;
   font-weight: ${theme["font-weight"].medium};
   color: ${theme.color.fg};
   transition: background ${theme.transition.fast};
-
-  &:hover,
-  &[aria-expanded="true"] {
-    background: ${theme.color.surface};
-  }
 
   &:focus-visible {
     outline: 2px solid ${theme.color.focus};
@@ -48,11 +44,14 @@ export const AccordionPanel = styled.div`
   /* Fallback ceiling for browsers without calc-size(). */
   --accordion-panel-max-height: 50rem;
 
-  box-sizing: border-box;
+  line-height: 1.375em;
+  letter-spacing: 0.2px;
+
   overflow: hidden;
-  padding: ${theme.space[3]} ${theme.space[4]};
+  padding: ${theme.space[3]} 0;
   color: ${theme.color["fg-muted"]};
   max-height: var(--accordion-panel-max-height);
+
   transition:
     max-height ${theme.transition.medium},
     padding-block ${theme.transition.medium},
@@ -77,4 +76,8 @@ export const AccordionPanel = styled.div`
       height: 0;
     }
   }
+`;
+
+export const AccordionItem = styled.div`
+  border-bottom: 1px solid ${theme.color.border};
 `;
